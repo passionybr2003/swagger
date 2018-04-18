@@ -1,0 +1,5905 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "https://rest-stag.evergent.com/hooq",
+      "description": "The Staging API server",
+      "variables": {
+        "url": {
+          "default": "rest-stag.evergent.com",
+          "description": "this value is assigned by the service provider URL, in this example `***.evergent.com`"
+        },
+        "basePath": {
+          "default": "hooq"
+        }
+      }
+    },
+    {
+      "url": "https://rest-stag.evergent.com/ev",
+      "description": "The Staging API server",
+      "variables": {
+        "url": {
+          "default": "rest-stag.evergent.com",
+          "description": "this value is assigned by the service provider URL, in this example `***.evergent.com`"
+        },
+        "basePath": {
+          "default": "ev"
+        }
+      }
+    }
+  ],
+  "info": {
+    "description": "<b>Last Updated Date 2nd April 2018 </b> <br> <b> Revision History </b> <br> i) Updated sendOTP() and confirmOTP() APIs with new request parameter  channelPartnerID<br> ii) Updated getOAuthAccessTokenv2() request message with new deviceMessage<br>",
+    "version": "",
+    "title": "EV Generic API --V10.12",
+    "contact": {
+      "email": "anusha@evergent.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags": [
+    {
+      "name": "hooq",
+      "description": "Secured Admin-only calls"
+    },
+    {
+      "name": "ev",
+      "description": "Secured Admin-only calls"
+    }
+  ],
+  "paths": {
+    "/createUser": {
+      "post": {
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "CreateUserRequestMessage",
+        "description": "createUser() REST API is used to create an account in Evergent system.",
+        "responses": {
+          "20001": {
+            "description": "Generic Failure"
+          },
+          "20003": {
+            "description": "Missing Required Parameters"
+          },
+          "20224": {
+            "description": "Account with the given CustomerID already exists"
+          },
+          "20259": {
+            "description": "Password length should not exceed 100"
+          },
+          "20292": {
+            "description": "Account with the given Details already exists"
+          },
+          "20293": {
+            "description": "Offer is already active on your Number, valid till given Endate"
+          },
+          "20295": {
+            "description": "Invalid email"
+          },
+          "20297": {
+            "description": "User ID should not exceed 100 characters"
+          },
+          "20359": {
+            "description": "Password length should be minimum 4"
+          },
+          "20360": {
+            "description": "UserID length should be minimum 4"
+          },
+          "20361": {
+            "description": "Invalid Service Id"
+          },
+          "20371": {
+            "description": "Account already exists with"
+          },
+          "20383": {
+            "description": "User Name - Spaces are not allowed"
+          },
+          "20999": {
+            "description": "Request data malformed"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CreateUserRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/createUser"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAuthCode": {
+      "post": {
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetAuthCodeRequestMessage",
+        "description": "getAuthCode() REST API is used to authenticate the Customer along with concurrent session limit and No. of Allowed devices if details are provided.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2511": {
+            "description": "Missing Required Parameter(s)"
+          },
+          "eV2327": {
+            "description": "No Account Found with Given Details"
+          },
+          "eV2134": {
+            "description": "Wrong Username or Password"
+          },
+          "eV2190": {
+            "description": "Login limit reached"
+          },
+          "eV2436": {
+            "description": "Invalid Social Login Details"
+          },
+          "eV2193": {
+            "description": "Exceeded annual devices allowed to be registered"
+          },
+          "eV2143": {
+            "description": "Exceeded maximum device allowed to be registered"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetAuthCodeRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getAuthCode"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getOAuthAccessToken": {
+      "post": {
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetOAuthAccessTokenRequestMessage",
+        "description": "getOAuthAccessToken() REST API is used to SignIn the user with authCode (Combination of MobileNumber/Email and Device Details of the Customer).",
+        "responses": {
+          "20003": {
+            "description": "Missing Required Parameter"
+          },
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2766": {
+            "description": "Invalid AuthCode."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetOAuthAccessTokenRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getOAuthAccessToken"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getOAuthAccessTokenv2": {
+      "post": {
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetOAuthAccessTokenv2RequestMessage",
+        "description": "getOAuthAccessTokenv2() REST API is used to signIn (Email/PhoneNumber/CpID) the customer on his device registered.",
+        "responses": {
+          "20003": {
+            "description": "Missing Required Parameter"
+          },
+          "111111111": {
+            "description": "Authentication Failed/ Please enter serialNo"
+          },
+          "eV2190": {
+            "description": "Login limit reached"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2193": {
+            "description": "Exceeded annual devices allowed to be registered"
+          },
+          "eV2143": {
+            "description": "Exceeded maximum device allowed to be registered"
+          },
+          "eV2783": {
+            "description": "Invalid phoneNumber or email."
+          },
+          "eV2327": {
+            "description": "No account found with the given details"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetOAuthAccessTokenv2RequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getOAuthAccessTokenv2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/refreshToken": {
+      "post": {
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "RefreshTokenRequestMessage",
+        "description": "refreshToken() REST API is used to get the new accessToken of the customer when accessToken validity got expired.",
+        "responses": {
+          "20003": {
+            "description": "Missing Required Parameter"
+          },
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2767": {
+            "description": "Invalid RefreshToken."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RefreshTokenRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/refreshToken"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/isCustomerEligibleForFreeTrial": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "FreeTrialRequestMessage",
+        "description": "isCustomerEligibleForFreeTrial() REST API is verify whether the customer is eligible for free trial for the account or not.",
+        "responses": {
+          "111111111": {
+            "description": "Authorization failed"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and Customer ID XXXXXXX"
+          },
+          "eV2155": {
+            "description": "No free trial Available"
+          },
+          "eV2154": {
+            "description": "Free Trial Available"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "FreeTrialRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/isCustomerEligibleForFreeTrial"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addSubscriptions": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "AddSubscriptionsRequestMessage",
+        "description": "addSubscriptions() REST API places multiple subscription at once for the customer.",
+        "responses": {
+          "eV1744": {
+            "description": "Account does not exists with given details"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and Customer ID XXXXXXX"
+          },
+          "eV1377": {
+            "description": "Invalid amount"
+          },
+          "eV2365": {
+            "description": "The Receipt is already used by other customer"
+          },
+          "eV2378": {
+            "description": "The Receipt is already used"
+          },
+          "eV2402": {
+            "description": "Subscription is already expired with the given product id"
+          },
+          "eV2242": {
+            "description": "The App Store could not read the JSON object you provided"
+          },
+          "eV2243": {
+            "description": "The data in the receipt-data property was malformed or missing"
+          },
+          "eV2244": {
+            "description": "The receipt could not be authenticated"
+          },
+          "eV2245": {
+            "description": "The shared secret you provided does not match the shared secret on file for your account"
+          },
+          "eV2246": {
+            "description": "The receipt server is not currently available"
+          },
+          "eV2247": {
+            "description": "This receipt is valid but the subscription has expired. When this status code is returned to your server, the receipt data is also decoded and returned as part of the response"
+          },
+          "eV2248": {
+            "description": "This receipt is from the test environment, but it was sent to the production environment for verification. Send it to the test environment instead"
+          },
+          "eV2249": {
+            "description": "This receipt is from the production environment, but it was sent to the test environment for verification. Send it to the production environment instead"
+          },
+          "eV2293": {
+            "description": "Google wallet receipt validation failed"
+          },
+          "eV2591": {
+            "description": "The transaction represented by this Purchase Token is no longer valid"
+          },
+          "eV2592": {
+            "description": "Invalid sharedSecret"
+          },
+          "eV2593": {
+            "description": "Invalid User ID"
+          },
+          "eV2594": {
+            "description": "Invalid Purchase Token"
+          },
+          "eV2595": {
+            "description": "The Purchase Token was created with credentials that have expired.Use renew to generate a valid purchase token"
+          },
+          "eV2596": {
+            "description": "There was an Internal Server Error"
+          },
+          "eV2374": {
+            "description": "No Service exists with the given AppServiceID"
+          },
+          "eV1663": {
+            "description": "Either ServiceId or ServiceName is required"
+          },
+          "eV1135": {
+            "description": "Invalid Quantity, Quantity of the Service should be greater than or equal to one"
+          },
+          "eV1136": {
+            "description": "Invalid Quantity, should be in number"
+          },
+          "eV1668": {
+            "description": "Service Type should be PRODUCT/PACKAGE"
+          },
+          "eV1106": {
+            "description": "Insufficient parameters. Please provide Services Info"
+          },
+          "eV1107": {
+            "description": "Insufficient parameters. Please provide payment method Info"
+          },
+          "eV1108": {
+            "description": "Label cannot be empty in Payment Method Info"
+          },
+          "eV1110": {
+            "description": "Invalid Parameters in Payment Method Info"
+          },
+          "eV1680": {
+            "description": "Invalid State in CardBilling"
+          },
+          "eV1681": {
+            "description": "Invalid Country in CardBilling"
+          },
+          "eV1246": {
+            "description": "Invalid ZipCode"
+          },
+          "eV1682": {
+            "description": "Insufficient CardBilling Parameters"
+          },
+          "eV1854": {
+            "description": "Exception occured while inserting payment method"
+          },
+          "eV1684": {
+            "description": "Payment method is mandatory"
+          },
+          "eV2755": {
+            "description": "This coupon has already been expired"
+          },
+          "eV1861": {
+            "description": "This coupon has already been redeemed"
+          },
+          "eV1679": {
+            "description": "No Promotional Item exists with the given"
+          },
+          "eV1665": {
+            "description": "No Service found with the given Service Id XXXXXX  and Service name"
+          },
+          "eV1138": {
+            "description": "No Service exists with the given name  XXXXXXXXXX"
+          },
+          "eV1676": {
+            "description": "PromotionId  XXXXXXXX"
+          },
+          "eV1677": {
+            "description": "PromotionName  XXXXXXXX"
+          },
+          "eV1678": {
+            "description": "PromotionId/PromotionName    XXXXXXXXX/XXXXXXXXXX"
+          },
+          "eV1674": {
+            "description": "doesn't exist with the given ServiceId/ServiceName  XXXXXXX/XXXXXXXX"
+          },
+          "eV1143": {
+            "description": "You can not order Single subscription product multiple times"
+          },
+          "eV2491": {
+            "description": "Customer can have only one Basic Service Product at a time"
+          },
+          "eV1144": {
+            "description": "Customer has already subscribed to \\ XXXXXXXX \\. \" (X represents Promotion product name)"
+          },
+          "eV1147": {
+            "description": "No applicable rate for the current date with quantity 1 for the product  XXXXXXXXXX"
+          },
+          "eV1160": {
+            "description": "In order to order the product \\ first you should have to order its prerequisite product(s) / package(s) -----"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "AddSubscriptionsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/addSubscriptions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/removeSubscriptions": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "RemoveSubscriptionsRequestMessage",
+        "description": "removeSubscriptions() REST API removes multiple subscriptions at once from the customer Account.",
+        "responses": {
+          "20001": {
+            "description": "Generic Failure"
+          },
+          "20003": {
+            "description": "Missing Required Parameter"
+          },
+          "20005": {
+            "description": "Invalid session token"
+          },
+          "20237": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX"
+          },
+          "20268": {
+            "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
+          },
+          "20327": {
+            "description": "Invalid End Date"
+          },
+          "20329": {
+            "description": "CpCustomerID or spAccountID or sessionToken is required"
+          },
+          "20369": {
+            "description": "Can't Remove This Service Prior To Its BillStartDate"
+          },
+          "20372": {
+            "description": "end date should be greater than or equal to start date"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RemoveSubscriptionsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/removeSubscriptions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/authenticateCustomer": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "AuthenticateCustomerRequestMessage",
+        "description": "authenticateCustomer() REST API is used to authenticate the Customer  along with concurrent session limit and No. of Allowed devices if details are provided.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          },
+          "eV2226": {
+            "description": "Either Username and Password or SocialloginId and socialloginType or SocialloginToken and socialloginType is required"
+          },
+          "eV2288": {
+            "description": "User does not exist"
+          },
+          "eV2332": {
+            "description": "We have recently upgraded our system. Request you to register again if you are accessing outside India"
+          },
+          "eV2134": {
+            "description": "Wrong Username or Password"
+          },
+          "eV2408": {
+            "description": "Your login has blocked. Please try after XXXXX Minutes"
+          },
+          "eV2241": {
+            "description": "Invalid Social login id and its type"
+          },
+          "eV2360": {
+            "description": "Invalid Social Login Token"
+          },
+          "eV2363": {
+            "description": "Invalid Social login Token and its type"
+          },
+          "eV2327": {
+            "description": "No account found with the given details"
+          },
+          "eV2371": {
+            "description": "Please verify your account and login again"
+          },
+          "eV2434": {
+            "description": "Your Account is in Inactive state"
+          },
+          "eV2190": {
+            "description": "Login limit reached"
+          },
+          "eV2193": {
+            "description": "Exceeded annual devices allowed to be registered"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "AuthenticateCustomerRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/authenticateCustomer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addContact": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "AddContactRequestMessage",
+        "description": "addContact() REST API is used to add the contact of an account in  Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed/Invalid session token"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and  Customer ID XXXXXXX"
+          },
+          "eV1044": {
+            "description": "Invalid salutation"
+          },
+          "eV1047": {
+            "description": "First Name should not exceed 100 characters"
+          },
+          "eV1048": {
+            "description": "Last Name should not exceed 100 characters"
+          },
+          "eV1049": {
+            "description": "Middle Name length should not exceed 1"
+          },
+          "eV1050": {
+            "description": "Date Of Birth is in invalid format. Please enter in format"
+          },
+          "eV1833": {
+            "description": "Invalid date of birth"
+          },
+          "eV1051": {
+            "description": "Invalid gender"
+          },
+          "eV1052": {
+            "description": "The Work Phone Extension Number must be with Work Phone Number"
+          },
+          "eV1053": {
+            "description": "The Fax Extension Number must be with Fax Number"
+          },
+          "eV1054": {
+            "description": "The Home Phone Extension Number must be with Home Phone Number"
+          },
+          "eV1055": {
+            "description": "The Pager Extension Number must be with Pager Number"
+          },
+          "eV1056": {
+            "description": "The Cell Phone Extension Number must be with Cell Phone Number"
+          },
+          "eV1057": {
+            "description": "Email should not exceed 256 characters"
+          },
+          "eV1058": {
+            "description": "Please enter a valid email"
+          },
+          "eV1059": {
+            "description": "Title length should not exceed 45"
+          },
+          "eV1060": {
+            "description": "Department length should not exceed 30"
+          },
+          "eV1061": {
+            "description": "Invalid language"
+          },
+          "eV1064": {
+            "description": "User Name length should not exceed 256"
+          },
+          "eV1065": {
+            "description": "User Name length should be minimum 4"
+          },
+          "eV1062": {
+            "description": "User Name already exists"
+          },
+          "eV2020": {
+            "description": "SocialLoginId should not exceed more than 100 characters"
+          },
+          "eV1895": {
+            "description": "New Pin length between 4 and 7 digits"
+          },
+          "eV2018": {
+            "description": "Either SocialLoginType or Password should be mandatory"
+          },
+          "eV2019": {
+            "description": "SocialLoginType should not exceed more than 50 characters"
+          },
+          "eV1066": {
+            "description": "User Name - Spaces are not allowed"
+          },
+          "eV1068": {
+            "description": "Password length should not exceed 100"
+          },
+          "eV1069": {
+            "description": "Password length should be minimum 4"
+          },
+          "eV1070": {
+            "description": "Password - Spaces are not allowed"
+          },
+          "eV2034": {
+            "description": "UserName is mandatory"
+          },
+          "eV1071": {
+            "description": "Comments length should not exceed 256"
+          },
+          "eV1832": {
+            "description": "Invalid age"
+          },
+          "eV1602": {
+            "description": "Invalid Time Zone"
+          },
+          "eV2568": {
+            "description": "Invalid SpendLimit"
+          },
+          "eV1834": {
+            "description": "Account should having only one primary contact"
+          },
+          "eV1072": {
+            "description": "Invalid contact type"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "AddContactRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/addContact"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getContact": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetContactRequestMessage",
+        "description": "getContact() REST API is used to get the contact details of an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed/ Invalid session token"
+          },
+          "eV2493": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token or Contact ID is required"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXXXXXX  for YYYYYY Where X==SP Account ID and Y ==BU Name"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY Where X==customer ID  and  Y ==BU Name"
+          },
+          "eV2223": {
+            "description": "Invalid Contact ID XXXX  for YYYYY Where X==Contact ID  and Y ==BU Name"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given Contact ID XXXX  and  Customer ID Where X==SP Account ID"
+          },
+          "eV1907": {
+            "description": "Invalid ContactId"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetContactRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getContact"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateContact": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "UpdateContactRequestMessage",
+        "description": "updateContact() REST API is used to update the contact of an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed/ Invalid session token"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV1473": {
+            "description": "Contact ID should be Number"
+          },
+          "eV1474": {
+            "description": "Contact ID should be Positive and Non-Zero Value"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1044": {
+            "description": "Invalid salutation"
+          },
+          "eV1048": {
+            "description": "Last Name should not exceed 100 characters"
+          },
+          "eV1049": {
+            "description": "Middle Name length should not exceed 1"
+          },
+          "eV1051": {
+            "description": "Invalid gender"
+          },
+          "eV1052": {
+            "description": "The Work Phone Extension Number must be with Work Phone Number"
+          },
+          "eV1053": {
+            "description": "The Fax Extension Number must be with Fax Number"
+          },
+          "eV1054": {
+            "description": "The Home Phone Extension Number must be with Home Phone Number"
+          },
+          "eV1055": {
+            "description": "The Pager Extension Number must be with Pager Number"
+          },
+          "eV1056": {
+            "description": "The Cell Phone Extension Number must be with Cell Phone Number"
+          },
+          "eV2538": {
+            "description": "Mobile number length should not exceed 15"
+          },
+          "eV2537": {
+            "description": "Minimum length for mobile number should be 10"
+          },
+          "eV1057": {
+            "description": "Email should not exceed 256 characters"
+          },
+          "eV1058": {
+            "description": "Please enter a valid email"
+          },
+          "eV1059": {
+            "description": "Title length should not exceed 45"
+          },
+          "eV1060": {
+            "description": "Department length should not exceed 30"
+          },
+          "eV1061": {
+            "description": "Invalid language"
+          },
+          "eV1064": {
+            "description": "User Name length should not exceed 256"
+          },
+          "eV1065": {
+            "description": "User Name length should be minimum 4"
+          },
+          "eV1066": {
+            "description": "User Name - Spaces are not allowed"
+          },
+          "eV1067": {
+            "description": "User Name should be provided with Password"
+          },
+          "eV1068": {
+            "description": "Password length should not exceed 100"
+          },
+          "eV1069": {
+            "description": "Password length should be minimum 4"
+          },
+          "eV2020": {
+            "description": "SocialLoginId should not exceed more than 100 characters"
+          },
+          "eV1895": {
+            "description": "New Pin length between 4 and 7 digits"
+          },
+          "eV2019": {
+            "description": "SocialLoginType should not exceed more than 50 characters"
+          },
+          "eV1070": {
+            "description": "Password - Spaces are not allowed"
+          },
+          "eV1071": {
+            "description": "Comments length should not exceed 256"
+          },
+          "eV1832": {
+            "description": "Invalid age"
+          },
+          "eV1072": {
+            "description": "Invalid contact type"
+          },
+          "eV1602": {
+            "description": "Invalid Time Zone"
+          },
+          "eV2473": {
+            "description": "Parental Control PIN shouldn't exceeded 4 digits"
+          },
+          "eV2457": {
+            "description": "New parental control pin should be numeric"
+          },
+          "eV1073": {
+            "description": "length should be 10 digits"
+          },
+          "eV1075": {
+            "description": "Invalid  XXXX Where X == PhoneType"
+          },
+          "eV1076": {
+            "description": "Extension length should be less than 5 digits"
+          },
+          "eV1078": {
+            "description": "Communication failure occurred during acountChangeInformation API call"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXX for YYYYYY Where X==SP Account ID  and Y==BU Name"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX for YYYYYY Where X ==customer ID  and  Y ==BU Name"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and Customer ID YYYYYYYYY Where Y==customer ID  and X ==SP Account ID"
+          },
+          "eV1469": {
+            "description": "No contact found with Id XXXX   for the Account ID/CP Customer ID YYYY /ZZZZ Where X==Contact ID, Y ==Account ID and  Z = CP CustomerID"
+          },
+          "eV1062": {
+            "description": "User Name already exists"
+          },
+          "eV1724": {
+            "description": "Your Request has already been submitted"
+          },
+          "eV1023": {
+            "description": "Error While Processing the request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UpdateContactRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateContact"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/changePassword": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ChangePasswordRequestMessage",
+        "description": "changePassword() REST API is used to change the password of an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed/ Invalid session token"
+          },
+          "eV2230": {
+            "description": "Either ContactUserName or Email or Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV2233": {
+            "description": "Contact Password is required"
+          },
+          "eV1225": {
+            "description": "Invalid New Password"
+          },
+          "eV1226": {
+            "description": "Invalid Confirm Password"
+          },
+          "eV1227": {
+            "description": "New password and Confirm password should be the same"
+          },
+          "eV1229": {
+            "description": "Username and Password should not be same"
+          },
+          "eV2043": {
+            "description": "Not a Valid token"
+          },
+          "eV2562": {
+            "description": "Failed to update password in ER"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2480": {
+            "description": "UserToken given is not associated with the given account"
+          },
+          "eV2380": {
+            "description": "Invalid current password"
+          },
+          "eV2379": {
+            "description": "Password cannot be reset with existing password"
+          },
+          "eV1228": {
+            "description": "Password must be at least 4 characters"
+          },
+          "eV2161": {
+            "description": "Invalid Contact details"
+          },
+          "eV2162": {
+            "description": "Invalid ContactUserName / ContactPassword"
+          },
+          "eV2232": {
+            "description": "Invalid Email or CP Customer ID or Account ID or Contact Password or Session Token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ChangePasswordRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/changePassword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateAcctStatus": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "UpdateAcctStatusRequestMessage",
+        "description": "updateAcctStatus() REST API is used to update the status of an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1744": {
+            "description": "Account does not exists with given details"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXX  for  YYYYYY Where X==SP Account ID  and Y ==BU Name"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY Where X==customer ID  and  Y ==BU Name"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXXX  and Customer ID YYYY where Y==customer ID  and X ==SP Account ID"
+          },
+          "eV1005": {
+            "description": "Status should not be empty"
+          },
+          "eV1477": {
+            "description": "Invalid Reason Code(s)"
+          },
+          "eV1478": {
+            "description": "Invalid status"
+          },
+          "eV1479": {
+            "description": "Inorder to cancel an account first you have to define workflow of type \\\"CancelAccount\\\""
+          },
+          "eV1480": {
+            "description": "Service End Date is in invalid format. It should be in format"
+          },
+          "eV1481": {
+            "description": "Service End Date should not be lesser than current date"
+          },
+          "eV1482": {
+            "description": "Reactivation Date is in invalid format. It should be in format"
+          },
+          "eV1483": {
+            "description": "Reactivation Date should not be lesser than current date"
+          },
+          "eV1484": {
+            "description": "Inorder to suspend an account first you have to define workflow of type \\\"Suspend Account\\"
+          },
+          "eV1485": {
+            "description": "Suspend Start Date is in invalid format. It should be in format"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UpdateAcctStatusRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateAcctStatus"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/removeService": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "RemoveServiceRequestMessage",
+        "description": "removeService() REST API removes a subscription to the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed/ Servicetype  is mandatory"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1744": {
+            "description": "Account does not exists with given details"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXX for  YYYYYY \" Where X==SP Account ID  and  Y ==BU Name"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY\" Where X==customer ID  and Y ==BU Name"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXXX and Customer ID YYYY \"Where Y==customer ID  and X ==SP Account ID"
+          },
+          "eV1106": {
+            "description": "Insufficient parameters. Please provide Services Info"
+          },
+          "eV1445": {
+            "description": "Quantity should be greater than zero."
+          },
+          "eV2661": {
+            "description": "No active subscription with the given details"
+          },
+          "eV1419": {
+            "description": "end date should be greater than or equal to start date"
+          },
+          "eV1437": {
+            "description": "Given product should contain serial numbers."
+          },
+          "eV1438": {
+            "description": "Can't Remove This Service Prior To Its BillStartDate."
+          },
+          "eV1439": {
+            "description": "Quantity should be less than product quantity"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RemoveServiceRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/removeService"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addTVODOrder": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "AddTVODOrderRequestMessage",
+        "description": "addTVODOrder() REST API places the TVOD order to the customer.",
+        "responses": {
+          "20001": {
+            "description": "Generic Failure"
+          },
+          "20003": {
+            "description": "Missing Required Parameter"
+          },
+          "20005": {
+            "description": "Invalid Session Token"
+          },
+          "20237": {
+            "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY\" Where X==customer ID  and Y ==BU Name"
+          },
+          "20245": {
+            "description": "Account is already in inactive state"
+          },
+          "20257": {
+            "description": "Email already exists"
+          },
+          "20268": {
+            "description": "Invalid SP Account ID XXXX for YYYY  Where X==SP Account ID  and Y ==BU Name"
+          },
+          "20273": {
+            "description": "This coupon has already been redeemed"
+          },
+          "20274": {
+            "description": "The Receipt is already used by other customer"
+          },
+          "20275": {
+            "description": "The Receipt is already used"
+          },
+          "20276": {
+            "description": "The App Store could not read the JSON object you provided"
+          },
+          "20277": {
+            "description": "The data in the receipt-data property was malformed or missing"
+          },
+          "20278": {
+            "description": "The receipt could not be authenticated"
+          },
+          "20279": {
+            "description": "The shared secret you provided does not match the shared secret on  file for your account"
+          },
+          "20280": {
+            "description": "The receipt server is not currently available"
+          },
+          "20281": {
+            "description": "This receipt is valid but the subscription has expired. When this status code is returned to your server, the receipt data is also decoded and returned as part of the response"
+          },
+          "20282": {
+            "description": "This receipt is from the test environment, but it was sent to the production environment for verification. Send it to the test  environment instead"
+          },
+          "20283": {
+            "description": "This receipt is from the production environment, but it was sent to the test environment for verification. Send it to the production environment instead"
+          },
+          "20286": {
+            "description": "Subscription is already expired with the given product id"
+          },
+          "20287": {
+            "description": "Invalid amount"
+          },
+          "20331": {
+            "description": "No VOD Product exists for the given DMA"
+          },
+          "20335": {
+            "description": "Invalid rental period"
+          },
+          "20336": {
+            "description": "Coupon code is required"
+          },
+          "20338": {
+            "description": "Invalid coupon"
+          },
+          "20348": {
+            "description": "Invalid viewing period"
+          },
+          "20357": {
+            "description": "Your order is in progress. Please try again later"
+          },
+          "20362": {
+            "description": "You can avail this coupon from"
+          },
+          "20363": {
+            "description": "Coupon code expired"
+          },
+          "20377": {
+            "description": "This coupon has already been redeemed"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "AddTVODOrderRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/addTVODOrder"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateAccountStatus": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "UpdateAccountStatusRequestMessage",
+        "description": "updateAccountStatus() REST API is used to update the status of an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed/ Invalid Session Token"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1744": {
+            "description": "Account does not exists with given details"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX for XXXXXX [where YYY =  customer ID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customer ID]"
+          },
+          "eV1005": {
+            "description": "Status should not be empty"
+          },
+          "eV1477": {
+            "description": "Invalid Reason Code(s)"
+          },
+          "eV1478": {
+            "description": "Invalid status"
+          },
+          "eV1479": {
+            "description": "Inorder to cancel an account first you have to define workflow of type \\\"CancelAccount\\"
+          },
+          "eV1480": {
+            "description": "Service End Date is in invalid format. It should be in format"
+          },
+          "eV1481": {
+            "description": "Service End Date should not be lesser than current date"
+          },
+          "eV1482": {
+            "description": "Reactivation Date is in invalid format. It should be in format"
+          },
+          "eV1483": {
+            "description": "Reactivation Date should not be lesser than current date"
+          },
+          "eV1484": {
+            "description": "Inorder to suspend an account first you have to define workflow of type \\\"Suspend Account\\"
+          },
+          "eV1485": {
+            "description": "Suspend Start Date is in invalid format. It should be in format"
+          },
+          "eV1486": {
+            "description": "Suspend Start Date should not be lesser than current date"
+          },
+          "eV1487": {
+            "description": "Suspend End Date is in invalid format. It should be in format"
+          },
+          "eV1488": {
+            "description": "Suspend End Date should not be lesser than suspend start date"
+          },
+          "eV1489": {
+            "description": "Suspend End Date should not be lesser than current date"
+          },
+          "eV1490": {
+            "description": "You can't reactivate the account.Cancel to reactivation period expired"
+          },
+          "eV1491": {
+            "description": "Inorder to reactivate an account first you have to define workflow of type \\\"Reactivate Account\\\""
+          },
+          "eV1492": {
+            "description": "You do not have permission to cancel/Suspend the account with  outstanding balance"
+          },
+          "eV1187": {
+            "description": "No Credit Card Payment Gateway defined for this business unit"
+          },
+          "eV1494": {
+            "description": "Payment Declined by Payment Gateway due to following reason"
+          },
+          "eV1189": {
+            "description": "No Response from Payment Gateway."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UpdateAccountStatusRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateAccountStatus"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getActiveSubscriptions": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetActiveSubscriptionsRequestMessage",
+        "description": "getActiveSubscriptions() REST API is used to get the active  subscriptions of an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed/ Invalid Session Token"
+          },
+          "eV2235": {
+            "description": "Either SP Account ID or CP Customer ID or Contact ID or Session Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXX   for  BU"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID YYYY for  BU"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given  SP Account ID  XXXX  and Customer ID    YYYYY  and\"  Email AAA"
+          },
+          "eV2223": {
+            "description": "Invalid Email. AAA for Bu"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetActiveSubscriptionsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getActiveSubscriptions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validateSessionToken": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ValidateSessionTokenRequestMessage",
+        "description": "validateSessionToken() REST API is used to validate the session token in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed/ Invalid session token"
+          },
+          "eV2139": {
+            "description": "Missing Session Token"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ValidateSessionTokenRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/validateSessionToken"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getSubscriptionHistory": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetSubscriptionHistoryRequestMessage",
+        "description": "getSubscriptionHistory() REST API is used to get the history of the subscriptions which are ended Evergent system.",
+        "responses": {
+          "20001": {
+            "description": "Generic Failure"
+          },
+          "20003": {
+            "description": "Missing Required Parameter"
+          },
+          "20005": {
+            "description": "Invalid Session Token"
+          },
+          "20237": {
+            "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY\" Where X==customer ID and Y ==BU Name"
+          },
+          "20238": {
+            "description": "Customer doesn't have any expired subscriptions"
+          },
+          "20268": {
+            "description": "Invalid SP Account ID XXXXXXXX  for  YYYYYY\" Where X==SP Account ID and Y ==BU Name"
+          },
+          "20329": {
+            "description": "CpCustomerID or spAccountID or sessionToken is required"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetSubscriptionHistoryRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getSubscriptionHistory"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logOutUser": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "LogOutUserRequestMessage",
+        "description": "logOutUser() REST API is used to update the status of an account in Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication failed"
+          },
+          "eV2139": {
+            "description": "Missing Session Token"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "LogOutUserRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/logOutUser"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/forgotContactPassword": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ForgotContactPasswordRequestMessage",
+        "description": "forgotContactPassword() REST API is reset the contact password of the customer.",
+        "responses": {
+          "eV2145": {
+            "description": "Missing Parameter(s)"
+          },
+          "eV1744": {
+            "description": "Account does not exists with given details"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ForgotContactPasswordRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/forgotContactPassword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/setString": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "SetStringRequestMessage",
+        "description": "setString() REST API is used to set attribute to the account.",
+        "responses": {
+          "eV1351": {
+            "description": "Object Id or Session Token or CP Customer ID can not be null"
+          },
+          "eV1457": {
+            "description": "Value can not be null"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1744": {
+            "description": "Account does not exists with given details XXXXXXX"
+          },
+          "eV1458": {
+            "description": "Attribute Type with XXXXXXXXX and YYYYYYYYY is not found. Where X==Attribute Name and Y ==ObjectTypeName"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SetStringRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/setString"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getString": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetStringRequestMessage",
+        "description": "getString() REST API is used to get the string attribute related to the account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid session token"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2394": {
+            "description": "Object Id or Session Token can not be null"
+          },
+          "eV2350": {
+            "description": "No attributes found with that given information"
+          },
+          "eV2352": {
+            "description": "ObjectTypeName cannot be null"
+          },
+          "eV1349": {
+            "description": "Attribute name can not be null"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetStringRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getString"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getProducts": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetProductsRequestMessage",
+        "description": "getProducts() REST API is used to get the products list available to that DMA.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV1267": {
+            "description": "DmaId is mandatory"
+          },
+          "eV1397": {
+            "description": "No products defined for the given DMA:XXXX | YYYY  for   ZZZZZZ Where X==DMAID ,Y= DMA Name  and   Z ==BU Name No products defined for the given DMA:XXXX  for   YYYYY Where X==DMAID ,Y= BU Name No products defined for the given DMA:XXXX   for   YYYYY\" Where X==DMA Name and Y= BU Name"
+          },
+          "eV1391": {
+            "description": "Invalid pricing date"
+          },
+          "eV2086": {
+            "description": "Invalid returnPromotions"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetProductsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getProducts"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/searchAccount": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "SearchAccountRequestMessage",
+        "description": "searchAccount() REST API is used to set attribute to the account.",
+        "responses": {
+          "20003": {
+            "description": "Missing Required Parameter"
+          },
+          "20312": {
+            "description": "No Accounts Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SearchAccountRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/searchAccount"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sendEmail": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "SendEmailRequestMessage",
+        "description": "sendEmail() REST API is used send email to customers registered email, with email & user token as parameters.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV1637": {
+            "description": "Either SP Account ID or CP Customer ID/customer ID is required"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXXXXXX  for  YYYYYY Where X==SP Account ID and Y ==BU Name"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY Where X==customer ID  and  Y ==BU Name"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and Customer ID YYYYYYYYY Where Y==customer ID  and X ==SP Account ID"
+          },
+          "eV1453": {
+            "description": "Message of type Adhoc is not defined"
+          },
+          "eV1454": {
+            "description": "Email template can not be null"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SendEmailRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/sendEmail"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resetPassword": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ResetPasswordRequestMessage",
+        "description": "resetPassword() REST API is used to update the contact password of the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2234": {
+            "description": "Invalid Email or Session Token or User Token or Password"
+          },
+          "eV1228": {
+            "description": "Password must be at least 4 characters"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1058": {
+            "description": "Please enter a valid email"
+          },
+          "eV1070": {
+            "description": "Password cannot be reset with existing password"
+          },
+          "eV2379": {
+            "description": "Password cannot be reset with existing password"
+          },
+          "eV2043": {
+            "description": "Not a Valid token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ResetPasswordRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/resetPassword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/verifyAccount": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "VerifyAccountRequestMessage",
+        "description": "verifyAccount() REST API is used to verify the account of the customer by passing the user token as parameter.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2298": {
+            "description": "SP Account ID or CP Customer ID or Email can not be null"
+          },
+          "eV1313": {
+            "description": "Email Id can not be null"
+          },
+          "eV1058": {
+            "description": "Please enter a valid email"
+          },
+          "eV2043": {
+            "description": "Not a Valid token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX  for BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX [where YYY =  customerID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
+          },
+          "eV1169": {
+            "description": "Invalid Parameter(s)"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "VerifyAccountRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/verifyAccount"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validateToken": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ValidateTokenRequestMessage",
+        "description": "validateToken() REST API is used to validate the token of the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV1859": {
+            "description": "Either Account ID or CP Customer ID or email is required"
+          },
+          "eV1829": {
+            "description": "Token can not be null"
+          },
+          "eV2043": {
+            "description": "Not a Valid token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ValidateTokenRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/validateToken"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getPaymentMethods": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetPaymentMethodsRequestMessage",
+        "description": "getPaymentMethods() REST API is used to fetch all the existing payment methods to the customer.",
+        "responses": {
+          "11111111": {
+            "description": "Authentication Failed/ Invalid session token"
+          },
+          "eV1637": {
+            "description": "Either SP Account ID or CP Customer ID is required"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetPaymentMethodsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getPaymentMethods"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getPackages": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetPackagesRequestMessage",
+        "description": "getPackages() REST API is used to get the packages list available to that DMA.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid session token"
+          },
+          "eV1267": {
+            "description": "DmaId is mandatory"
+          },
+          "eV2086": {
+            "description": "Invalid returnPromotions"
+          },
+          "eV1391": {
+            "description": "Invalid pricing date/ No promotions defined for the given DMA XXX(X represents dmaID) | YYY(Y represents dmaName ) for ZZZ(Z represents  BU name)"
+          },
+          "eV1390": {
+            "description": "No packages defined for the given DMA"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetPackagesRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getPackages"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAccountDevices": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetAccountDevicesRequestMessage",
+        "description": "getAccountDevices() REST API is used to get the devices register to the particular account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXX for XXX"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID  XXXX for  XXX"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and  Customer ID XXX"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetAccountDevicesRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getAccountDevices"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getPayments": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetPaymentsRequestMessage",
+        "description": "getPayments() REST API is used to get all the successful and declined payments to the particular account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetPaymentsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getPayments"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAdjustments": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetAdjustmentsRequestMessage",
+        "description": "getAdjustments() REST API is used to get the adjustments provided to the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV1637": {
+            "description": "Either SP Account ID or CP Customer ID is required"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\"    [where YYY = customer ID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetAdjustmentsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getAdjustments"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAccountHistory": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetAccountHistoryRequestMessage",
+        "description": "getAccountHistory() REST API is used to get the events of the accounts.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV1637": {
+            "description": "Either SP Account ID or CP Customer ID is required"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\" [where YYY = customer ID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetAccountHistoryRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getAccountHistory"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateAccountHistory": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "UpdateAccountHistoryRequestMessage",
+        "description": "updateAccountHistory() REST API is used to add the events or activities to the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV2393": {
+            "description": "Either SP Account ID or CP Customer ID or email or Session Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\"    [where YYY =customer ID]"
+          },
+          "eV2223": {
+            "description": "Invalid Email. AAA for  ZZZ (where AAA represents EMAIL, ZZZ=  BU)"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
+          },
+          "eV1575": {
+            "description": "Title is Empty"
+          },
+          "eV1693": {
+            "description": "Type is Empty"
+          },
+          "eV1576": {
+            "description": "Invalid type"
+          },
+          "eV1577": {
+            "description": "Category is Empty"
+          },
+          "eV1578": {
+            "description": "Invalid category"
+          },
+          "eV1579": {
+            "description": "Invalid problem code"
+          },
+          "eV1026": {
+            "description": "Invalid Reason Code"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UpdateAccountHistoryRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateAccountHistory"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/changeService": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ChangeServiceRequestMessage",
+        "description": "changeService() REST API is used to upgrade or downgrade the existing service of the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV2235": {
+            "description": "Either SP Account ID or CP Customer ID or Contact ID or Sessionn Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\"    [where YYY = customer ID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
+          },
+          "eV1214": {
+            "description": "Account is already Inactive.Basic Service can't be changed"
+          },
+          "eV2252": {
+            "description": "Invalid Service Names or ID''s , Names or ID''s cannot be empty"
+          },
+          "eV2253": {
+            "description": "There is no subscription product or package with the given name in  the product area"
+          },
+          "eV2255": {
+            "description": "The account already has the service"
+          },
+          "eV2254": {
+            "description": "Given service name or ID is not attached to this account"
+          },
+          "eV1219": {
+            "description": "Pricing not defined for the product\\ XXXXXXX(XXXX represents product display name) \\  with quantity 1 as on  XXXX(XXXXX  represents  effectivestartdate)"
+          },
+          "eV1221": {
+            "description": "Pricing not defined for the package \\ XXXXXXX(XXXX represents product display name) \\  with quantity 1 as on  XXXX(XXXXX represents effectivestartdate)"
+          },
+          "eV1223": {
+            "description": "Invalid date format"
+          },
+          "eV1224": {
+            "description": "should be greater than or equal to Current Date"
+          },
+          "eV1684": {
+            "description": "Payment method is mandatory"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ChangeServiceRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/changeService"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reactivateService": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ReactivateServiceRequestMessage",
+        "description": "reactivateService() REST API is used to reactivate the cancelled service of the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\"    [where YYY = customer ID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
+          },
+          "eV2266": {
+            "description": "No Service found with the given Service Id Or Service Name"
+          },
+          "eV1663": {
+            "description": "Either ServiceId or ServiceName is required"
+          },
+          "eV2196": {
+            "description": "SKU is mandatory"
+          },
+          "eV1665": {
+            "description": "No Service found with the given Service Id"
+          },
+          "eV2375": {
+            "description": "Services not yet available"
+          },
+          "eV2463": {
+            "description": "ServiceID is mandatory"
+          },
+          "eV1218": {
+            "description": "The account already has the basic service"
+          },
+          "eV1217": {
+            "description": "Please activate the basic service product\\\\package attached to the account"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ReactivateServiceRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/reactivateService"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getPromotions": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetPromotionsRequestMessage",
+        "description": "getPromotions() REST API is used to return the available promotions to the products and packages to that DMA.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV1267": {
+            "description": "DmaId is mandatory"
+          },
+          "eV1416": {
+            "description": "No promotions defined for the given DMA XXX(X represents dmaID) | YYY(Y represents dmaName ) for ZZZ(Z represents BU name)"
+          },
+          "eV2468": {
+            "description": "Invalid AgentId"
+          },
+          "eV1300": {
+            "description": "Invalid start date"
+          },
+          "eV1301": {
+            "description": "Invalid end date"
+          },
+          "eV1302": {
+            "description": "End date should not be less than start date"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetPromotionsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getPromotions"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/redeemCoupon": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "RedeemCouponRequestMessage",
+        "description": "redeemCoupon() REST API is used to redeem the coupon on the package/product to the account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/Invalid Session Token"
+          },
+          "eV2376": {
+            "description": "Either Email or Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV1106": {
+            "description": "Insufficient parameters. Please provide Services Info"
+          },
+          "eV1135": {
+            "description": "Invalid Quantity, Quantity of the Service should be greater than or equal to one"
+          },
+          "eV1136": {
+            "description": "Invalid Quantity, should be in numbers"
+          },
+          "eV1668": {
+            "description": "Service Type should be PRODUCT/PACKAGE"
+          },
+          "eV1667": {
+            "description": "Invalid start date"
+          },
+          "eV1301": {
+            "description": "Invalid end date"
+          },
+          "eV1481": {
+            "description": "Service End Date should not be lesser than current date"
+          },
+          "eV1703": {
+            "description": "Account is already in inactive state"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1042": {
+            "description": "Invalid account ID"
+          },
+          "eV1842": {
+            "description": "Please enter a valid coupon code"
+          },
+          "eV1863": {
+            "description": "This coupon has been disabled"
+          },
+          "eV1862": {
+            "description": "This coupon has expired"
+          },
+          "eV1861": {
+            "description": "This coupon has already been redeemed"
+          },
+          "eV1882": {
+            "description": "Maximum redemptions reached"
+          },
+          "eV1845": {
+            "description": "No Packages/Products associated with the given coupon code"
+          },
+          "eV1665": {
+            "description": "No Service found with the given Service IdIThis coupon has expired"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RedeemCouponRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/redeemCoupon"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/isValidCoupon": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ValidCouponRequestMessage",
+        "description": "isvalidCoupon() REST API is used to verify whether the coupon is valid or not.",
+        "responses": {
+          "20001": {
+            "description": "Generic Failure"
+          },
+          "20357": {
+            "description": "Your order is in progress. Please try again later"
+          },
+          "20373": {
+            "description": "Please enter a valid coupon code"
+          },
+          "20374": {
+            "description": "This coupon has been disabled"
+          },
+          "20375": {
+            "description": "This coupon has expired"
+          },
+          "20376": {
+            "description": "Maximum redemptions reached"
+          },
+          "20378": {
+            "description": "No Packages/Products associated with the given coupon code"
+          },
+          "20379": {
+            "description": "Coupon Code should not be empty"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ValidCouponRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/isValidCoupon"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/applyCoupon": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ApplyCouponRequestMessage",
+        "description": "applyCoupon() REST API is used to apply the coupon on the package/product to which it is applied.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV1703": {
+            "description": "Account is already in inactive state"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX    [where YYY =  customerID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
+          },
+          "eV1842": {
+            "description": "Please enter a valid coupon code"
+          },
+          "eV1863": {
+            "description": "This coupon has been disabled"
+          },
+          "eV1862": {
+            "description": "This coupon has expired"
+          },
+          "eV1882": {
+            "description": "Maximum redemptions reached"
+          },
+          "eV1861": {
+            "description": "This coupon has already been redeemed"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ApplyCouponRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/applyCoupon"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateAddress": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "UpdateAddressRequestMessage",
+        "description": "updateAddress() REST API is used to update service address, billing address and shipping address to the customer account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV1637": {
+            "description": "Either SP Account ID or CP Customer ID is required"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID  XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX [where YYY =  customerID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [where XXX = SP Account ID]  [where YYY =  customerID]"
+          },
+          "eV1510": {
+            "description": "Address or Geocode should be provided"
+          },
+          "eV1511": {
+            "description": "Geocode should not be provided with shipping/billing address"
+          },
+          "eV1512": {
+            "description": "DMA Id should not be provided with shipping/billing address"
+          },
+          "eV1241": {
+            "description": "City Name length should not exceed 100"
+          },
+          "eV1634": {
+            "description": "Invalid Country"
+          },
+          "eV1244": {
+            "description": "Invalid State"
+          },
+          "eV1247": {
+            "description": "Invalid Building Type"
+          },
+          "eV1248": {
+            "description": "Invalid Floor. Please enter the values between 1 to 200"
+          },
+          "eV1513": {
+            "description": "Invalid label"
+          },
+          "eV1515": {
+            "description": "Location is not found for the given Address"
+          },
+          "eV1249": {
+            "description": "Invalid PCode. PCode should be in digits"
+          },
+          "eV1261": {
+            "description": "Invalid Geocode"
+          },
+          "eV1262": {
+            "description": "Invalid Latitude in Geocode"
+          },
+          "eV1263": {
+            "description": "Invalid Longitude  in Geocode"
+          },
+          "eV1246": {
+            "description": "Invalid ZipCode"
+          },
+          "eV1078": {
+            "description": "Communication failure occurred during accountChangeInformation API call."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UpdateAddressRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateAddress"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAddresses": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetAddressesRequestMessage",
+        "description": "getAddresses() REST API is used to get the address defined to the customer account in the Evergent system.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV1637": {
+            "description": "Either SP Account ID or CP Customer ID is required"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID  XXX  for  BU [ where XXX = SP Account ID]"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX [where YYY =  customerID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [where XXX = SP Account ID]  [where YYY =  customerID]"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetAddressesRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getAddresses"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateParentalControlDetails": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "UpdateParentalControlDetailsRequestMessage",
+        "description": "updateParentalControl() REST API is used to  create and update the parental control details available to the customers account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          },
+          "eV2456": {
+            "description": "Old parental control pin is mandatory"
+          },
+          "eV2616": {
+            "description": "Parental Control PIN must match the regular expression"
+          },
+          "eV2449": {
+            "description": "Invalid old parental control pin"
+          },
+          "eV2451": {
+            "description": "New parental control pin is mandatory"
+          },
+          "eV2454": {
+            "description": "Parental controls already inactive"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UpdateParentalControlDetailsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateParentalControlDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validateParentalControlPIN": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ValidateParentalControlPINRequestMessage",
+        "description": "validateParentalControlPIN() REST API is used to validate the parental control PIN of the Customer Account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2617": {
+            "description": "Parental Control PIN is mandatory"
+          },
+          "eV2616": {
+            "description": "Parental Control PIN must match the regular expression"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2469": {
+            "description": "Invalid Parental Control PIN"
+          },
+          "eV2454": {
+            "description": "Parental controls already inactive"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ValidateParentalControlPINRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/validateParentalControlPIN"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getParentalControlDetails": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetParentalControlDetailsRequestMessage",
+        "description": "getParentalControlDetails() REST API is used to fetch the parental control details available to the customers account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetParentalControlDetailsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getParentalControlDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getOrderDetails": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetOrderDetailsRequestMessage",
+        "description": "getOrderDetails() REST API is used to get the information about an account and its service validity.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV2511": {
+            "description": "Missing Required Parameters"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXX for BU [where XXX = SPAccount ID]'"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\" [where YYY =customer ID]"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
+          },
+          "eV1387": {
+            "description": "No Orders for the account"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetOrderDetailsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getOrderDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAccountDetails": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetAccountDetailsRequestMessage",
+        "description": "getAccountDetails() REST API is used to get the information about an account and its service validity.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV2376": {
+            "description": "Either Email or Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID"
+          },
+          "eV2555": {
+            "description": "Account doesn't exists with the given details"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetAccountDetailsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getAccountDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/canShowConsent": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "CanShowConsentRequestMessage",
+        "description": "canShowConsent() REST API is used to allow the customer to show the consent or not.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV1665": {
+            "description": "No Service found with the given Service Id"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2355": {
+            "description": "Invalid sku"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CanShowConsentRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/canShowConsent"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/setRenewalConsent": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "SetRenewalConsentRequestMessage",
+        "description": "setRenewalConsent() REST API is used to store the subscription renewal confirmation of the customer.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV1665": {
+            "description": "No Service found with the given Service Id"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2355": {
+            "description": "Invalid sku"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SetRenewalConsentRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/setRenewalConsent"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getPaymentsV2": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetPaymentsV2RequestMessage",
+        "description": "getPaymentsV2() REST API is used to get all the successful and declined payments to the particular account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Invalid Session Token"
+          },
+          "eV1637": {
+            "description": "Either SP Account ID or CP Customer ID is required"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2124": {
+            "description": "Invalid session token"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetPaymentsV2RequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getPaymentsV2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/removeDeviceForAccount": {
+      "post": {
+        "tags": [
+          "ev"
+        ],
+        "operationId": "RemoveDeviceReqMessage",
+        "description": "removeDeviceForAccount() REST API is used to remove the registered device of particular account.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV1342": {
+            "description": "Invalid customer ID XXX for XXX"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID XXXX for  XXX"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID XXX"
+          },
+          "eV1733": {
+            "description": "Device does not exist."
+          },
+          "eV2219": {
+            "description": "Please enter either deviceId or serial number"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RemoveDeviceReqMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/removeDeviceForAccount"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateProductDetails": {
+      "post": {
+        "tags": [
+          "ev"
+        ],
+        "operationId": "UpdateProductDetailsRequestMessage",
+        "description": "updateProductDetails() REST API is used to update the comments on a particular SKU and stores that under payload/meta of SKU.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed/ Please enter serialNo"
+          },
+          "eV1770": {
+            "description": "Product Name can not be null"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV1771": {
+            "description": "Top level DMA does not exist"
+          },
+          "eV1788": {
+            "description": "Invalid Product Category Or Asset Category"
+          },
+          "eV1773": {
+            "description": "SKU can not be null"
+          },
+          "eV1904": {
+            "description": "Invalid Service Type."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UpdateProductDetailsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateProductDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/activateCustomerV4": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ActivateCustomerV4RequestMessage",
+        "description": "activateCustomerV4() REST API is used to create pre provisioned accounts, activates subscription for existing accounts, deactivates the subscription. This API also holds the eligibility rules mechanism.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2335": {
+            "description": "Invalid method"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2334": {
+            "description": "Method is required"
+          },
+          "eV2338": {
+            "description": "Invalid effectiveDate"
+          },
+          "eV2364": {
+            "description": "Sku is required"
+          },
+          "eV2355": {
+            "description": "Invalid sku."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ActivateCustomerV4RequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/activateCustomerV4"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sendOTP": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "SendOTPRequestMessage",
+        "description": "sendOTP() REST API is used to send OTP to the customer mobile number.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2145": {
+            "description": "Missing Parameter(s)"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2478": {
+            "description": "We are not able to send OTP to this number. Please retry with another number."
+          },
+          "eV2314": {
+            "description": "Invalid phone number"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SendOTPRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/sendOTP"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/confirmOTP": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "ConfirmOTPRequestMessage",
+        "description": "confirmOTP() REST API checks whether customer entered OTP valid or not.",
+        "responses": {
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2317": {
+            "description": "Phone number is mandatory"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV2373": {
+            "description": "OTP cannot be empty."
+          },
+          "eV2329": {
+            "description": "Invalid/Expired OTP"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ConfirmOTPRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/confirmOTP"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "createUser": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "customerUsername",
+          "customerPassword",
+          "email",
+          "firstName",
+          "lastName"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "customerUsername": {
+            "type": "string",
+            "description": "Customer username"
+          },
+          "customerPassword": {
+            "type": "string",
+            "description": "Customer password"
+          },
+          "email": {
+            "type": "string",
+            "description": "User Email"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User First Name"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User Last Name"
+          }
+        }
+      },
+      "isCustomerEligibleForFreeTrial": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner."
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique identifier of the account."
+          }
+        }
+      },
+      "addSubscriptions": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "services",
+          "paymentmethodInfo",
+          "sessionToken",
+          "isSkipDefaultPromo"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique identifier of the account."
+          },
+          "isSkipDefaultPromo": {
+            "type": "boolean",
+            "description": "DefaultPromo is been Skipped"
+          },
+          "paymentmethodInfo": {
+            "type": "object",
+            "$ref": "#/components/schemas/paymentmethodInfo"
+          },
+          "services": {
+            "type": "object",
+            "$ref": "#/components/schemas/services"
+          }
+        }
+      },
+      "paymentmethodInfo": {
+        "type": "object",
+        "required": [
+          "label",
+          "cardInfoMsg",
+          "transactionReferenceMsg"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Label of the payment method."
+          },
+          "transactionReferenceMsg": {
+            "type": "object",
+            "$ref": "#/components/schemas/transactionReferenceMsg"
+          }
+        }
+      },
+      "transactionReferenceMsg": {
+        "type": "object",
+        "required": [
+          "amount",
+          "txID",
+          "txMsg"
+        ],
+        "properties": {
+          "amount": {
+            "type": "string",
+            "description": "amount ."
+          },
+          "txID": {
+            "type": "string",
+            "description": "transaction ID."
+          },
+          "txMsg": {
+            "type": "string",
+            "description": "transaction Message."
+          },
+          "cardInfoMsg": {
+            "type": "object",
+            "$ref": "#/components/schemas/cardInfoMsg"
+          }
+        }
+      },
+      "cardInfoMsg": {
+        "type": "object",
+        "required": [
+          "cardNumber",
+          "expiryDate",
+          "nameOnCard",
+          "securityCode",
+          "cardType"
+        ],
+        "properties": {
+          "cardNumber": {
+            "type": "string",
+            "description": "Credit Card Number."
+          },
+          "expiryDate": {
+            "type": "string",
+            "description": "Expiry Date of Credit Card."
+          },
+          "nameOnCard": {
+            "type": "string",
+            "description": "Name on the Credit Card."
+          },
+          "securityCode": {
+            "type": "string",
+            "description": "CVV/ Security code of the card."
+          },
+          "cardType": {
+            "type": "string",
+            "description": "Type mentioned or sanctioned on the card."
+          }
+        }
+      },
+      "services": {
+        "type": "object",
+        "required": [
+          "service"
+        ],
+        "properties": {
+          "service": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/service"
+            }
+          }
+        }
+      },
+      "service": {
+        "type": "object",
+        "required": [
+          "serviceName",
+          "serviceId",
+          "serviceType",
+          "quantity"
+        ],
+        "properties": {
+          "serviceName": {
+            "type": "string",
+            "description": "Service Name of the Service"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "serviceId of the Service"
+          },
+          "serviceType": {
+            "type": "string",
+            "description": "serviceType of the Service"
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Quantity of the Service"
+          }
+        }
+      },
+      "removeSubscriptions": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "services"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique identifier of the account."
+          },
+          "services": {
+            "type": "object",
+            "$ref": "#/components/schemas/servicess"
+          }
+        }
+      },
+      "servicess": {
+        "type": "object",
+        "required": [
+          "service"
+        ],
+        "properties": {
+          "service": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/servicee"
+            }
+          }
+        }
+      },
+      "servicee": {
+        "type": "object",
+        "required": [
+          "serviceId",
+          "quantity"
+        ],
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "SKU/Quick Code of the Product"
+          },
+          "quantity": {
+            "type": "string",
+            "description": "Quantity of the service"
+          }
+        }
+      },
+      "authenticateCustomer": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "contactUserName",
+          "customerPassword"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username"
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "contactUserName": {
+            "type": "string",
+            "description": "Customer username."
+          },
+          "contactPassword": {
+            "type": "string",
+            "description": "Customer password."
+          }
+        }
+      },
+      "addContact": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "customerUsername",
+          "customerPassword",
+          "email",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "customerUsername": {
+            "type": "string",
+            "description": "Customer username."
+          },
+          "customerPassword": {
+            "type": "string",
+            "description": "Customer password."
+          },
+          "email": {
+            "type": "string",
+            "description": "User Email."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique identifier of the account."
+          }
+        }
+      },
+      "getContact": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique identifier of the account."
+          }
+        }
+      },
+      "updateContact": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "contactUserName",
+          "contactPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "contactUserName": {
+            "type": "string",
+            "description": "Customer username."
+          },
+          "contactPassword": {
+            "type": "string",
+            "description": "Customer password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique identifier of the account."
+          }
+        }
+      },
+      "changePassword": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "oldPassword",
+          "newPassword",
+          "confirmNewpassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "oldPassword": {
+            "type": "string",
+            "description": "old password."
+          },
+          "newPassword": {
+            "type": "string",
+            "description": "new Customer password."
+          },
+          "confirmNewpassword": {
+            "type": "string",
+            "description": "new Customer password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique identifier of the account."
+          }
+        }
+      },
+      "updateAcctStatus": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "cpCustomerID",
+          "status"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "cpCustomerID": {
+            "type": "string",
+            "description": "A unique identifier of the account in Ev system."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the account."
+          }
+        }
+      },
+      "removeService": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "cpCustomerID",
+          "serviceID",
+          "serviceType",
+          "endDate"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "cpCustomerID": {
+            "type": "string",
+            "description": "A unique identifier of the account in Ev system."
+          },
+          "serviceID": {
+            "type": "string",
+            "description": "SKU/ Quick code of the product in Evergent System."
+          },
+          "serviceType": {
+            "type": "string",
+            "description": "Product/ Package."
+          },
+          "endDate": {
+            "type": "string",
+            "description": "End date of the subscription (In Milliseconds)."
+          }
+        }
+      },
+      "addTVODOrder": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "assetID",
+          "price",
+          "title",
+          "rentalPeriod",
+          "assetType",
+          "paymentmethodInfo"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          },
+          "assetID": {
+            "type": "string",
+            "description": "Price of the VOD product."
+          },
+          "rentalPeriod": {
+            "type": "string",
+            "description": "Price of the VOD product."
+          },
+          "assetType": {
+            "type": "string",
+            "description": "Price of the VOD product."
+          },
+          "price": {
+            "type": "string",
+            "description": "Price of the VOD product."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the VOD."
+          },
+          "paymentmethodInfo": {
+            "type": "object",
+            "$ref": "#/components/schemas/paymentmethodInfoo"
+          }
+        }
+      },
+      "paymentmethodInfoo": {
+        "type": "object",
+        "required": [
+          "label",
+          "cardInfoMsg"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Label of the payment method."
+          },
+          "cardInfoMsg": {
+            "type": "object",
+            "$ref": "#/components/schemas/cardInfoMsgs"
+          }
+        }
+      },
+      "cardInfoMsgs": {
+        "type": "object",
+        "required": [
+          "cardNumber",
+          "expiryDate",
+          "nameOnCard",
+          "securityCode"
+        ],
+        "properties": {
+          "cardNumber": {
+            "type": "string",
+            "description": "Credit Card Number."
+          },
+          "expiryDate": {
+            "type": "string",
+            "description": "Expiry Date of Credit Card."
+          },
+          "nameOnCard": {
+            "type": "string",
+            "description": "Name on the Credit Card."
+          },
+          "securityCode": {
+            "type": "string",
+            "description": "CVV/ Security code of the card."
+          }
+        }
+      },
+      "updateAccountStatus": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "status"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique identifier of the account."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the account."
+          }
+        }
+      },
+      "getActiveSubscriptions": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          }
+        }
+      },
+      "validateSessionToken": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "getSubscriptionHistory": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "logOutUser": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "forgotContactPassword": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "email"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "email": {
+            "type": "string",
+            "description": "User Email."
+          }
+        }
+      },
+      "setString": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "attributeName",
+          "attributeValue"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          },
+          "attributeName": {
+            "type": "string",
+            "description": "Unique name of the attribute."
+          },
+          "attributeValue": {
+            "type": "string",
+            "description": "Attribute Value."
+          }
+        }
+      },
+      "getString": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "attributeName"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          },
+          "attributeName": {
+            "type": "string",
+            "description": "Unique name of the attribute."
+          }
+        }
+      },
+      "getProducts": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "dmaID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "dmaID": {
+            "type": "string",
+            "description": "Unique ID of the channel partner."
+          }
+        }
+      },
+      "searchAccount": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "email",
+          "userName"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "email": {
+            "type": "string",
+            "description": "Unique email of the account."
+          },
+          "userName": {
+            "type": "string",
+            "description": "Unique username of the account."
+          }
+        }
+      },
+      "sendEmail": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "email",
+          "emailTemplate"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "email": {
+            "type": "string",
+            "description": "Unique email of the account."
+          },
+          "emailTemplate": {
+            "type": "string",
+            "description": "Description of the template."
+          }
+        }
+      },
+      "resetPassword": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "email",
+          "contactPassword",
+          "invalidateOldSession",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "email": {
+            "type": "string",
+            "description": "Unique email of the account."
+          },
+          "contactPassword": {
+            "type": "string",
+            "description": "Updated password of the customer."
+          },
+          "invalidateOldSession": {
+            "type": "boolean",
+            "description": "Invalidates all the actives session tokens"
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "verifyAccount": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "email",
+          "userToken",
+          "verificationParam"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "email": {
+            "type": "string",
+            "description": "Unique email of the account."
+          },
+          "userToken": {
+            "type": "string",
+            "description": "Unique token which is valid only once."
+          },
+          "verificationParam": {
+            "type": "object",
+            "$ref": "#/components/schemas/verificationParam"
+          }
+        }
+      },
+      "verificationParam": {
+        "type": "object",
+        "properties": {
+          "paramName": {
+            "type": "string",
+            "description": "Account verification parameter."
+          },
+          "paramValue": {
+            "type": "string",
+            "description": "Value of the account verification parameter."
+          }
+        }
+      },
+      "validateToken": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "email",
+          "token"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "email": {
+            "type": "string",
+            "description": "Unique email of the account."
+          },
+          "token": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "getPaymentMethods": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "email"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "email": {
+            "type": "string",
+            "description": "Unique email of the account."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication"
+          }
+        }
+      },
+      "getPackages": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "dmaID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "dmaID": {
+            "type": "string",
+            "description": "Unique DMA ID of the channel partner."
+          }
+        }
+      },
+      "getAccountDevices": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "getPayments": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "getAdjustments": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "getAccountHistory": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "updateAccountHistory": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "title",
+          "type",
+          "category"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the activity."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the activity."
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of the activity."
+          }
+        }
+      },
+      "changeService": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "oldServiceID",
+          "newServiceID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          },
+          "oldServiceID": {
+            "type": "string",
+            "description": "ID of the existing service."
+          },
+          "newServiceID": {
+            "type": "string",
+            "description": "ID of the service which is going to add."
+          }
+        }
+      },
+      "reactivateService": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "serviceID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          },
+          "serviceID": {
+            "type": "string",
+            "description": "SKU/ Quick code of the service."
+          }
+        }
+      },
+      "getPromotions": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "dmaID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "dmaID": {
+            "type": "string",
+            "description": "Unique DMA Identification of the channel partner."
+          }
+        }
+      },
+      "redeemCoupon": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "couponCode",
+          "sessionToken",
+          "serviceID",
+          "serviceType",
+          "quantity"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "couponCode": {
+            "type": "string",
+            "description": "Coupon code which is to be redeemed on the product."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          },
+          "serviceID": {
+            "type": "string",
+            "description": "SKU/ Quick code of the product in Evergent System."
+          },
+          "serviceType": {
+            "type": "string",
+            "description": "Product/Package."
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "On how many products the coupon should be redeemed."
+          }
+        }
+      },
+      "isValidCoupon": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "couponCode"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "couponCode": {
+            "type": "string",
+            "description": "Coupon code which is to be redeemed on the product."
+          }
+        }
+      },
+      "applyCoupon": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "couponCode",
+          "productID",
+          "price"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "couponCode": {
+            "type": "string",
+            "description": "Coupon code which is to be redeemed on the product."
+          },
+          "productID": {
+            "type": "string",
+            "description": "Unique Id/SKU of the product."
+          },
+          "price": {
+            "type": "integer",
+            "description": "Price of the product/ package."
+          }
+        }
+      },
+      "updateAddress": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "label",
+          "sessionToken",
+          "address"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "label": {
+            "type": "string",
+            "description": "Type of the address to be updated."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          },
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/address"
+            }
+          }
+        }
+      },
+      "address": {
+        "type": "object",
+        "required": [
+          "address1"
+        ],
+        "properties": {
+          "address1": {
+            "type": "string",
+            "description": "Address1 of the account."
+          },
+          "address2": {
+            "type": "string",
+            "description": "Address2 of the account."
+          },
+          "country": {
+            "type": "string",
+            "description": "Country of the customer"
+          },
+          "zipCode": {
+            "type": "string",
+            "description": "zipCode of the customer"
+          }
+        }
+      },
+      "getAddresses": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "updateParentalControlDetails": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "newParentalControlPin",
+          "parentalControl",
+          "parentalControlLevel",
+          "oldParentalControlPin",
+          "isSkipEmailVerify"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          },
+          "parentalControl": {
+            "type": "boolean",
+            "description": "To set parental control."
+          },
+          "parentalControlLevel": {
+            "type": "string",
+            "description": "Parental level for the account."
+          },
+          "newParentalControlPin": {
+            "type": "string",
+            "description": "Secure pin of parental control."
+          },
+          "oldParentalControlPin": {
+            "type": "string",
+            "description": "Old parental PIN for the account. To be provided for the account whose parental controls are already active."
+          },
+          "isSkipEmailVerify": {
+            "type": "boolean",
+            "description": "Indicates whether to send and email or not."
+          }
+        }
+      },
+      "validateParentalControlPIN": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "parentalControlPin"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          },
+          "parentalControlPin": {
+            "type": "string",
+            "description": "Secure pin of parental control."
+          }
+        }
+      },
+      "getParentalControlDetails": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "getOrderDetails": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "orderID",
+          "paymentProfileID",
+          "referenceNumber"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "orderID": {
+            "type": "string",
+            "description": "Unique ID of Order in EV system"
+          },
+          "paymentProfileID": {
+            "type": "string",
+            "description": "Unique ID of Order generated at Partner system."
+          },
+          "referenceNumber": {
+            "type": "string",
+            "description": "Common identifier between both the systems."
+          }
+        }
+      },
+      "getAccountDetails": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          }
+        }
+      },
+      "canShowConsent": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "sku"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          },
+          "sku": {
+            "type": "string",
+            "description": "Quick code of the product."
+          }
+        }
+      },
+      "setRenewalConsent": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "sku"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication."
+          },
+          "sku": {
+            "type": "string",
+            "description": "Quick code of the product."
+          }
+        }
+      },
+      "getAuthCode": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "contactUserName",
+          "contactPassword",
+          "invalidateOldestSession",
+          "deviceMessage"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "contactUserName": {
+            "type": "string",
+            "description": "Unique userName of the contact."
+          },
+          "contactPassword": {
+            "type": "string",
+            "description": "Unique userName of the contact."
+          },
+          "invalidateOldestSession": {
+            "type": "boolean",
+            "description": "True, if user has used the device for the first time"
+          },
+          "deviceMessage": {
+            "type": "object",
+            "$ref": "#/components/schemas/deviceMessage"
+          }
+        }
+      },
+      "deviceMessage": {
+        "type": "object",
+        "required": [
+          "deviceType",
+          "deviceName",
+          "modelNo",
+          "serialNo"
+        ],
+        "properties": {
+          "deviceType": {
+            "type": "string",
+            "description": "Type of the device."
+          },
+          "deviceName": {
+            "type": "string",
+            "description": "Name of the device."
+          },
+          "modelNo": {
+            "type": "string",
+            "description": "Model No of the Device."
+          },
+          "serialNo": {
+            "type": "string",
+            "description": "Serial Number of the Device."
+          }
+        }
+      },
+      "getPaymentsV2": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the customer on successful authentication."
+          }
+        }
+      },
+      "getOAuthAccessTokenv2": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "cpCustomerID",
+          "email",
+          "phoneNumber",
+          "deviceMessage"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "cpCustomerID": {
+            "type": "string",
+            "description": "A unique identifier of the account in EV systems."
+          },
+          "email": {
+            "type": "string",
+            "description": "Email of the account."
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "Phone Number of the account."
+          },
+          "deviceMessage": {
+            "type": "object",
+            "$ref": "#/components/schemas/deviceMessages"
+          }
+        }
+      },
+      "deviceMessages": {
+        "type": "object",
+        "required": [
+          "serialNo"
+        ],
+        "properties": {
+          "deviceType": {
+            "type": "string",
+            "description": "Type of the device."
+          },
+          "deviceName": {
+            "type": "string",
+            "description": "Name of the device."
+          },
+          "modelNo": {
+            "type": "string",
+            "description": "Model No of the Device."
+          },
+          "serialNo": {
+            "type": "string",
+            "description": "Serial Number of the Device."
+          }
+        }
+      },
+      "removeDeviceForAccount": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "sessionToken",
+          "cpCustomerID",
+          "accountID",
+          "serialNo"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          },
+          "cpCustomerID": {
+            "type": "string",
+            "description": "A unique identifier of the account in EV systems."
+          },
+          "accountID": {
+            "type": "string",
+            "description": "A unique id of the account."
+          },
+          "serialNo": {
+            "type": "string",
+            "description": "Unique id of the customer device serial number."
+          }
+        }
+      },
+      "updateProductDetails": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "productName",
+          "prodAreaCode",
+          "servicetype",
+          "prodCategory",
+          "spDescription"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "productName": {
+            "type": "string",
+            "description": "Name of the Product (SKU)."
+          },
+          "prodAreaCode": {
+            "type": "string",
+            "description": "Market Area Code of the Product."
+          },
+          "servicetype": {
+            "type": "string",
+            "description": "Type of the Product."
+          },
+          "prodCategory": {
+            "type": "string",
+            "description": "Category of the Product."
+          },
+          "spDescription": {
+            "type": "string",
+            "description": "Description which needs to be updated."
+          }
+        }
+      },
+      "activateCustomerV4": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "apiPassword",
+          "sku",
+          "method",
+          "spAccountID"
+        ],
+        "properties": {
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "sku": {
+            "type": "string",
+            "description": "Quick code of the subscription."
+          },
+          "method": {
+            "type": "string",
+            "description": "Method of action."
+          },
+          "spAccountID": {
+            "type": "string",
+            "description": "Unique accountId in The provisioning system."
+          }
+        }
+      },
+      "sendOTP": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "apiPassword",
+          "phoneNumber",
+          "country"
+        ],
+        "properties": {
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "Mobile Number of the Customer."
+          },
+          "country": {
+            "type": "string",
+            "description": "Country Code of the Customer."
+          }
+        }
+      },
+      "confirmOTP": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "apiPassword",
+          "mobileNumber",
+          "otp"
+        ],
+        "properties": {
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "Mobile Number of the Customer."
+          },
+          "otp": {
+            "type": "string",
+            "description": "OTP sent to customer mobile number."
+          }
+        }
+      },
+      "getOAuthAccessToken": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "authCode"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner."
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "authCode": {
+            "type": "string",
+            "description": "AuthorizationCode."
+          }
+        }
+      },
+      "refreshToken": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "refreshToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner."
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "refreshToken": {
+            "type": "string",
+            "description": "A unique identifier of the account."
+          }
+        }
+      }
+    }
+  }
+}
