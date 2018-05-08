@@ -16,9 +16,9 @@
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 2nd April 2018 </b> <br> <b> Revision History </b> <br> i) Updated sendOTP() and confirmOTP() APIs with new request parameter  channelPartnerID<br> ii) Updated getOAuthAccessTokenv2() request message with new deviceMessage<br>",
+    "description": "<b>Last Updated Date 1st May 2018 </b> <br> <b> Revision History </b> <br> (i) Added new parameter transactionId in all API Request and Response Messages.",
     "version": "",
-    "title": "EV Generic API --V10.12",
+    "title": "EV Generic API --V10.13",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -154,6 +154,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "status": {
@@ -304,6 +307,9 @@
                       "type": "object",
                       "properties": {
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "accessToken": {
@@ -466,6 +472,9 @@
                         },
                         "status": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -545,6 +554,9 @@
                           "type": "string"
                         },
                         "orderID": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -862,6 +874,9 @@
                         },
                         "firstName": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -959,6 +974,9 @@
                           "type": "string"
                         },
                         "status": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -1209,6 +1227,9 @@
                         },
                         "status": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -1406,6 +1427,9 @@
                         },
                         "responseCode": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -1509,6 +1533,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -1614,6 +1641,9 @@
                         },
                         "responseCode": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -1718,6 +1748,9 @@
                           "type": "string"
                         },
                         "orderID": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -1859,6 +1892,9 @@
                         },
                         "responseCode": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -1994,6 +2030,9 @@
                         "responseCode": {
                           "type": "string"
                         },
+                        "transactionId": {
+                          "type": "string"
+                        },
                         "AccountServiceMessage": {
                           "type": "array",
                           "items": {
@@ -2076,6 +2115,9 @@
                         },
                         "responseCode": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -2140,6 +2182,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "AccountServiceMessage": {
@@ -2221,6 +2266,9 @@
                         },
                         "responseCode": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -2289,6 +2337,9 @@
                         },
                         "status": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -2347,6 +2398,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -2421,6 +2475,9 @@
                           "type": "string"
                         },
                         "value": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "attributeType": {
@@ -2509,6 +2566,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "productsResponseMessage": {
@@ -2661,6 +2721,9 @@
                         },
                         "status": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -2738,6 +2801,9 @@
                         },
                         "status": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -2814,6 +2880,9 @@
                           "type": "string"
                         },
                         "status": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -2895,6 +2964,9 @@
                         },
                         "status": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -2959,6 +3031,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "PaymentMethods": {
@@ -3037,6 +3112,9 @@
                         },
                         "responseCode": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -3104,6 +3182,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "AccountDeviceDetails": {
@@ -3188,6 +3269,9 @@
                         },
                         "responseCode": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -3249,6 +3333,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "AccountAdjustmentsMessage": {
@@ -3326,6 +3413,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "AccountHistoryDetails": {
@@ -3406,6 +3496,9 @@
                           "type": "string"
                         },
                         "status": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -3504,6 +3597,9 @@
                           "type": "string"
                         },
                         "status": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -3609,6 +3705,9 @@
                         },
                         "status": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -3705,6 +3804,9 @@
                         "responseCode": {
                           "type": "string"
                         },
+                        "transactionId": {
+                          "type": "string"
+                        },
                         "promotionsResponseMessage": {
                           "type": "array",
                           "items": {
@@ -3786,6 +3888,9 @@
                           "type": "string"
                         },
                         "status": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -3893,6 +3998,9 @@
                       "type": "object",
                       "properties": {
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "couponDescription": {
@@ -4010,6 +4118,9 @@
                         },
                         "couponValue": {
                           "type": "integer"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -4098,6 +4209,9 @@
                           "type": "string"
                         },
                         "status": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -4217,6 +4331,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "billingAddress": {
@@ -4406,6 +4523,9 @@
                         },
                         "responseCode": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -4482,6 +4602,9 @@
                           "type": "string"
                         },
                         "status": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -4563,6 +4686,9 @@
                         },
                         "parentalControlPIN": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -4621,6 +4747,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "orderDetails": {
@@ -4704,6 +4833,9 @@
                       "type": "object",
                       "properties": {
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "salesMethod": {
@@ -4830,6 +4962,9 @@
                         },
                         "hasConsent": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -4895,6 +5030,9 @@
                         },
                         "responseCode": {
                           "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
                         }
                       }
                     }
@@ -4959,6 +5097,9 @@
                           "type": "string"
                         },
                         "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         },
                         "order": {
@@ -5115,6 +5256,9 @@
                         "responseCode": {
                           "type": "string"
                         },
+                        "transactionId": {
+                          "type": "string"
+                        },
                         "status": {
                           "type": "string"
                         }
@@ -5184,6 +5328,9 @@
                           "type": "string"
                         },
                         "status": {
+                          "type": "string"
+                        },
+                        "transactionId": {
                           "type": "string"
                         }
                       }
@@ -5280,6 +5427,10 @@
           "lastName": {
             "type": "string",
             "description": "User Last Name"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5307,6 +5458,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique identifier of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5339,6 +5494,10 @@
           "isSkipDefaultPromo": {
             "type": "boolean",
             "description": "DefaultPromo is been Skipped"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           },
           "paymentmethodInfo": {
             "type": "object",
@@ -5493,6 +5652,10 @@
             "type": "string",
             "description": "A unique identifier of the account."
           },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
+          },
           "services": {
             "type": "object",
             "$ref": "#/components/schemas/servicess"
@@ -5567,6 +5730,10 @@
           "socialLoginID": {
             "type": "string",
             "description": "Unique Social networking login ID"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5609,6 +5776,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique identifier of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5636,6 +5807,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique identifier of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5673,6 +5848,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique identifier of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5715,6 +5894,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique identifier of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5747,6 +5930,10 @@
           "status": {
             "type": "string",
             "description": "Status of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5790,6 +5977,10 @@
             "type": "integer",
             "format": "int64",
             "description": "End date of the subscription (In Milliseconds)."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5836,6 +6027,10 @@
           "title": {
             "type": "string",
             "description": "Title of the VOD."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           },
           "paymentmethodInfo": {
             "type": "object",
@@ -5916,6 +6111,10 @@
           "status": {
             "type": "string",
             "description": "Status of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5943,6 +6142,10 @@
           "apiPassword": {
             "type": "string",
             "description": "Partner authentication password."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5970,6 +6173,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -5997,6 +6204,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6024,6 +6235,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6051,6 +6266,10 @@
           "email": {
             "type": "string",
             "description": "User Email."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6088,6 +6307,10 @@
           "attributeValue": {
             "type": "string",
             "description": "Attribute Value."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6120,6 +6343,10 @@
           "attributeName": {
             "type": "string",
             "description": "Unique name of the attribute."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6147,6 +6374,10 @@
           "dmaID": {
             "type": "string",
             "description": "Unique ID of the channel partner."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6178,6 +6409,10 @@
           "userName": {
             "type": "string",
             "description": "Unique username of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6210,6 +6445,10 @@
           "emailTemplate": {
             "type": "string",
             "description": "Description of the template."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6252,6 +6491,10 @@
           "sessionToken": {
             "type": "string",
             "description": "Unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6285,6 +6528,10 @@
           "userToken": {
             "type": "string",
             "description": "Unique token which is valid only once."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           },
           "verificationParam": {
             "type": "object",
@@ -6338,6 +6585,10 @@
           "token": {
             "type": "string",
             "description": "A unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6369,6 +6620,10 @@
           "sessionToken": {
             "type": "string",
             "description": "Unique token generated for the account on successful authentication"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6396,6 +6651,10 @@
           "dmaID": {
             "type": "string",
             "description": "Unique DMA ID of the channel partner."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6423,6 +6682,10 @@
           "sessionToken": {
             "type": "string",
             "description": "Unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6450,6 +6713,10 @@
           "sessionToken": {
             "type": "string",
             "description": "Unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6477,6 +6744,10 @@
           "sessionToken": {
             "type": "string",
             "description": "Unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6504,6 +6775,10 @@
           "sessionToken": {
             "type": "string",
             "description": "Unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6546,6 +6821,10 @@
           "category": {
             "type": "string",
             "description": "Category of the activity."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6591,6 +6870,10 @@
           "newServiceName": {
             "type": "string",
             "description": "Name of the service which is going to add."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6627,6 +6910,10 @@
           "serviceName": {
             "type": "string",
             "description": "Name of the service."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6654,6 +6941,10 @@
           "dmaID": {
             "type": "string",
             "description": "Unique DMA Identification of the channel partner."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6705,6 +6996,10 @@
           "quantity": {
             "type": "integer",
             "description": "On how many products the coupon should be redeemed."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6732,6 +7027,10 @@
           "couponCode": {
             "type": "string",
             "description": "Coupon code which is to be redeemed on the product."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6770,6 +7069,10 @@
             "type": "integer",
             "format": "int64",
             "description": "Price of the product/ package."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6803,6 +7106,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           },
           "address": {
             "type": "array",
@@ -6857,6 +7164,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6908,6 +7219,10 @@
           "isSkipEmailVerify": {
             "type": "boolean",
             "description": "Indicates whether to send and email or not."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6940,6 +7255,10 @@
           "parentalControlPin": {
             "type": "string",
             "description": "Secure pin of parental control."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -6967,6 +7286,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique token generated for the account on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7002,6 +7325,10 @@
           "referenceNumber": {
             "type": "string",
             "description": "Common identifier between both the systems."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7033,6 +7360,10 @@
           "cpCustomerID": {
             "type": "string",
             "description": "Unique ID of customer account in Ev system."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7064,6 +7395,10 @@
           "sku": {
             "type": "string",
             "description": "Quick code of the product."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7096,6 +7431,10 @@
           "sku": {
             "type": "string",
             "description": "Quick code of the product."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7141,6 +7480,10 @@
           "socialLoginType": {
             "type": "string",
             "description": "Social Login Access Token of the customer"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           },
           "deviceMessage": {
             "type": "object",
@@ -7199,6 +7542,10 @@
           "sessionToken": {
             "type": "string",
             "description": "A unique token generated for the customer on successful authentication."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7235,6 +7582,10 @@
           "phoneNumber": {
             "type": "string",
             "description": "Phone Number of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           },
           "deviceMessage": {
             "type": "object",
@@ -7297,6 +7648,10 @@
           "spAccountID": {
             "type": "string",
             "description": "Unique accountId in The provisioning system."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7329,6 +7684,10 @@
           "country": {
             "type": "string",
             "description": "Country Code of the Customer."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7361,6 +7720,10 @@
           "otp": {
             "type": "string",
             "description": "OTP sent to customer mobile number."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7388,6 +7751,10 @@
           "authCode": {
             "type": "string",
             "description": "AuthorizationCode."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7415,6 +7782,10 @@
           "refreshToken": {
             "type": "string",
             "description": "A unique identifier of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
           }
         }
       },
@@ -7428,6 +7799,9 @@
             }
           },
           "responseCode": {
+            "type": "string"
+          },
+          "transactionId": {
             "type": "string"
           }
         }
@@ -7491,6 +7865,9 @@
             "type": "boolean"
           },
           "country": {
+            "type": "string"
+          },
+          "transactionId": {
             "type": "string"
           }
         }
@@ -7727,6 +8104,12 @@
           "dmaName": {
             "type": "string"
           },
+          "scOfferTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scOfferTypes"
+            }
+          },
           "retailPrice": {
             "type": "integer"
           },
@@ -7782,6 +8165,17 @@
             "format": "int64"
           },
           "promotionPeriod": {
+            "type": "string"
+          }
+        }
+      },
+      "scOfferTypes": {
+        "type": "object",
+        "properties": {
+          "offerType": {
+            "type": "string"
+          },
+          "salesChannel": {
             "type": "string"
           }
         }
