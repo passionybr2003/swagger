@@ -16,9 +16,9 @@
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 1st May 2018 </b> <br> <b> Revision History </b> <br> (i) Added new parameter transactionId in all API Request and Response Messages.",
+    "description": "<b>Last Updated Date 11th July 2018 </b> <br> <b> Revision History </b> <br> (i) Added new API's getAccountOrders() and updateProductDetails().",
     "version": "",
-    "title": "EV Generic API --V10.13",
+    "title": "EV Generic API --V10.14",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -5154,6 +5154,86 @@
         }
       }
     },
+    "/updateProductDetails": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "UpdateProductDetailsRequestMessage",
+        "description": "updateProductDetails() REST API is used to update the comments on a particular SKU and stores that under payload/meta of SKU.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "UpdateProductDetailsResponseMessage": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV1770": {
+            "description": "Product Name can not be null"
+          },
+          "eV2138": {
+            "description": "Generic Failure"
+          },
+          "eV1771": {
+            "description": "Top level DMA does not exist"
+          },
+          "eV1788": {
+            "description": "Invalid Product Category Or Asset Category"
+          },
+          "eV1773": {
+            "description": "SKU can not be null"
+          },
+          "eV1904": {
+            "description": "Invalid Service Type"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UpdateProductDetailsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/updateProductDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/activateCustomerV4": {
       "post": {
         "security": [
@@ -5365,6 +5445,101 @@
                   "ConfirmOTPRequestMessage": {
                     "type": "Object",
                     "$ref": "#/components/schemas/confirmOTP"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAccountOrders": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetAccountOrdersRequestMessage",
+        "description": "getAccountOrders() REST API is used to get the complete orders information for the given account details.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "GetAccountOrdersResponseMessage": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
+                        },
+                        "AccountOrdersMessage": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/AccountOrdersMessage"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "111111111": {
+            "description": "Authentication Failed"
+          },
+          "eV2511": {
+            "description": "Missing Required Parameters"
+          },
+          "eV1003": {
+            "description": "Invalid SP Account ID xxxx for yyy;(where x= spAccountID, y= bu)"
+          },
+          "eV1342": {
+            "description": "Invalid CP Customer ID xxxx for yyy;(where x= cpCustomerID, y= bu)"
+          },
+          "eV1638": {
+            "description": "Account doesn't exists with the given xxxx and AAA (where A =cpCustomerID, X = spAccountID)"
+          },
+          "eV1387": {
+            "description": "No orders for the account"
+          },
+          "eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "eV1007": {
+            "description": "Order StartDate is invalid date format"
+          },
+          "eV1008": {
+            "description": "Order EndDate is invalid date format"
+          },
+          "eV1009": {
+            "description": "OrderEndDate should be greater than or equal to OrderStartDate"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetAccountOrdersRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/getAccountOrders"
                   }
                 }
               }
@@ -7549,6 +7724,56 @@
           }
         }
       },
+      "updateProductDetails": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "productName",
+          "prodAreaCode",
+          "servicetype",
+          "prodCategory"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "productName": {
+            "type": "string",
+            "description": "Name of the Product (SKU)"
+          },
+          "prodAreaCode": {
+            "type": "string",
+            "description": "Market Area Code of the Product"
+          },
+          "servicetype": {
+            "type": "string",
+            "description": "Type of the Product"
+          },
+          "prodCategory": {
+            "type": "string",
+            "description": "Category of the Product."
+          },
+          "spDescription": {
+            "type": "string",
+            "description": "Description which needs to be updated"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system"
+          }
+        }
+      },
       "getOAuthAccessTokenv2": {
         "type": "object",
         "required": [
@@ -7782,6 +8007,47 @@
           "refreshToken": {
             "type": "string",
             "description": "A unique identifier of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
+          }
+        }
+      },
+      "getAccountOrders": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "apiPassword",
+          "channelPartnerID",
+          "cpCustomerID",
+          "accountId",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner."
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "cpCustomerID": {
+            "type": "string",
+            "description": "Unique id of the customer in EV system"
+          },
+          "accountId": {
+            "type": "string",
+            "description": "A unique id of the account"
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication"
           },
           "transactionId": {
             "type": "string",
@@ -8639,6 +8905,34 @@
           },
           "originalPrice": {
             "type": "integer"
+          }
+        }
+      },
+      "AccountOrdersMessage": {
+        "type": "object",
+        "properties": {
+          "orderID": {
+            "type": "string"
+          },
+          "orderDate": {
+            "type": "string"
+          },
+          "orderItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/orderItems"
+            }
+          }
+        }
+      },
+      "orderItems": {
+        "type": "object",
+        "properties": {
+          "serviceType": {
+            "type": "string"
+          },
+          "productName": {
+            "type": "string"
           }
         }
       }
