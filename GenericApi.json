@@ -452,8 +452,8 @@
         "tags": [
           "hooq"
         ],
-        "operationId": "FreeTrialRequestMessage",
-        "description": "isCustomerEligibleForFreeTrial() REST API is verify whether the customer is eligible for free trial for the account or not.",
+        "operationId": "IsCustomerEligibleForFreeTrialRequestMessage",
+        "description": "isCustomerEligibleForFreeTrial() REST API is used to verify whether the customer is eligible for free trial for the account or not.",
         "responses": {
           "200": {
             "description": "Success",
@@ -461,7 +461,7 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "FreeTrialResponseMessage": {
+                    "IsCustomerEligibleForFreeTrialResponseMessage": {
                       "type": "object",
                       "properties": {
                         "message": {
@@ -514,7 +514,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "FreeTrialRequestMessage": {
+                  "IsCustomerEligibleForFreeTrialRequestMessage": {
                     "type": "Object",
                     "$ref": "#/components/schemas/isCustomerEligibleForFreeTrial"
                   }
@@ -5164,7 +5164,7 @@
         "tags": [
           "hooq"
         ],
-        "operationId": "RemoveDeviceRequestMessage",
+        "operationId": "RemoveDeviceForAccountRequestMessage",
         "description": "removeDeviceForAccount() REST API is used to remove the registered device of particular account.",
         "responses": {
           "200": {
@@ -5173,7 +5173,7 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "RemoveDeviceResponseMessage": {
+                    "RemoveDeviceForAccountResponseMessage": {
                       "type": "object",
                       "properties": {
                         "message": {
@@ -5226,7 +5226,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "RemoveDeviceRequestMessage": {
+                  "RemoveDeviceForAccountRequestMessage": {
                     "type": "Object",
                     "$ref": "#/components/schemas/removeDeviceForAccount"
                   }
