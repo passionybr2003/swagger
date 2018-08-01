@@ -7504,6 +7504,10 @@
             "type": "string",
             "description": "Social Login Access Token of the customer"
           },
+          "ipAddress": {
+            "type": "string",
+            "description": "IP Address of related Business Unit's Country."
+          },
           "transactionId": {
             "type": "string",
             "description": "Unique Identifier between Partner and EV system."
@@ -7694,6 +7698,10 @@
           "transactionId": {
             "type": "string",
             "description": "Unique Identifier between Partner and EV system."
+          },
+          "ipAddress": {
+            "type": "string",
+            "description": "IP Address of related Business Unit's Country."
           },
           "deviceMessage": {
             "type": "object",
