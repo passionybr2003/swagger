@@ -16,9 +16,9 @@
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 11th July 2018 </b> <br> <b> Revision History </b> <br> (i) Added new API's getAccountOrders() and removeDeviceForAccount().",
+    "description": "<b>Last Updated Date 04th January 2019 </b> <br> <b> Revision History </b> <br> (i) Added new request parameters \"alternateUserName\" and \"mobileNumber\" in createUser() api. <br> (ii) Added new request parameters \"isGlobalSearch\" and \"tokenExpTime\" in getAuthCode() api.<br> (iii) Added new response parameter \"serviceOfType\" in getActiveSubscriptions() api. <br> (iv) Added new request parameters \"billingEffectiveFromNextBillcycle\" and \"effectiveDate\" in changeService() api. <br> (v) Added the request parameter \"channelPartnerID\" in sendOTP() and confirmOTP() api's.",
     "version": "",
-    "title": "EV Generic API --V10.14",
+    "title": "EV Generic API --V10.17",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -5678,6 +5678,14 @@
             "type": "string",
             "description": "User Email"
           },
+          "alternateUserName": {
+            "type": "string",
+            "description": "Customer Alternate User Name"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "User Mobile Number"
+          },
           "firstName": {
             "type": "string",
             "description": "User First Name"
@@ -5685,6 +5693,10 @@
           "lastName": {
             "type": "string",
             "description": "User Last Name"
+          },
+          "country": {
+            "type": "string",
+            "description": "Customer registered country"
           },
           "transactionId": {
             "type": "string",
@@ -6964,6 +6976,15 @@
             "type": "string",
             "description": "Name of the service which is going to add."
           },
+          "billingEffectiveFromNextBillCycle": {
+            "type": "boolean",
+            "description": "Indicates whether billing should be started from next bill cycle or not"
+          },
+          "effectiveDate": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Date on which the service should be changed."
+          },
           "transactionId": {
             "type": "string",
             "description": "Unique Identifier between Partner and EV system."
@@ -7496,6 +7517,15 @@
             "type": "boolean",
             "description": "True, if user has used the device for the first time"
           },
+          "isGlobalSearch": {
+            "type": "boolean",
+            "description": "Indicates whether the search is Global or not."
+          },
+          "tokenExpTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "For Setting Up Expiry Time of Authcode in Seconds."
+          },
           "socialLoginID": {
             "type": "string",
             "description": "Unique Social networking login ID"
@@ -7503,6 +7533,10 @@
           "socialLoginType": {
             "type": "string",
             "description": "Social Login Access Token of the customer"
+          },
+          "cpCustomerID": {
+            "type": "string",
+            "description": "A unique ID of the account in EV systems."
           },
           "ipAddress": {
             "type": "string",
@@ -7780,6 +7814,10 @@
           "country"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7811,6 +7849,10 @@
           "otp"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -8068,6 +8110,9 @@
           "validityTill": {
             "type": "integer",
             "format": "int64"
+          },
+          "serviceOfType": {
+            "type": "string"
           },
           "serviceName": {
             "type": "string"
