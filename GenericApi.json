@@ -16,9 +16,9 @@
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 21st January 2019 </b> <br> <b> Revision History </b> <br>\n Updated addTVODOrder() API Request Message with below changes: <br>\n (i) id to assetId <br>\n (ii) title to assetTitle <br>\n (iii) rentalPeriod to assetRentalPeriod <br>\n Added  new parameter productID in addTVODOrder() api request message<br>",
+    "description": "<b>Last Updated Date 11th July 2018 </b> <br> <b> Revision History </b> <br> (i) Added new API's getAccountOrders() and updateProductDetails().",
     "version": "",
-    "title": "EV Generic API --V10.19",
+    "title": "EV Generic API --V10.14",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -452,8 +452,8 @@
         "tags": [
           "hooq"
         ],
-        "operationId": "IsCustomerEligibleForFreeTrialRequestMessage",
-        "description": "isCustomerEligibleForFreeTrial() REST API is used to verify whether the customer is eligible for free trial for the account or not.",
+        "operationId": "FreeTrialRequestMessage",
+        "description": "isCustomerEligibleForFreeTrial() REST API is verify whether the customer is eligible for free trial for the account or not.",
         "responses": {
           "200": {
             "description": "Success",
@@ -461,7 +461,7 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "IsCustomerEligibleForFreeTrialResponseMessage": {
+                    "FreeTrialResponseMessage": {
                       "type": "object",
                       "properties": {
                         "message": {
@@ -514,7 +514,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "IsCustomerEligibleForFreeTrialRequestMessage": {
+                  "FreeTrialRequestMessage": {
                     "type": "Object",
                     "$ref": "#/components/schemas/isCustomerEligibleForFreeTrial"
                   }
@@ -5154,89 +5154,6 @@
         }
       }
     },
-    "/removeDeviceForAccount": {
-      "post": {
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "tags": [
-          "hooq"
-        ],
-        "operationId": "RemoveDeviceForAccountRequestMessage",
-        "description": "removeDeviceForAccount() REST API is used to remove the registered device of particular account.",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "RemoveDeviceForAccountResponseMessage": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string"
-                        },
-                        "responseCode": {
-                          "type": "string"
-                        },
-                        "transactionId": {
-                          "type": "string"
-                        },
-                        "status": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "111111111": {
-            "description": "Authentication Failed"
-          },
-          "eV2123": {
-            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
-          },
-          "eV2124": {
-            "description": "Invalid Session Token"
-          },
-          "eV1342": {
-            "description": "Invalid customer ID XXX for XXX"
-          },
-          "eV1003": {
-            "description": "Invalid SP Account ID  XXXX for  XXX"
-          },
-          "eV1638": {
-            "description": "Account doesn't exists with the given SP Account ID XXX and  Customer ID XXX"
-          },
-          "eV1733": {
-            "description": "Device does not exist"
-          },
-          "eV2219": {
-            "description": "Please enter either deviceId or serial number"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "RemoveDeviceForAccountRequestMessage": {
-                    "type": "Object",
-                    "$ref": "#/components/schemas/removeDeviceForAccount"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/updateProductDetails": {
       "post": {
         "security": [
@@ -5630,193 +5547,6 @@
           }
         }
       }
-    },
-    "/removeDevices": {
-      "post": {
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "tags": [
-          "hooq"
-        ],
-        "operationId": "RemoveDevicesRequestMessage",
-        "description": "removeDevices() REST API is used to remove the devices of the customer.",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "RemoveDevicesResponseMessage": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string"
-                        },
-                        "responseCode": {
-                          "type": "string"
-                        },
-                        "status": {
-                          "type": "string"
-                        },
-                        "transactionId": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "eV1001": {
-            "description": "User Authentication Failed for UserName."
-          },
-          "eV2554": {
-            "description": "Either sessionToken or cpCustomerID or spAccountID is required."
-          },
-          "eV2124": {
-            "description": "Invalid Session Token"
-          },
-          "eV1733": {
-            "description": "Device does not exist"
-          },
-          "eV2474": {
-            "description": "Maximum device removal limit reached"
-          },
-          "eV1003": {
-            "description": "Invalid SP Account ID for ZZ(BU)"
-          },
-          "eV1342": {
-            "description": "Invalid customer ID for ZZ(BU)"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "RemoveDevicesRequestMessage": {
-                    "type": "Object",
-                    "$ref": "#/components/schemas/RemoveDevicesRequestMessage"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/getAccountThresholds": {
-      "post": {
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "tags": [
-          "hooq"
-        ],
-        "operationId": "GetAccountThresholdsRequestMessage",
-        "description": "getAccountThresholds() REST API is used to get the details of the customer account thresholds like device limits/counts, download limits/counts and tvod download limits/counts.",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "GetAccountThresholdsResponseMessage": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string"
-                        },
-                        "responseCode": {
-                          "type": "string"
-                        },
-                        "tvodDownloadCount": {
-                          "type": "string"
-                        },
-                        "tvodDownloadLimit": {
-                          "type": "string"
-                        },
-                        "downloadCount": {
-                          "type": "string"
-                        },
-                        "downloadLimit": {
-                          "type": "string"
-                        },
-                        "allowedDevices": {
-                          "type": "string"
-                        },
-                        "registeredDevices": {
-                          "type": "string"
-                        },
-                        "maxDevicesperYear": {
-                          "type": "string"
-                        },
-                        "currentSessionsCount": {
-                          "type": "string"
-                        },
-                        "concurrentSessionLimit": {
-                          "type": "string"
-                        },
-                        "concurrentPlayLimit": {
-                          "type": "string"
-                        },
-                        "transactionId": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "111111": {
-            "description": "Authentication Failed."
-          },
-          "eV2554": {
-            "description": "Either sessionToken or cpCustomerID or spAccountID is required."
-          },
-          "eV2124": {
-            "description": "Invalid Session Token"
-          },
-          "eV2474": {
-            "description": "Maximum device removal limit reached"
-          },
-          "eV1003": {
-            "description": "Invalid SP Account ID for ZZ(BU)"
-          },
-          "eV1342": {
-            "description": "Invalid customer ID for ZZ(BU)"
-          },
-          "eV2138": {
-            "description": "Generic Failure"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "GetAccountThresholdsRequestMessage": {
-                    "type": "Object",
-                    "$ref": "#/components/schemas/GetAccountThresholdsRequestMessage"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
@@ -5865,14 +5595,6 @@
             "type": "string",
             "description": "User Email"
           },
-          "alternateUserName": {
-            "type": "string",
-            "description": "Customer Alternate User Name"
-          },
-          "mobileNumber": {
-            "type": "string",
-            "description": "User Mobile Number"
-          },
           "firstName": {
             "type": "string",
             "description": "User First Name"
@@ -5880,10 +5602,6 @@
           "lastName": {
             "type": "string",
             "description": "User Last Name"
-          },
-          "country": {
-            "type": "string",
-            "description": "Customer registered country"
           },
           "transactionId": {
             "type": "string",
@@ -5894,11 +5612,16 @@
       "isCustomerEligibleForFreeTrial": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner."
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -5920,12 +5643,17 @@
       "addSubscriptions": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "services",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6076,12 +5804,17 @@
       "removeSubscriptions": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
           "services"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6138,12 +5871,17 @@
       "authenticateCustomer": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "contactUserName",
           "contactPassword"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username"
@@ -6177,6 +5915,7 @@
       "addContact": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "customerUsername",
@@ -6185,6 +5924,10 @@
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6218,11 +5961,16 @@
       "getContact": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6244,6 +5992,7 @@
       "updateContact": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "contactUserName",
@@ -6251,6 +6000,10 @@
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6280,6 +6033,7 @@
       "changePassword": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "oldPassword",
@@ -6288,6 +6042,10 @@
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6321,12 +6079,17 @@
       "updateAcctStatus": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "cpCustomerID",
           "status"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6352,6 +6115,7 @@
       "removeService": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "cpCustomerID",
@@ -6360,6 +6124,10 @@
           "endDate"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6394,11 +6162,15 @@
       "addTVODOrder": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "sessionToken",
-          "price",
-          "productID"
+          "price"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6411,25 +6183,25 @@
             "type": "string",
             "description": "Unique token generated for the account on successful authentication."
           },
-          "assetId": {
+          "assetID": {
             "type": "string",
-            "description": "Id of the asset."
+            "description": "Price of the VOD product."
           },
-          "assetRentalPeriod": {
+          "rentalPeriod": {
             "type": "string",
-            "description": "Rental Period of the asset."
+            "description": "Price of the VOD product."
           },
-          "assetTitle": {
+          "assetType": {
             "type": "string",
-            "description": "Title of the VOD."
-          },
-          "productID": {
-            "type": "string",
-            "description": "Quick Code of the SKU"
+            "description": "Price of the VOD product."
           },
           "price": {
             "type": "string",
             "description": "Price of the VOD product."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the VOD."
           },
           "transactionId": {
             "type": "string",
@@ -6445,45 +6217,60 @@
         "type": "object",
         "required": [
           "label",
-          "transactionReferenceMsg"
+          "cardInfoMsg"
         ],
         "properties": {
           "label": {
             "type": "string",
             "description": "Label of the payment method."
           },
-          "transactionReferenceMsg": {
+          "cardInfoMsg": {
             "type": "object",
-            "$ref": "#/components/schemas/transactionReferenceMsgs"
+            "$ref": "#/components/schemas/cardInfoMsgs"
           }
         }
       },
-      "transactionReferenceMsgs": {
+      "cardInfoMsgs": {
         "type": "object",
+        "required": [
+          "cardNumber",
+          "expiryDate",
+          "nameOnCard",
+          "securityCode"
+        ],
         "properties": {
-          "amount": {
+          "cardNumber": {
             "type": "string",
-            "description": "Transaction Amount."
+            "description": "Credit Card Number."
           },
-          "txID": {
+          "expiryDate": {
             "type": "string",
-            "description": "Unique ID number of the transaction"
+            "description": "Expiry Date of Credit Card."
           },
-          "txMsg": {
+          "nameOnCard": {
             "type": "string",
-            "description": "Transaction Message."
+            "description": "Name on the Credit Card."
+          },
+          "securityCode": {
+            "type": "string",
+            "description": "CVV/ Security code of the card."
           }
         }
       },
       "updateAccountStatus": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
           "status"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6509,11 +6296,20 @@
       "getActiveSubscriptions": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "A unique token generated for the account on successful authentication"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6521,10 +6317,6 @@
           "apiPassword": {
             "type": "string",
             "description": "Partner authentication password."
-          },
-          "sessionToken": {
-            "type": "string",
-            "description": "A unique token generated for the account on successful authentication  "
           },
           "transactionId": {
             "type": "string",
@@ -6535,11 +6327,16 @@
       "validateSessionToken": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6561,11 +6358,16 @@
       "getSubscriptionHistory": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6587,11 +6389,16 @@
       "logOutUser": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6613,11 +6420,16 @@
       "forgotContactPassword": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "email"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6639,6 +6451,7 @@
       "setString": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
@@ -6646,6 +6459,10 @@
           "attributeValue"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6675,12 +6492,17 @@
       "getString": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
           "attributeName"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6706,11 +6528,16 @@
       "getProducts": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "dmaID"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6732,11 +6559,16 @@
       "searchAccount": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "email"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6762,12 +6594,17 @@
       "sendEmail": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "email",
           "emailTemplate"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6793,6 +6630,7 @@
       "resetPassword": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "email",
@@ -6801,6 +6639,10 @@
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6834,6 +6676,7 @@
       "verifyAccount": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "email",
@@ -6841,6 +6684,10 @@
           "verificationParam"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6887,12 +6734,17 @@
       "validateToken": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "email",
           "token"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6918,11 +6770,16 @@
       "getPaymentMethods": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6948,11 +6805,16 @@
       "getPackages": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "dmaID"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -6974,11 +6836,16 @@
       "getAccountDevices": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7000,11 +6867,16 @@
       "getPayments": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7026,11 +6898,16 @@
       "getAdjustments": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7052,11 +6929,16 @@
       "getAccountHistory": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7078,6 +6960,7 @@
       "updateAccountHistory": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
@@ -7086,6 +6969,10 @@
           "category"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7119,6 +7006,7 @@
       "changeService": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
@@ -7126,6 +7014,10 @@
           "newServiceID"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7154,15 +7046,6 @@
             "type": "string",
             "description": "Name of the service which is going to add."
           },
-          "billingEffectiveFromNextBillCycle": {
-            "type": "boolean",
-            "description": "Indicates whether billing should be started from next bill cycle or not"
-          },
-          "effectiveDate": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Date on which the service should be changed."
-          },
           "transactionId": {
             "type": "string",
             "description": "Unique Identifier between Partner and EV system."
@@ -7172,12 +7055,17 @@
       "reactivateService": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
           "serviceID"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7207,11 +7095,16 @@
       "getPromotions": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "dmaID"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7233,6 +7126,7 @@
       "redeemCoupon": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "couponCode",
@@ -7242,6 +7136,10 @@
           "quantity"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7283,11 +7181,16 @@
       "isValidCoupon": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "couponCode"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7309,6 +7212,7 @@
       "applyCoupon": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "couponCode",
@@ -7316,6 +7220,10 @@
           "price"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7346,6 +7254,7 @@
       "updateAddress": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "label",
@@ -7353,6 +7262,10 @@
           "address"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7405,11 +7318,16 @@
       "getAddresses": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7431,6 +7349,7 @@
       "updateParentalControlDetails": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
@@ -7440,6 +7359,10 @@
           "oldParentalControlPin"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7481,12 +7404,17 @@
       "validateParentalControlPIN": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
           "parentalControlPin"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7512,11 +7440,16 @@
       "getParentalControlDetails": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7538,11 +7471,16 @@
       "getOrderDetails": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "orderID"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7572,11 +7510,16 @@
       "getAccountDetails": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7602,11 +7545,16 @@
       "canShowConsent": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7632,12 +7580,17 @@
       "setRenewalConsent": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken",
           "sku"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7695,15 +7648,6 @@
             "type": "boolean",
             "description": "True, if user has used the device for the first time"
           },
-          "isGlobalSearch": {
-            "type": "boolean",
-            "description": "Indicates whether the search is Global or not."
-          },
-          "tokenExpTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "For Setting Up Expiry Time of Authcode in Seconds."
-          },
           "socialLoginID": {
             "type": "string",
             "description": "Unique Social networking login ID"
@@ -7711,14 +7655,6 @@
           "socialLoginType": {
             "type": "string",
             "description": "Social Login Access Token of the customer"
-          },
-          "cpCustomerID": {
-            "type": "string",
-            "description": "A unique ID of the account in EV systems."
-          },
-          "ipAddress": {
-            "type": "string",
-            "description": "IP Address of related Business Unit's Country."
           },
           "transactionId": {
             "type": "string",
@@ -7760,11 +7696,16 @@
       "getPaymentsV2": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7783,54 +7724,10 @@
           }
         }
       },
-      "removeDeviceForAccount": {
-        "type": "object",
-        "required": [
-          "apiUser",
-          "apiPassword",
-          "sessionToken",
-          "cpCustomerID",
-          "accountID",
-          "serialNo"
-        ],
-        "properties": {
-          "apiUser": {
-            "type": "string",
-            "description": "Partner authentication username."
-          },
-          "apiPassword": {
-            "type": "string",
-            "description": "Partner authentication password."
-          },
-          "sessionToken": {
-            "type": "string",
-            "description": "Unique token generated for the account on successful authentication."
-          },
-          "cpCustomerID": {
-            "type": "string",
-            "description": "Unique id of the customer in EV system."
-          },
-          "accountID": {
-            "type": "string",
-            "description": "A unique id of the account"
-          },
-          "serialNo": {
-            "type": "string",
-            "description": "Unique id of the customer device serial number."
-          },
-          "deviceID": {
-            "type": "string",
-            "description": "A unique id of the device."
-          },
-          "transactionId": {
-            "type": "string",
-            "description": "Unique Identifier between Partner and EV system"
-          }
-        }
-      },
       "updateProductDetails": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "productName",
@@ -7839,6 +7736,10 @@
           "prodCategory"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner"
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -7911,10 +7812,6 @@
             "type": "string",
             "description": "Unique Identifier between Partner and EV system."
           },
-          "ipAddress": {
-            "type": "string",
-            "description": "IP Address of related Business Unit's Country."
-          },
           "deviceMessage": {
             "type": "object",
             "$ref": "#/components/schemas/deviceMessages"
@@ -7986,6 +7883,7 @@
       "sendOTP": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "phoneNumber",
@@ -8021,6 +7919,7 @@
       "confirmOTP": {
         "type": "object",
         "required": [
+          "channelPartnerID",
           "apiUser",
           "apiPassword",
           "mobileNumber",
@@ -8120,11 +8019,16 @@
         "required": [
           "apiUser",
           "apiPassword",
+          "channelPartnerID",
           "cpCustomerID",
           "accountId",
           "sessionToken"
         ],
         "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner."
+          },
           "apiUser": {
             "type": "string",
             "description": "Partner authentication username."
@@ -8288,9 +8192,6 @@
           "validityTill": {
             "type": "integer",
             "format": "int64"
-          },
-          "serviceOfType": {
-            "type": "string"
           },
           "serviceName": {
             "type": "string"
@@ -9032,78 +8933,6 @@
           },
           "productName": {
             "type": "string"
-          }
-        }
-      },
-      "RemoveDevicesRequestMessage": {
-        "type": "object",
-        "required": [
-          "apiUser",
-          "apiPassword",
-          "sessionToken",
-          "cpCustomerID",
-          "accountID"
-        ],
-        "properties": {
-          "apiUser": {
-            "type": "string",
-            "description": "Partner authentication username."
-          },
-          "apiPassword": {
-            "type": "string",
-            "description": "Partner authentication password."
-          },
-          "sessionToken": {
-            "type": "string",
-            "description": "Unique token generated for the customer on successful authentication."
-          },
-          "cpCustomerID": {
-            "type": "string",
-            "description": "A unique identifier of the account in Partner systems."
-          },
-          "accountID": {
-            "type": "string",
-            "description": "A unique identifier of the account."
-          },
-          "transactionId": {
-            "type": "string",
-            "description": "Unique Identifier between Partner and EV system."
-          }
-        }
-      },
-      "GetAccountThresholdsRequestMessage": {
-        "type": "object",
-        "required": [
-          "apiUser",
-          "apiPassword",
-          "sessionToken",
-          "cpCustomerID",
-          "spAccountID"
-        ],
-        "properties": {
-          "apiUser": {
-            "type": "string",
-            "description": "Partner authentication username."
-          },
-          "apiPassword": {
-            "type": "string",
-            "description": "Partner authentication password."
-          },
-          "sessionToken": {
-            "type": "string",
-            "description": "Unique token generated for the customer on successful authentication."
-          },
-          "cpCustomerID": {
-            "type": "string",
-            "description": "A unique identifier of the account in Partner systems."
-          },
-          "spAccountID": {
-            "type": "string",
-            "description": "A unique identifier of the account."
-          },
-          "transactionId": {
-            "type": "string",
-            "description": "Unique Identifier between Partner and EV system."
           }
         }
       }
