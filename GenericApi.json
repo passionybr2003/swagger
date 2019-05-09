@@ -16,9 +16,9 @@
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 11th February 2019 </b> <br> <b> Revision History: </b> <br>\n Added new request parameter “sessionExpiryPeriod” in the APIs like getOAuthAccessTokenv2(), getOAuthAccessToken() and refreshToken().<br>",
+    "description": "<b>Last Updated Date 05th May 2019 </b> <br> <b> Revision History: </b> <br>\n Added new API createAnonymousUser().<br>\n <br>\n <b>Note:</b> \"x-\" symbol should be ignored infront of Error Codes.  ",
     "version": "",
-    "title": "EV Generic API --V10.20",
+    "title": "EV Generic API --V10.21",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -73,46 +73,46 @@
               }
             }
           },
-          "20001": {
+          "x- 20001": {
             "description": "Generic Failure"
           },
-          "20003": {
+          "x- 20003": {
             "description": "Missing Required Parameters"
           },
-          "20224": {
+          "x- 20224": {
             "description": "Account with the given CustomerID already exists"
           },
-          "20259": {
+          "x- 20259": {
             "description": "Password length should not exceed 100"
           },
-          "20292": {
+          "x- 20292": {
             "description": "Account with the given Details already exists"
           },
-          "20293": {
+          "x- 20293": {
             "description": "Offer is already active on your Number, valid till given Endate"
           },
-          "20295": {
+          "x- 20295": {
             "description": "Invalid email"
           },
-          "20297": {
+          "x- 20297": {
             "description": "User ID should not exceed 100 characters"
           },
-          "20359": {
+          "x- 20359": {
             "description": "Password length should be minimum 4"
           },
-          "20360": {
+          "x- 20360": {
             "description": "UserID length should be minimum 4"
           },
-          "20361": {
+          "x- 20361": {
             "description": "Invalid Service Id"
           },
-          "20371": {
+          "x- 20371": {
             "description": "Account already exists with"
           },
-          "20383": {
+          "x- 20383": {
             "description": "User Name - Spaces are not allowed"
           },
-          "20999": {
+          "x- 20999": {
             "description": "Request data malformed"
           }
         },
@@ -169,31 +169,31 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2511": {
+          "x- eV2511": {
             "description": "Missing Required Parameter(s)"
           },
-          "eV2327": {
+          "x- eV2327": {
             "description": "No Account Found with Given Details"
           },
-          "eV2134": {
+          "x- eV2134": {
             "description": "Wrong Username or Password"
           },
-          "eV2190": {
+          "x- eV2190": {
             "description": "Login limit reached"
           },
-          "eV2436": {
+          "x- eV2436": {
             "description": "Invalid Social Login Details"
           },
-          "eV2193": {
+          "x- eV2193": {
             "description": "Exceeded annual devices allowed to be registered"
           },
-          "eV2143": {
+          "x- eV2143": {
             "description": "Exceeded maximum device allowed to be registered"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           }
         },
@@ -259,16 +259,16 @@
               }
             }
           },
-          "20003": {
+          "x- 20003": {
             "description": "Missing Required Parameter"
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           },
-          "eV2766": {
+          "x- eV2766": {
             "description": "Invalid AuthCode."
           }
         },
@@ -328,28 +328,28 @@
               }
             }
           },
-          "20003": {
+          "x- 20003": {
             "description": "Missing Required Parameter"
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2190": {
+          "x- eV2190": {
             "description": "Login limit reached"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           },
-          "eV2193": {
+          "x- eV2193": {
             "description": "Exceeded annual devices allowed to be registered"
           },
-          "eV2143": {
+          "x- eV2143": {
             "description": "Exceeded maximum device allowed to be registered"
           },
-          "eV2783": {
+          "x- eV2783": {
             "description": "Invalid phoneNumber or email."
           },
-          "eV2327": {
+          "x- eV2327": {
             "description": "No account found with the given details"
           }
         },
@@ -412,16 +412,16 @@
               }
             }
           },
-          "20003": {
+          "x- 20003": {
             "description": "Missing Required Parameter"
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           },
-          "eV2767": {
+          "x- eV2767": {
             "description": "Invalid RefreshToken."
           }
         },
@@ -483,28 +483,28 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authorization failed"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and Customer ID XXXXXXX"
           },
-          "eV2155": {
+          "x- eV2155": {
             "description": "No free trial Available"
           },
-          "eV2154": {
+          "x- eV2154": {
             "description": "Free Trial Available"
           }
         },
@@ -566,166 +566,166 @@
               }
             }
           },
-          "eV1744": {
+          "x- eV1744": {
             "description": "Account does not exists with given details"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and Customer ID XXXXXXX"
           },
-          "eV1377": {
+          "x- eV1377": {
             "description": "Invalid amount"
           },
-          "eV2365": {
+          "x- eV2365": {
             "description": "The Receipt is already used by other customer"
           },
-          "eV2378": {
+          "x- eV2378": {
             "description": "The Receipt is already used"
           },
-          "eV2402": {
+          "x- eV2402": {
             "description": "Subscription is already expired with the given product id"
           },
-          "eV2242": {
+          "x- eV2242": {
             "description": "The App Store could not read the JSON object you provided"
           },
-          "eV2243": {
+          "x- eV2243": {
             "description": "The data in the receipt-data property was malformed or missing"
           },
-          "eV2244": {
+          "x- eV2244": {
             "description": "The receipt could not be authenticated"
           },
-          "eV2245": {
+          "x- eV2245": {
             "description": "The shared secret you provided does not match the shared secret on file for your account"
           },
-          "eV2246": {
+          "x- eV2246": {
             "description": "The receipt server is not currently available"
           },
-          "eV2247": {
+          "x- eV2247": {
             "description": "This receipt is valid but the subscription has expired. When this status code is returned to your server, the receipt data is also decoded and returned as part of the response"
           },
-          "eV2248": {
+          "x- eV2248": {
             "description": "This receipt is from the test environment, but it was sent to the production environment for verification. Send it to the test environment instead"
           },
-          "eV2249": {
+          "x- eV2249": {
             "description": "This receipt is from the production environment, but it was sent to the test environment for verification. Send it to the production environment instead"
           },
-          "eV2292": {
+          "x- eV2292": {
             "description": "Google Wallet receipt expired"
           },
-          "eV2293": {
+          "x- eV2293": {
             "description": "Google wallet receipt validation failed"
           },
-          "eV2591": {
+          "x- eV2591": {
             "description": "The transaction represented by this Purchase Token is no longer valid"
           },
-          "eV2592": {
+          "x- eV2592": {
             "description": "Invalid sharedSecret"
           },
-          "eV2593": {
+          "x- eV2593": {
             "description": "Invalid User ID"
           },
-          "eV2594": {
+          "x- eV2594": {
             "description": "Invalid Purchase Token"
           },
-          "eV2595": {
+          "x- eV2595": {
             "description": "The Purchase Token was created with credentials that have expired.Use renew to generate a valid purchase token"
           },
-          "eV2596": {
+          "x- eV2596": {
             "description": "There was an Internal Server Error"
           },
-          "eV2374": {
+          "x- eV2374": {
             "description": "No Service exists with the given AppServiceID"
           },
-          "eV1663": {
+          "x- eV1663": {
             "description": "Either ServiceId or ServiceName is required"
           },
-          "eV1135": {
+          "x- eV1135": {
             "description": "Invalid Quantity, Quantity of the Service should be greater than or equal to one"
           },
-          "eV1136": {
+          "x- eV1136": {
             "description": "Invalid Quantity, should be in number"
           },
-          "eV1668": {
+          "x- eV1668": {
             "description": "Service Type should be PRODUCT/PACKAGE"
           },
-          "eV1106": {
+          "x- eV1106": {
             "description": "Insufficient parameters. Please provide Services Info"
           },
-          "eV1107": {
+          "x- eV1107": {
             "description": "Insufficient parameters. Please provide payment method Info"
           },
-          "eV1108": {
+          "x- eV1108": {
             "description": "Label cannot be empty in Payment Method Info"
           },
-          "eV1110": {
+          "x- eV1110": {
             "description": "Invalid Parameters in Payment Method Info"
           },
-          "eV1680": {
+          "x- eV1680": {
             "description": "Invalid State in CardBilling"
           },
-          "eV1681": {
+          "x- eV1681": {
             "description": "Invalid Country in CardBilling"
           },
-          "eV1246": {
+          "x- eV1246": {
             "description": "Invalid ZipCode"
           },
-          "eV1682": {
+          "x- eV1682": {
             "description": "Insufficient CardBilling Parameters"
           },
-          "eV1854": {
+          "x- eV1854": {
             "description": "Exception occured while inserting payment method"
           },
-          "eV1684": {
+          "x- eV1684": {
             "description": "Payment method is mandatory"
           },
-          "eV2755": {
+          "x- eV2755": {
             "description": "This coupon has already been expired"
           },
-          "eV1861": {
+          "x- eV1861": {
             "description": "This coupon has already been redeemed"
           },
-          "eV1679": {
+          "x- eV1679": {
             "description": "No Promotional Item exists with the given"
           },
-          "eV1665": {
+          "x- eV1665": {
             "description": "No Service found with the given Service Id XXXXXX  and Service name"
           },
-          "eV1138": {
+          "x- eV1138": {
             "description": "No Service exists with the given name  XXXXXXXXXX"
           },
-          "eV1676": {
+          "x- eV1676": {
             "description": "PromotionId  XXXXXXXX"
           },
-          "eV1677": {
+          "x- eV1677": {
             "description": "PromotionName  XXXXXXXX"
           },
-          "eV1678": {
+          "x- eV1678": {
             "description": "PromotionId/PromotionName    XXXXXXXXX/XXXXXXXXXX"
           },
-          "eV1674": {
+          "x- eV1674": {
             "description": "doesn't exist with the given ServiceId/ServiceName  XXXXXXX/XXXXXXXX"
           },
-          "eV1143": {
+          "x- eV1143": {
             "description": "You can not order Single subscription product multiple times"
           },
-          "eV2491": {
+          "x- eV2491": {
             "description": "Customer can have only one Basic Service Product at a time"
           },
-          "eV1144": {
+          "x- eV1144": {
             "description": "Customer has already subscribed to \\ XXXXXXXX \\. \" (X represents Promotion product name)"
           },
-          "eV1147": {
+          "x- eV1147": {
             "description": "No applicable rate for the current date with quantity 1 for the product  XXXXXXXXXX"
           },
-          "eV1160": {
+          "x- eV1160": {
             "description": "In order to order the product \\ first you should have to order its prerequisite product(s) / package(s) -----"
           }
         },
@@ -774,31 +774,31 @@
               }
             }
           },
-          "20001": {
+          "x- 20001": {
             "description": "Generic Failure"
           },
-          "20003": {
+          "x- 20003": {
             "description": "Missing Required Parameter"
           },
-          "20005": {
+          "x- 20005": {
             "description": "Invalid session token"
           },
-          "20237": {
+          "x- 20237": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX"
           },
-          "20268": {
+          "x- 20268": {
             "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
           },
-          "20327": {
+          "x- 20327": {
             "description": "Invalid End Date"
           },
-          "20329": {
+          "x- 20329": {
             "description": "CpCustomerID or spAccountID or sessionToken is required"
           },
-          "20369": {
+          "x- 20369": {
             "description": "Can't Remove This Service Prior To Its BillStartDate"
           },
-          "20372": {
+          "x- 20372": {
             "description": "end date should be greater than or equal to start date"
           }
         },
@@ -885,46 +885,46 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2226": {
+          "x- eV2226": {
             "description": "Either Username and Password or SocialloginId and socialloginType or SocialloginToken and socialloginType is required"
           },
-          "eV2288": {
+          "x- eV2288": {
             "description": "User does not exist"
           },
-          "eV2332": {
+          "x- eV2332": {
             "description": "We have recently upgraded our system. Request you to register again if you are accessing outside India"
           },
-          "eV2134": {
+          "x- eV2134": {
             "description": "Wrong Username or Password"
           },
-          "eV2408": {
+          "x- eV2408": {
             "description": "Your login has blocked. Please try after XXXXX Minutes"
           },
-          "eV2241": {
+          "x- eV2241": {
             "description": "Invalid Social login id and its type"
           },
-          "eV2360": {
+          "x- eV2360": {
             "description": "Invalid Social Login Token"
           },
-          "eV2363": {
+          "x- eV2363": {
             "description": "Invalid Social login Token and its type"
           },
-          "eV2327": {
+          "x- eV2327": {
             "description": "No account found with the given details"
           },
-          "eV2371": {
+          "x- eV2371": {
             "description": "Please verify your account and login again"
           },
-          "eV2434": {
+          "x- eV2434": {
             "description": "Your Account is in Inactive state"
           },
-          "eV2190": {
+          "x- eV2190": {
             "description": "Login limit reached"
           },
-          "eV2193": {
+          "x- eV2193": {
             "description": "Exceeded annual devices allowed to be registered"
           }
         },
@@ -986,127 +986,127 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXXXXXXX  for  HOOQIND"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and  Customer ID XXXXXXX"
           },
-          "eV1044": {
+          "x- eV1044": {
             "description": "Invalid salutation"
           },
-          "eV1047": {
+          "x- eV1047": {
             "description": "First Name should not exceed 100 characters"
           },
-          "eV1048": {
+          "x- eV1048": {
             "description": "Last Name should not exceed 100 characters"
           },
-          "eV1049": {
+          "x- eV1049": {
             "description": "Middle Name length should not exceed 1"
           },
-          "eV1050": {
+          "x- eV1050": {
             "description": "Date Of Birth is in invalid format. Please enter in format"
           },
-          "eV1833": {
+          "x- eV1833": {
             "description": "Invalid date of birth"
           },
-          "eV1051": {
+          "x- eV1051": {
             "description": "Invalid gender"
           },
-          "eV1052": {
+          "x- eV1052": {
             "description": "The Work Phone Extension Number must be with Work Phone Number"
           },
-          "eV1053": {
+          "x- eV1053": {
             "description": "The Fax Extension Number must be with Fax Number"
           },
-          "eV1054": {
+          "x- eV1054": {
             "description": "The Home Phone Extension Number must be with Home Phone Number"
           },
-          "eV1055": {
+          "x- eV1055": {
             "description": "The Pager Extension Number must be with Pager Number"
           },
-          "eV1056": {
+          "x- eV1056": {
             "description": "The Cell Phone Extension Number must be with Cell Phone Number"
           },
-          "eV1057": {
+          "x- eV1057": {
             "description": "Email should not exceed 256 characters"
           },
-          "eV1058": {
+          "x- eV1058": {
             "description": "Please enter a valid email"
           },
-          "eV1059": {
+          "x- eV1059": {
             "description": "Title length should not exceed 45"
           },
-          "eV1060": {
+          "x- eV1060": {
             "description": "Department length should not exceed 30"
           },
-          "eV1061": {
+          "x- eV1061": {
             "description": "Invalid language"
           },
-          "eV1064": {
+          "x- eV1064": {
             "description": "User Name length should not exceed 256"
           },
-          "eV1065": {
+          "x- eV1065": {
             "description": "User Name length should be minimum 4"
           },
-          "eV1062": {
+          "x- eV1062": {
             "description": "User Name already exists"
           },
-          "eV2020": {
+          "x- eV2020": {
             "description": "SocialLoginId should not exceed more than 100 characters"
           },
-          "eV1895": {
+          "x- eV1895": {
             "description": "New Pin length between 4 and 7 digits"
           },
-          "eV2018": {
+          "x- eV2018": {
             "description": "Either SocialLoginType or Password should be mandatory"
           },
-          "eV2019": {
+          "x- eV2019": {
             "description": "SocialLoginType should not exceed more than 50 characters"
           },
-          "eV1066": {
+          "x- eV1066": {
             "description": "User Name - Spaces are not allowed"
           },
-          "eV1068": {
+          "x- eV1068": {
             "description": "Password length should not exceed 100"
           },
-          "eV1069": {
+          "x- eV1069": {
             "description": "Password length should be minimum 4"
           },
-          "eV1070": {
+          "x- eV1070": {
             "description": "Password - Spaces are not allowed"
           },
-          "eV2034": {
+          "x- eV2034": {
             "description": "UserName is mandatory"
           },
-          "eV1071": {
+          "x- eV1071": {
             "description": "Comments length should not exceed 256"
           },
-          "eV1832": {
+          "x- eV1832": {
             "description": "Invalid age"
           },
-          "eV1602": {
+          "x- eV1602": {
             "description": "Invalid Time Zone"
           },
-          "eV2568": {
+          "x- eV2568": {
             "description": "Invalid SpendLimit"
           },
-          "eV1834": {
+          "x- eV1834": {
             "description": "Account should having only one primary contact"
           },
-          "eV1072": {
+          "x- eV1072": {
             "description": "Invalid contact type"
           }
         },
@@ -1155,28 +1155,28 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2493": {
+          "x- eV2493": {
             "description": "Either SP Account ID or CP Customer ID or Session Token or Contact ID is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXXXXXXX  for YYYYYY Where X==SP Account ID and Y ==BU Name"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY Where X==customer ID  and  Y ==BU Name"
           },
-          "eV2223": {
+          "x- eV2223": {
             "description": "Invalid Contact ID XXXX  for YYYYY Where X==Contact ID  and Y ==BU Name"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given Contact ID XXXX  and  Customer ID Where X==SP Account ID"
           },
-          "eV1907": {
+          "x- eV1907": {
             "description": "Invalid ContactId"
           }
         },
@@ -1238,148 +1238,148 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV1473": {
+          "x- eV1473": {
             "description": "Contact ID should be Number"
           },
-          "eV1474": {
+          "x- eV1474": {
             "description": "Contact ID should be Positive and Non-Zero Value"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1044": {
+          "x- eV1044": {
             "description": "Invalid salutation"
           },
-          "eV1048": {
+          "x- eV1048": {
             "description": "Last Name should not exceed 100 characters"
           },
-          "eV1049": {
+          "x- eV1049": {
             "description": "Middle Name length should not exceed 1"
           },
-          "eV1051": {
+          "x- eV1051": {
             "description": "Invalid gender"
           },
-          "eV1052": {
+          "x- eV1052": {
             "description": "The Work Phone Extension Number must be with Work Phone Number"
           },
-          "eV1053": {
+          "x- eV1053": {
             "description": "The Fax Extension Number must be with Fax Number"
           },
-          "eV1054": {
+          "x- eV1054": {
             "description": "The Home Phone Extension Number must be with Home Phone Number"
           },
-          "eV1055": {
+          "x- eV1055": {
             "description": "The Pager Extension Number must be with Pager Number"
           },
-          "eV1056": {
+          "x- eV1056": {
             "description": "The Cell Phone Extension Number must be with Cell Phone Number"
           },
-          "eV2538": {
+          "x- eV2538": {
             "description": "Mobile number length should not exceed 15"
           },
-          "eV2537": {
+          "x- eV2537": {
             "description": "Minimum length for mobile number should be 10"
           },
-          "eV1057": {
+          "x- eV1057": {
             "description": "Email should not exceed 256 characters"
           },
-          "eV1058": {
+          "x- eV1058": {
             "description": "Please enter a valid email"
           },
-          "eV1059": {
+          "x- eV1059": {
             "description": "Title length should not exceed 45"
           },
-          "eV1060": {
+          "x- eV1060": {
             "description": "Department length should not exceed 30"
           },
-          "eV1061": {
+          "x- eV1061": {
             "description": "Invalid language"
           },
-          "eV1064": {
+          "x- eV1064": {
             "description": "User Name length should not exceed 256"
           },
-          "eV1065": {
+          "x- eV1065": {
             "description": "User Name length should be minimum 4"
           },
-          "eV1066": {
+          "x- eV1066": {
             "description": "User Name - Spaces are not allowed"
           },
-          "eV1067": {
+          "x- eV1067": {
             "description": "User Name should be provided with Password"
           },
-          "eV1068": {
+          "x- eV1068": {
             "description": "Password length should not exceed 100"
           },
-          "eV1069": {
+          "x- eV1069": {
             "description": "Password length should be minimum 4"
           },
-          "eV2020": {
+          "x- eV2020": {
             "description": "SocialLoginId should not exceed more than 100 characters"
           },
-          "eV1895": {
+          "x- eV1895": {
             "description": "New Pin length between 4 and 7 digits"
           },
-          "eV2019": {
+          "x- eV2019": {
             "description": "SocialLoginType should not exceed more than 50 characters"
           },
-          "eV1070": {
+          "x- eV1070": {
             "description": "Password - Spaces are not allowed"
           },
-          "eV1071": {
+          "x- eV1071": {
             "description": "Comments length should not exceed 256"
           },
-          "eV1832": {
+          "x- eV1832": {
             "description": "Invalid age"
           },
-          "eV1072": {
+          "x- eV1072": {
             "description": "Invalid contact type"
           },
-          "eV1602": {
+          "x- eV1602": {
             "description": "Invalid Time Zone"
           },
-          "eV2473": {
+          "x- eV2473": {
             "description": "Parental Control PIN shouldn't exceeded 4 digits"
           },
-          "eV2457": {
+          "x- eV2457": {
             "description": "New parental control pin should be numeric"
           },
-          "eV1073": {
+          "x- eV1073": {
             "description": "length should be 10 digits"
           },
-          "eV1075": {
+          "x- eV1075": {
             "description": "Invalid  XXXX Where X == PhoneType"
           },
-          "eV1076": {
+          "x- eV1076": {
             "description": "Extension length should be less than 5 digits"
           },
-          "eV1078": {
+          "x- eV1078": {
             "description": "Communication failure occurred during acountChangeInformation API call"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXXX for YYYYYY Where X==SP Account ID  and Y==BU Name"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX for YYYYYY Where X ==customer ID  and  Y ==BU Name"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and Customer ID YYYYYYYYY Where Y==customer ID  and X ==SP Account ID"
           },
-          "eV1469": {
+          "x- eV1469": {
             "description": "No contact found with Id XXXX   for the Account ID/CP Customer ID YYYY /ZZZZ Where X==Contact ID, Y ==Account ID and  Z = CP CustomerID"
           },
-          "eV1062": {
+          "x- eV1062": {
             "description": "User Name already exists"
           },
-          "eV1724": {
+          "x- eV1724": {
             "description": "Your Request has already been submitted"
           },
-          "eV1023": {
+          "x- eV1023": {
             "description": "Error While Processing the request"
           }
         },
@@ -1438,55 +1438,55 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2230": {
+          "x- eV2230": {
             "description": "Either ContactUserName or Email or Account ID or CP Customer ID or Session Token is required"
           },
-          "eV2233": {
+          "x- eV2233": {
             "description": "Contact Password is required"
           },
-          "eV1225": {
+          "x- eV1225": {
             "description": "Invalid New Password"
           },
-          "eV1226": {
+          "x- eV1226": {
             "description": "Invalid Confirm Password"
           },
-          "eV1227": {
+          "x- eV1227": {
             "description": "New password and Confirm password should be the same"
           },
-          "eV1229": {
+          "x- eV1229": {
             "description": "Username and Password should not be same"
           },
-          "eV2043": {
+          "x- eV2043": {
             "description": "Not a Valid token"
           },
-          "eV2562": {
+          "x- eV2562": {
             "description": "Failed to update password in ER"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV2480": {
+          "x- eV2480": {
             "description": "UserToken given is not associated with the given account"
           },
-          "eV2380": {
+          "x- eV2380": {
             "description": "Invalid current password"
           },
-          "eV2379": {
+          "x- eV2379": {
             "description": "Password cannot be reset with existing password"
           },
-          "eV1228": {
+          "x- eV1228": {
             "description": "Password must be at least 4 characters"
           },
-          "eV2161": {
+          "x- eV2161": {
             "description": "Invalid Contact details"
           },
-          "eV2162": {
+          "x- eV2162": {
             "description": "Invalid ContactUserName / ContactPassword"
           },
-          "eV2232": {
+          "x- eV2232": {
             "description": "Invalid Email or CP Customer ID or Account ID or Contact Password or Session Token"
           }
         },
@@ -1545,55 +1545,55 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1744": {
+          "x- eV1744": {
             "description": "Account does not exists with given details"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXXX  for  YYYYYY Where X==SP Account ID  and Y ==BU Name"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY Where X==customer ID  and  Y ==BU Name"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXXX  and Customer ID YYYY where Y==customer ID  and X ==SP Account ID"
           },
-          "eV1005": {
+          "x- eV1005": {
             "description": "Status should not be empty"
           },
-          "eV1477": {
+          "x- eV1477": {
             "description": "Invalid Reason Code(s)"
           },
-          "eV1478": {
+          "x- eV1478": {
             "description": "Invalid status"
           },
-          "eV1479": {
+          "x- eV1479": {
             "description": "Inorder to cancel an account first you have to define workflow of type \\\"CancelAccount\\\""
           },
-          "eV1480": {
+          "x- eV1480": {
             "description": "Service End Date is in invalid format. It should be in format"
           },
-          "eV1481": {
+          "x- eV1481": {
             "description": "Service End Date should not be lesser than current date"
           },
-          "eV1482": {
+          "x- eV1482": {
             "description": "Reactivation Date is in invalid format. It should be in format"
           },
-          "eV1483": {
+          "x- eV1483": {
             "description": "Reactivation Date should not be lesser than current date"
           },
-          "eV1484": {
+          "x- eV1484": {
             "description": "Inorder to suspend an account first you have to define workflow of type \\\"Suspend Account\\"
           },
-          "eV1485": {
+          "x- eV1485": {
             "description": "Suspend Start Date is in invalid format. It should be in format"
           }
         },
@@ -1652,46 +1652,46 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1744": {
+          "x- eV1744": {
             "description": "Account does not exists with given details"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXXX for  YYYYYY \" Where X==SP Account ID  and  Y ==BU Name"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY\" Where X==customer ID  and Y ==BU Name"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXXX and Customer ID YYYY \"Where Y==customer ID  and X ==SP Account ID"
           },
-          "eV1106": {
+          "x- eV1106": {
             "description": "Insufficient parameters. Please provide Services Info"
           },
-          "eV1445": {
+          "x- eV1445": {
             "description": "Quantity should be greater than zero."
           },
-          "eV2661": {
+          "x- eV2661": {
             "description": "No active subscription with the given details"
           },
-          "eV1419": {
+          "x- eV1419": {
             "description": "end date should be greater than or equal to start date"
           },
-          "eV1437": {
+          "x- eV1437": {
             "description": "Given product should contain serial numbers."
           },
-          "eV1438": {
+          "x- eV1438": {
             "description": "Can't Remove This Service Prior To Its BillStartDate."
           },
-          "eV1439": {
+          "x- eV1439": {
             "description": "Quantity should be less than product quantity"
           }
         },
@@ -1760,91 +1760,91 @@
               }
             }
           },
-          "20001": {
+          "x- 20001": {
             "description": "Generic Failure"
           },
-          "20003": {
+          "x- 20003": {
             "description": "Missing Required Parameter"
           },
-          "20005": {
+          "x- 20005": {
             "description": "Invalid Session Token"
           },
-          "20237": {
+          "x- 20237": {
             "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY\" Where X==customer ID  and Y ==BU Name"
           },
-          "20245": {
+          "x- 20245": {
             "description": "Account is already in inactive state"
           },
-          "20257": {
+          "x- 20257": {
             "description": "Email already exists"
           },
-          "20268": {
+          "x- 20268": {
             "description": "Invalid SP Account ID XXXX for YYYY  Where X==SP Account ID  and Y ==BU Name"
           },
-          "20273": {
+          "x- 20273": {
             "description": "This coupon has already been redeemed"
           },
-          "20274": {
+          "x- 20274": {
             "description": "The Receipt is already used by other customer"
           },
-          "20275": {
+          "x- 20275": {
             "description": "The Receipt is already used"
           },
-          "20276": {
+          "x- 20276": {
             "description": "The App Store could not read the JSON object you provided"
           },
-          "20277": {
+          "x- 20277": {
             "description": "The data in the receipt-data property was malformed or missing"
           },
-          "20278": {
+          "x- 20278": {
             "description": "The receipt could not be authenticated"
           },
-          "20279": {
+          "x- 20279": {
             "description": "The shared secret you provided does not match the shared secret on  file for your account"
           },
-          "20280": {
+          "x- 20280": {
             "description": "The receipt server is not currently available"
           },
-          "20281": {
+          "x- 20281": {
             "description": "This receipt is valid but the subscription has expired. When this status code is returned to your server, the receipt data is also decoded and returned as part of the response"
           },
-          "20282": {
+          "x- 20282": {
             "description": "This receipt is from the test environment, but it was sent to the production environment for verification. Send it to the test  environment instead"
           },
-          "20283": {
+          "x- 20283": {
             "description": "This receipt is from the production environment, but it was sent to the test environment for verification. Send it to the production environment instead"
           },
-          "20286": {
+          "x- 20286": {
             "description": "Subscription is already expired with the given product id"
           },
-          "20287": {
+          "x- 20287": {
             "description": "Invalid amount"
           },
-          "20331": {
+          "x- 20331": {
             "description": "No VOD Product exists for the given DMA"
           },
-          "20335": {
+          "x- 20335": {
             "description": "Invalid rental period"
           },
-          "20336": {
+          "x- 20336": {
             "description": "Coupon code is required"
           },
-          "20338": {
+          "x- 20338": {
             "description": "Invalid coupon"
           },
-          "20348": {
+          "x- 20348": {
             "description": "Invalid viewing period"
           },
-          "20357": {
+          "x- 20357": {
             "description": "Your order is in progress. Please try again later"
           },
-          "20362": {
+          "x- 20362": {
             "description": "You can avail this coupon from"
           },
-          "20363": {
+          "x- 20363": {
             "description": "Coupon code expired"
           },
-          "20377": {
+          "x- 20377": {
             "description": "This coupon has already been redeemed"
           }
         },
@@ -1903,85 +1903,85 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1744": {
+          "x- eV1744": {
             "description": "Account does not exists with given details"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX for XXXXXX [where YYY =  customer ID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customer ID]"
           },
-          "eV1005": {
+          "x- eV1005": {
             "description": "Status should not be empty"
           },
-          "eV1477": {
+          "x- eV1477": {
             "description": "Invalid Reason Code(s)"
           },
-          "eV1478": {
+          "x- eV1478": {
             "description": "Invalid status"
           },
-          "eV1479": {
+          "x- eV1479": {
             "description": "Inorder to cancel an account first you have to define workflow of type \\\"CancelAccount\\"
           },
-          "eV1480": {
+          "x- eV1480": {
             "description": "Service End Date is in invalid format. It should be in format"
           },
-          "eV1481": {
+          "x- eV1481": {
             "description": "Service End Date should not be lesser than current date"
           },
-          "eV1482": {
+          "x- eV1482": {
             "description": "Reactivation Date is in invalid format. It should be in format"
           },
-          "eV1483": {
+          "x- eV1483": {
             "description": "Reactivation Date should not be lesser than current date"
           },
-          "eV1484": {
+          "x- eV1484": {
             "description": "Inorder to suspend an account first you have to define workflow of type \\\"Suspend Account\\"
           },
-          "eV1485": {
+          "x- eV1485": {
             "description": "Suspend Start Date is in invalid format. It should be in format"
           },
-          "eV1486": {
+          "x- eV1486": {
             "description": "Suspend Start Date should not be lesser than current date"
           },
-          "eV1487": {
+          "x- eV1487": {
             "description": "Suspend End Date is in invalid format. It should be in format"
           },
-          "eV1488": {
+          "x- eV1488": {
             "description": "Suspend End Date should not be lesser than suspend start date"
           },
-          "eV1489": {
+          "x- eV1489": {
             "description": "Suspend End Date should not be lesser than current date"
           },
-          "eV1490": {
+          "x- eV1490": {
             "description": "You can't reactivate the account.Cancel to reactivation period expired"
           },
-          "eV1491": {
+          "x- eV1491": {
             "description": "Inorder to reactivate an account first you have to define workflow of type \\\"Reactivate Account\\\""
           },
-          "eV1492": {
+          "x- eV1492": {
             "description": "You do not have permission to cancel/Suspend the account with  outstanding balance"
           },
-          "eV1187": {
+          "x- eV1187": {
             "description": "No Credit Card Payment Gateway defined for this business unit"
           },
-          "eV1494": {
+          "x- eV1494": {
             "description": "Payment Declined by Payment Gateway due to following reason"
           },
-          "eV1189": {
+          "x- eV1189": {
             "description": "No Response from Payment Gateway."
           }
         },
@@ -2046,28 +2046,28 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2235": {
+          "x- eV2235": {
             "description": "Either SP Account ID or CP Customer ID or Contact ID or Session Token is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXXX   for  BU"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID YYYY for  BU"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given  SP Account ID  XXXX  and Customer ID    YYYYY  and\"  Email AAA"
           },
-          "eV2223": {
+          "x- eV2223": {
             "description": "Invalid Email. AAA for Bu"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           }
         },
@@ -2126,16 +2126,16 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2139": {
+          "x- eV2139": {
             "description": "Missing Session Token"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           }
         },
@@ -2200,25 +2200,25 @@
               }
             }
           },
-          "20001": {
+          "x- 20001": {
             "description": "Generic Failure"
           },
-          "20003": {
+          "x- 20003": {
             "description": "Missing Required Parameter"
           },
-          "20005": {
+          "x- 20005": {
             "description": "Invalid Session Token"
           },
-          "20237": {
+          "x- 20237": {
             "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY\" Where X==customer ID and Y ==BU Name"
           },
-          "20238": {
+          "x- 20238": {
             "description": "Customer doesn't have any expired subscriptions"
           },
-          "20268": {
+          "x- 20268": {
             "description": "Invalid SP Account ID XXXXXXXX  for  YYYYYY\" Where X==SP Account ID and Y ==BU Name"
           },
-          "20329": {
+          "x- 20329": {
             "description": "CpCustomerID or spAccountID or sessionToken is required"
           }
         },
@@ -2277,16 +2277,16 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication failed"
           },
-          "eV2139": {
+          "x- eV2139": {
             "description": "Missing Session Token"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           }
         },
@@ -2348,10 +2348,10 @@
               }
             }
           },
-          "eV2145": {
+          "x- eV2145": {
             "description": "Missing Parameter(s)"
           },
-          "eV1744": {
+          "x- eV1744": {
             "description": "Account does not exists with given details"
           }
         },
@@ -2410,19 +2410,19 @@
               }
             }
           },
-          "eV1351": {
+          "x- eV1351": {
             "description": "Object Id or Session Token or CP Customer ID can not be null"
           },
-          "eV1457": {
+          "x- eV1457": {
             "description": "Value can not be null"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1744": {
+          "x- eV1744": {
             "description": "Account does not exists with given details XXXXXXX"
           },
-          "eV1458": {
+          "x- eV1458": {
             "description": "Attribute Type with XXXXXXXXX and YYYYYYYYY is not found. Where X==Attribute Name and Y ==ObjectTypeName"
           }
         },
@@ -2504,22 +2504,22 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV2394": {
+          "x- eV2394": {
             "description": "Object Id or Session Token can not be null"
           },
-          "eV2350": {
+          "x- eV2350": {
             "description": "No attributes found with that given information"
           },
-          "eV2352": {
+          "x- eV2352": {
             "description": "ObjectTypeName cannot be null"
           },
-          "eV1349": {
+          "x- eV1349": {
             "description": "Attribute name can not be null"
           }
         },
@@ -2584,19 +2584,19 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1267": {
+          "x- eV1267": {
             "description": "DmaId is mandatory"
           },
-          "eV1397": {
+          "x- eV1397": {
             "description": "No products defined for the given DMA:XXXX | YYYY  for   ZZZZZZ Where X==DMAID ,Y= DMA Name  and   Z ==BU Name No products defined for the given DMA:XXXX  for   YYYYY Where X==DMAID ,Y= BU Name No products defined for the given DMA:XXXX   for   YYYYY\" Where X==DMA Name and Y= BU Name"
           },
-          "eV1391": {
+          "x- eV1391": {
             "description": "Invalid pricing date"
           },
-          "eV2086": {
+          "x- eV2086": {
             "description": "Invalid returnPromotions"
           }
         },
@@ -2667,10 +2667,10 @@
               }
             }
           },
-          "20003": {
+          "x- 20003": {
             "description": "Missing Required Parameter"
           },
-          "20312": {
+          "x- 20312": {
             "description": "No Accounts Found"
           }
         },
@@ -2732,25 +2732,25 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1637": {
+          "x- eV1637": {
             "description": "Either SP Account ID or CP Customer ID/customer ID is required"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXXXXXXX  for  YYYYYY Where X==SP Account ID and Y ==BU Name"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  YYYYYY Where X==customer ID  and  Y ==BU Name"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and Customer ID YYYYYYYYY Where Y==customer ID  and X ==SP Account ID"
           },
-          "eV1453": {
+          "x- eV1453": {
             "description": "Message of type Adhoc is not defined"
           },
-          "eV1454": {
+          "x- eV1454": {
             "description": "Email template can not be null"
           }
         },
@@ -2812,28 +2812,28 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2234": {
+          "x- eV2234": {
             "description": "Invalid Email or Session Token or User Token or Password"
           },
-          "eV1228": {
+          "x- eV1228": {
             "description": "Password must be at least 4 characters"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1058": {
+          "x- eV1058": {
             "description": "Please enter a valid email"
           },
-          "eV1070": {
+          "x- eV1070": {
             "description": "Password cannot be reset with existing password"
           },
-          "eV2379": {
+          "x- eV2379": {
             "description": "Password cannot be reset with existing password"
           },
-          "eV2043": {
+          "x- eV2043": {
             "description": "Not a Valid token"
           }
         },
@@ -2892,31 +2892,31 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2298": {
+          "x- eV2298": {
             "description": "SP Account ID or CP Customer ID or Email can not be null"
           },
-          "eV1313": {
+          "x- eV1313": {
             "description": "Email Id can not be null"
           },
-          "eV1058": {
+          "x- eV1058": {
             "description": "Please enter a valid email"
           },
-          "eV2043": {
+          "x- eV2043": {
             "description": "Not a Valid token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX  for BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX [where YYY =  customerID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
           },
-          "eV1169": {
+          "x- eV1169": {
             "description": "Invalid Parameter(s)"
           }
         },
@@ -2975,16 +2975,16 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1859": {
+          "x- eV1859": {
             "description": "Either Account ID or CP Customer ID or email is required"
           },
-          "eV1829": {
+          "x- eV1829": {
             "description": "Token can not be null"
           },
-          "eV2043": {
+          "x- eV2043": {
             "description": "Not a Valid token"
           }
         },
@@ -3049,22 +3049,22 @@
               }
             }
           },
-          "11111111": {
+          "x- 11111111": {
             "description": "Authentication Failed"
           },
-          "eV1637": {
+          "x- eV1637": {
             "description": "Either SP Account ID or CP Customer ID is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
           }
         },
@@ -3123,19 +3123,19 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1267": {
+          "x- eV1267": {
             "description": "DmaId is mandatory"
           },
-          "eV2086": {
+          "x- eV2086": {
             "description": "Invalid returnPromotions"
           },
-          "eV1391": {
+          "x- eV1391": {
             "description": "Invalid pricing date/ No promotions defined for the given DMA XXX(X represents dmaID) | YYY(Y represents dmaName ) for ZZZ(Z represents  BU name)"
           },
-          "eV1390": {
+          "x- eV1390": {
             "description": "No packages defined for the given DMA"
           }
         },
@@ -3200,22 +3200,22 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXX for XXX"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID  XXXX for  XXX"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and  Customer ID XXX"
           }
         },
@@ -3280,13 +3280,13 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           }
         },
@@ -3351,22 +3351,22 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1637": {
+          "x- eV1637": {
             "description": "Either SP Account ID or CP Customer ID is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\"    [where YYY = customer ID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
           }
         },
@@ -3431,22 +3431,22 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1637": {
+          "x- eV1637": {
             "description": "Either SP Account ID or CP Customer ID is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\" [where YYY = customer ID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
           }
         },
@@ -3508,46 +3508,46 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2393": {
+          "x- eV2393": {
             "description": "Either SP Account ID or CP Customer ID or email or Session Token is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\"    [where YYY =customer ID]"
           },
-          "eV2223": {
+          "x- eV2223": {
             "description": "Invalid Email. AAA for  ZZZ (where AAA represents EMAIL, ZZZ=  BU)"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
           },
-          "eV1575": {
+          "x- eV1575": {
             "description": "Title is Empty"
           },
-          "eV1693": {
+          "x- eV1693": {
             "description": "Type is Empty"
           },
-          "eV1576": {
+          "x- eV1576": {
             "description": "Invalid type"
           },
-          "eV1577": {
+          "x- eV1577": {
             "description": "Category is Empty"
           },
-          "eV1578": {
+          "x- eV1578": {
             "description": "Invalid category"
           },
-          "eV1579": {
+          "x- eV1579": {
             "description": "Invalid problem code"
           },
-          "eV1026": {
+          "x- eV1026": {
             "description": "Invalid Reason Code"
           }
         },
@@ -3609,52 +3609,52 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2235": {
+          "x- eV2235": {
             "description": "Either SP Account ID or CP Customer ID or Contact ID or Sessionn Token is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\"    [where YYY = customer ID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
           },
-          "eV1214": {
+          "x- eV1214": {
             "description": "Account is already Inactive.Basic Service can't be changed"
           },
-          "eV2252": {
+          "x- eV2252": {
             "description": "Invalid Service Names or ID''s , Names or ID''s cannot be empty"
           },
-          "eV2253": {
+          "x- eV2253": {
             "description": "There is no subscription product or package with the given name in  the product area"
           },
-          "eV2255": {
+          "x- eV2255": {
             "description": "The account already has the service"
           },
-          "eV2254": {
+          "x- eV2254": {
             "description": "Given service name or ID is not attached to this account"
           },
-          "eV1219": {
+          "x- eV1219": {
             "description": "Pricing not defined for the product\\ XXXXXXX(XXXX represents product display name) \\  with quantity 1 as on  XXXX(XXXXX  represents  effectivestartdate)"
           },
-          "eV1221": {
+          "x- eV1221": {
             "description": "Pricing not defined for the package \\ XXXXXXX(XXXX represents product display name) \\  with quantity 1 as on  XXXX(XXXXX represents effectivestartdate)"
           },
-          "eV1223": {
+          "x- eV1223": {
             "description": "Invalid date format"
           },
-          "eV1224": {
+          "x- eV1224": {
             "description": "should be greater than or equal to Current Date"
           },
-          "eV1684": {
+          "x- eV1684": {
             "description": "Payment method is mandatory"
           }
         },
@@ -3716,46 +3716,46 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\"    [where YYY = customer ID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
           },
-          "eV2266": {
+          "x- eV2266": {
             "description": "No Service found with the given Service Id Or Service Name"
           },
-          "eV1663": {
+          "x- eV1663": {
             "description": "Either ServiceId or ServiceName is required"
           },
-          "eV2196": {
+          "x- eV2196": {
             "description": "SKU is mandatory"
           },
-          "eV1665": {
+          "x- eV1665": {
             "description": "No Service found with the given Service Id"
           },
-          "eV2375": {
+          "x- eV2375": {
             "description": "Services not yet available"
           },
-          "eV2463": {
+          "x- eV2463": {
             "description": "ServiceID is mandatory"
           },
-          "eV1218": {
+          "x- eV1218": {
             "description": "The account already has the basic service"
           },
-          "eV1217": {
+          "x- eV1217": {
             "description": "Please activate the basic service product\\\\package attached to the account"
           }
         },
@@ -3820,25 +3820,25 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1267": {
+          "x- eV1267": {
             "description": "DmaId is mandatory"
           },
-          "eV1416": {
+          "x- eV1416": {
             "description": "No promotions defined for the given DMA XXX(X represents dmaID) | YYY(Y represents dmaName ) for ZZZ(Z represents BU name)"
           },
-          "eV2468": {
+          "x- eV2468": {
             "description": "Invalid AgentId"
           },
-          "eV1300": {
+          "x- eV1300": {
             "description": "Invalid start date"
           },
-          "eV1301": {
+          "x- eV1301": {
             "description": "Invalid end date"
           },
-          "eV1302": {
+          "x- eV1302": {
             "description": "End date should not be less than start date"
           }
         },
@@ -3900,61 +3900,61 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2376": {
+          "x- eV2376": {
             "description": "Either Email or Account ID or CP Customer ID or Session Token is required"
           },
-          "eV1106": {
+          "x- eV1106": {
             "description": "Insufficient parameters. Please provide Services Info"
           },
-          "eV1135": {
+          "x- eV1135": {
             "description": "Invalid Quantity, Quantity of the Service should be greater than or equal to one"
           },
-          "eV1136": {
+          "x- eV1136": {
             "description": "Invalid Quantity, should be in numbers"
           },
-          "eV1668": {
+          "x- eV1668": {
             "description": "Service Type should be PRODUCT/PACKAGE"
           },
-          "eV1667": {
+          "x- eV1667": {
             "description": "Invalid start date"
           },
-          "eV1301": {
+          "x- eV1301": {
             "description": "Invalid end date"
           },
-          "eV1481": {
+          "x- eV1481": {
             "description": "Service End Date should not be lesser than current date"
           },
-          "eV1703": {
+          "x- eV1703": {
             "description": "Account is already in inactive state"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1042": {
+          "x- eV1042": {
             "description": "Invalid account ID"
           },
-          "eV1842": {
+          "x- eV1842": {
             "description": "Please enter a valid coupon code"
           },
-          "eV1863": {
+          "x- eV1863": {
             "description": "This coupon has been disabled"
           },
-          "eV1862": {
+          "x- eV1862": {
             "description": "This coupon has expired"
           },
-          "eV1861": {
+          "x- eV1861": {
             "description": "This coupon has already been redeemed"
           },
-          "eV1882": {
+          "x- eV1882": {
             "description": "Maximum redemptions reached"
           },
-          "eV1845": {
+          "x- eV1845": {
             "description": "No Packages/Products associated with the given coupon code"
           },
-          "eV1665": {
+          "x- eV1665": {
             "description": "No Service found with the given Service IdIThis coupon has expired"
           }
         },
@@ -4028,28 +4028,28 @@
               }
             }
           },
-          "20001": {
+          "x- 20001": {
             "description": "Generic Failure"
           },
-          "20357": {
+          "x- 20357": {
             "description": "Your order is in progress. Please try again later"
           },
-          "20373": {
+          "x- 20373": {
             "description": "Please enter a valid coupon code"
           },
-          "20374": {
+          "x- 20374": {
             "description": "This coupon has been disabled"
           },
-          "20375": {
+          "x- 20375": {
             "description": "This coupon has expired"
           },
-          "20376": {
+          "x- 20376": {
             "description": "Maximum redemptions reached"
           },
-          "20378": {
+          "x- 20378": {
             "description": "No Packages/Products associated with the given coupon code"
           },
-          "20379": {
+          "x- 20379": {
             "description": "Coupon Code should not be empty"
           }
         },
@@ -4129,37 +4129,37 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1703": {
+          "x- eV1703": {
             "description": "Account is already in inactive state"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX    [where YYY =  customerID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
           },
-          "eV1842": {
+          "x- eV1842": {
             "description": "Please enter a valid coupon code"
           },
-          "eV1863": {
+          "x- eV1863": {
             "description": "This coupon has been disabled"
           },
-          "eV1862": {
+          "x- eV1862": {
             "description": "This coupon has expired"
           },
-          "eV1882": {
+          "x- eV1882": {
             "description": "Maximum redemptions reached"
           },
-          "eV1861": {
+          "x- eV1861": {
             "description": "This coupon has already been redeemed"
           }
         },
@@ -4221,70 +4221,70 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1637": {
+          "x- eV1637": {
             "description": "Either SP Account ID or CP Customer ID is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID  XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX [where YYY =  customerID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [where XXX = SP Account ID]  [where YYY =  customerID]"
           },
-          "eV1510": {
+          "x- eV1510": {
             "description": "Address or Geocode should be provided"
           },
-          "eV1511": {
+          "x- eV1511": {
             "description": "Geocode should not be provided with shipping/billing address"
           },
-          "eV1512": {
+          "x- eV1512": {
             "description": "DMA Id should not be provided with shipping/billing address"
           },
-          "eV1241": {
+          "x- eV1241": {
             "description": "City Name length should not exceed 100"
           },
-          "eV1634": {
+          "x- eV1634": {
             "description": "Invalid Country"
           },
-          "eV1244": {
+          "x- eV1244": {
             "description": "Invalid State"
           },
-          "eV1247": {
+          "x- eV1247": {
             "description": "Invalid Building Type"
           },
-          "eV1248": {
+          "x- eV1248": {
             "description": "Invalid Floor. Please enter the values between 1 to 200"
           },
-          "eV1513": {
+          "x- eV1513": {
             "description": "Invalid label"
           },
-          "eV1515": {
+          "x- eV1515": {
             "description": "Location is not found for the given Address"
           },
-          "eV1249": {
+          "x- eV1249": {
             "description": "Invalid PCode. PCode should be in digits"
           },
-          "eV1261": {
+          "x- eV1261": {
             "description": "Invalid Geocode"
           },
-          "eV1262": {
+          "x- eV1262": {
             "description": "Invalid Latitude in Geocode"
           },
-          "eV1263": {
+          "x- eV1263": {
             "description": "Invalid Longitude  in Geocode"
           },
-          "eV1246": {
+          "x- eV1246": {
             "description": "Invalid ZipCode"
           },
-          "eV1078": {
+          "x- eV1078": {
             "description": "Communication failure occurred during accountChangeInformation API call."
           }
         },
@@ -4460,22 +4460,22 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1637": {
+          "x- eV1637": {
             "description": "Either SP Account ID or CP Customer ID is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID  XXX  for  BU [ where XXX = SP Account ID]"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX [where YYY =  customerID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [where XXX = SP Account ID]  [where YYY =  customerID]"
           }
         },
@@ -4534,28 +4534,28 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           },
-          "eV2456": {
+          "x- eV2456": {
             "description": "Old parental control pin is mandatory"
           },
-          "eV2616": {
+          "x- eV2616": {
             "description": "Parental Control PIN must match the regular expression"
           },
-          "eV2449": {
+          "x- eV2449": {
             "description": "Invalid old parental control pin"
           },
-          "eV2451": {
+          "x- eV2451": {
             "description": "New parental control pin is mandatory"
           },
-          "eV2454": {
+          "x- eV2454": {
             "description": "Parental controls already inactive"
           }
         },
@@ -4614,22 +4614,22 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2617": {
+          "x- eV2617": {
             "description": "Parental Control PIN is mandatory"
           },
-          "eV2616": {
+          "x- eV2616": {
             "description": "Parental Control PIN must match the regular expression"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV2469": {
+          "x- eV2469": {
             "description": "Invalid Parental Control PIN"
           },
-          "eV2454": {
+          "x- eV2454": {
             "description": "Parental controls already inactive"
           }
         },
@@ -4697,10 +4697,10 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           }
         },
@@ -4771,25 +4771,25 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2511": {
+          "x- eV2511": {
             "description": "Missing Required Parameters"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID XXX for BU [where XXX = SPAccount ID]'"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXXXXXXXX  for  XXXXXX\" [where YYY =customer ID]"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and Customer ID YYY [ where XXX = SP Account ID]  [where YYY =  customerID]"
           },
-          "eV1387": {
+          "x- eV1387": {
             "description": "No Orders for the account"
           }
         },
@@ -4899,19 +4899,19 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2376": {
+          "x- eV2376": {
             "description": "Either Email or Account ID or CP Customer ID or Session Token is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID"
           },
-          "eV2555": {
+          "x- eV2555": {
             "description": "Account doesn't exists with the given details"
           }
         },
@@ -4973,16 +4973,16 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1665": {
+          "x- eV1665": {
             "description": "No Service found with the given Service Id"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV2355": {
+          "x- eV2355": {
             "description": "Invalid sku"
           }
         },
@@ -5041,16 +5041,16 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1665": {
+          "x- eV1665": {
             "description": "No Service found with the given Service Id"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV2355": {
+          "x- eV2355": {
             "description": "Invalid sku"
           }
         },
@@ -5124,16 +5124,16 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1637": {
+          "x- eV1637": {
             "description": "Either SP Account ID or CP Customer ID is required"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid session token"
           }
         },
@@ -5195,28 +5195,28 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID XXX for XXX"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID  XXXX for  XXX"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given SP Account ID XXX and  Customer ID XXX"
           },
-          "eV1733": {
+          "x- eV1733": {
             "description": "Device does not exist"
           },
-          "eV2219": {
+          "x- eV2219": {
             "description": "Please enter either deviceId or serial number"
           }
         },
@@ -5278,25 +5278,25 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV1770": {
+          "x- eV1770": {
             "description": "Product Name can not be null"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           },
-          "eV1771": {
+          "x- eV1771": {
             "description": "Top level DMA does not exist"
           },
-          "eV1788": {
+          "x- eV1788": {
             "description": "Invalid Product Category Or Asset Category"
           },
-          "eV1773": {
+          "x- eV1773": {
             "description": "SKU can not be null"
           },
-          "eV1904": {
+          "x- eV1904": {
             "description": "Invalid Service Type"
           }
         },
@@ -5355,25 +5355,25 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2335": {
+          "x- eV2335": {
             "description": "Invalid method"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           },
-          "eV2334": {
+          "x- eV2334": {
             "description": "Method is required"
           },
-          "eV2338": {
+          "x- eV2338": {
             "description": "Invalid effectiveDate"
           },
-          "eV2364": {
+          "x- eV2364": {
             "description": "Sku is required"
           },
-          "eV2355": {
+          "x- eV2355": {
             "description": "Invalid sku."
           }
         },
@@ -5432,19 +5432,19 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2145": {
+          "x- eV2145": {
             "description": "Missing Parameter(s)"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           },
-          "eV2478": {
+          "x- eV2478": {
             "description": "We are not able to send OTP to this number. Please retry with another number."
           },
-          "eV2314": {
+          "x- eV2314": {
             "description": "Invalid phone number"
           }
         },
@@ -5503,19 +5503,19 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2317": {
+          "x- eV2317": {
             "description": "Phone number is mandatory"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           },
-          "eV2373": {
+          "x- eV2373": {
             "description": "OTP cannot be empty."
           },
-          "eV2329": {
+          "x- eV2329": {
             "description": "Invalid/Expired OTP"
           }
         },
@@ -5580,37 +5580,37 @@
               }
             }
           },
-          "111111111": {
+          "x- 111111111": {
             "description": "Authentication Failed"
           },
-          "eV2511": {
+          "x- eV2511": {
             "description": "Missing Required Parameters"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID xxxx for yyy;(where x= spAccountID, y= bu)"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid CP Customer ID xxxx for yyy;(where x= cpCustomerID, y= bu)"
           },
-          "eV1638": {
+          "x- eV1638": {
             "description": "Account doesn't exists with the given xxxx and AAA (where A =cpCustomerID, X = spAccountID)"
           },
-          "eV1387": {
+          "x- eV1387": {
             "description": "No orders for the account"
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV2123": {
+          "x- eV2123": {
             "description": "Either SP Account ID or CP Customer ID or Session Token is required"
           },
-          "eV1007": {
+          "x- eV1007": {
             "description": "Order StartDate is invalid date format"
           },
-          "eV1008": {
+          "x- eV1008": {
             "description": "Order EndDate is invalid date format"
           },
-          "eV1009": {
+          "x- eV1009": {
             "description": "OrderEndDate should be greater than or equal to OrderStartDate"
           }
         },
@@ -5672,25 +5672,25 @@
               }
             }
           },
-          "eV1001": {
+          "x- eV1001": {
             "description": "User Authentication Failed for UserName."
           },
-          "eV2554": {
+          "x- eV2554": {
             "description": "Either sessionToken or cpCustomerID or spAccountID is required."
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV1733": {
+          "x- eV1733": {
             "description": "Device does not exist"
           },
-          "eV2474": {
+          "x- eV2474": {
             "description": "Maximum device removal limit reached"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID for ZZ(BU)"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID for ZZ(BU)"
           }
         },
@@ -5779,25 +5779,25 @@
               }
             }
           },
-          "111111": {
+          "x- 111111": {
             "description": "Authentication Failed."
           },
-          "eV2554": {
+          "x- eV2554": {
             "description": "Either sessionToken or cpCustomerID or spAccountID is required."
           },
-          "eV2124": {
+          "x- eV2124": {
             "description": "Invalid Session Token"
           },
-          "eV2474": {
+          "x- eV2474": {
             "description": "Maximum device removal limit reached"
           },
-          "eV1003": {
+          "x- eV1003": {
             "description": "Invalid SP Account ID for ZZ(BU)"
           },
-          "eV1342": {
+          "x- eV1342": {
             "description": "Invalid customer ID for ZZ(BU)"
           },
-          "eV2138": {
+          "x- eV2138": {
             "description": "Generic Failure"
           }
         },
@@ -5810,6 +5810,69 @@
                   "GetAccountThresholdsRequestMessage": {
                     "type": "Object",
                     "$ref": "#/components/schemas/GetAccountThresholdsRequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/createAnonymousUser": {
+      "post": {
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "CreateAnonymousUserRequestMessage",
+        "description": "createAnonymousUser() REST API is used to create anonymous(visitor) account in Evergent system.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "CreateAnonymousUserResponseMessage": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x- 20001": {
+            "description": "Generic Failure"
+          },
+          "x- 111111111": {
+            "description": "Authentication Failed"
+          },
+          "x- eV2970": {
+            "description": "Either cpCustomerId or spAccountId or externalId is mandatory"
+          },
+          "x- eV2328": {
+            "description": "Account already exists"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CreateAnonymousUserRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/CreateAnonymousUserRequestMessage"
                   }
                 }
               }
@@ -9112,6 +9175,63 @@
           "spAccountID": {
             "type": "string",
             "description": "A unique identifier of the account."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
+          }
+        }
+      },
+      "CreateAnonymousUserRequestMessage": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "externalId",
+          "cpCustomerID",
+          "spAccountID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner."
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
+          },
+          "cpCustomerID": {
+            "type": "string",
+            "description": "A unique ID of the account in EV systems."
+          },
+          "spAccountID": {
+            "type": "string",
+            "description": "A unique identifier of the account in Partner systems."
+          },
+          "serialNo": {
+            "type": "string",
+            "description": "Unique id of the customer device serial number."
+          },
+          "deviceName": {
+            "type": "string",
+            "description": "Name of the device."
+          },
+          "deviceType": {
+            "type": "string",
+            "description": "Type of the device."
+          },
+          "modelNo": {
+            "type": "string",
+            "description": "Model Number of the device."
           },
           "transactionId": {
             "type": "string",
