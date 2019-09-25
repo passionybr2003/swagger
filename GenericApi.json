@@ -16,9 +16,9 @@
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 05th May 2019 </b> <br> <b> Revision History: </b> <br>\n Added new API createAnonymousUser().<br>\n <br>\n <b>Note:</b> \"x-\" symbol should be ignored infront of Error Codes.  ",
+    "description": "<b>Last Updated Date 14th June 2019 </b> <br> <b> Revision History: </b> <br>\n Added new API updatProfileV2().<br>\n <br>\n <b>Note:</b> \"x-\" symbol should be ignored infront of Error Codes.  ",
     "version": "",
-    "title": "EV Generic API --V10.21",
+    "title": "EV Generic API --V10.24",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -5880,6 +5880,126 @@
           }
         }
       }
+    },
+    "/updateProfileV2": {
+      "post": {
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "UpdateProfileV2RequestMessage",
+        "description": "updateProfileV2() REST API is used to update the contact of an account in Evergent system.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "UpdateProfileV2ResponseMessage": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "responseCode": {
+                          "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x- eV2123": {
+            "description": "Either SP Account ID or CP Customer ID or Session Token is required"
+          },
+          "x- eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "x- eV1003": {
+            "description": "Invalid SP Account ID XXXXXXXX for XXXXXX"
+          },
+          "x- eV2192": {
+            "description": "Missing Required Parameter"
+          },
+          "x- eV2314": {
+            "description": "Invalid phone number"
+          },
+          "x- eV1057": {
+            "description": "Email should not exceed 256 characters"
+          },
+          "x- eV1058": {
+            "description": "Please enter a valid email"
+          },
+          "x- eV2804": {
+            "description": "Password length should not exceed 128"
+          },
+          "x- eV2501": {
+            "description": "contactPassword length should be minimum 6"
+          },
+          "x- eV1070": {
+            "description": "Password - Spaces are not allowed"
+          },
+          "x- eV2270": {
+            "description": "Email and ContactPassword are required"
+          },
+          "x- eV2495": {
+            "description": "contactUserName and email should be equal"
+          },
+          "x- eV2496": {
+            "description": "contactUserName already exists"
+          },
+          "x- eV2497": {
+            "description": "phoneNumber and contactPassword are required"
+          },
+          "x- eV2498": {
+            "description": "alternateUserName and phoneNumber should be equal"
+          },
+          "x- eV2499": {
+            "description": "alternateUserName already exists"
+          },
+          "x- eV2518": {
+            "description": "contactPassword is required"
+          },
+          "x- eV2514": {
+            "description": "Wrong Old Password"
+          },
+          "x- eV1739": {
+            "description": "Email already exists"
+          },
+          "x- eV1756": {
+            "description": "Phone number already exists"
+          },
+          "x- eV1471": {
+            "description": "Invalid Contact ID"
+          },
+          "x- eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and  Customer ID XXXXXXX"
+          },
+          "x- eV1342": {
+            "description": "Invalid customer ID"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UpdateProfileV2RequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/UpdateProfileV2RequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -5935,6 +6055,10 @@
           "mobileNumber": {
             "type": "string",
             "description": "User Mobile Number"
+          },
+          "spAccountID": {
+            "type": "string",
+            "description": "A unique identifier of the account in Partner systems."
           },
           "firstName": {
             "type": "string",
@@ -9232,6 +9356,87 @@
           "modelNo": {
             "type": "string",
             "description": "Model Number of the device."
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique Identifier between Partner and EV system."
+          }
+        }
+      },
+      "UpdateProfileV2RequestMessage": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "customerUsername",
+          "email",
+          "alternateUserName",
+          "mobileNumber",
+          "customerPassword",
+          "customerOldPassword",
+          "sessionToken",
+          "cpCustomerID",
+          "spAccountID"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string",
+            "description": "Unique ID number of channel partner."
+          },
+          "apiUser": {
+            "type": "string",
+            "description": "Partner authentication username."
+          },
+          "apiPassword": {
+            "type": "string",
+            "description": "Partner authentication password."
+          },
+          "customerUsername": {
+            "type": "string",
+            "description": "Customer username."
+          },
+          "email": {
+            "type": "string",
+            "description": "User Email."
+          },
+          "alternateUserName": {
+            "type": "string",
+            "description": "Alternate UserName of the user."
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "User Mobile Number."
+          },
+          "customerPassword": {
+            "type": "string",
+            "description": "Customer password."
+          },
+          "customerOldPassword": {
+            "type": "string",
+            "description": "Old password of the user."
+          },
+          "sessionToken": {
+            "type": "string",
+            "description": "Unique token generated for the account on successful authentication."
+          },
+          "cpCustomerID": {
+            "type": "string",
+            "description": "A unique identifier of the account in EV systems."
+          },
+          "spAccountID": {
+            "type": "string",
+            "description": "A unique ID of the account in Partner systems."
+          },
+          "canChange": {
+            "type": "string",
+            "description": "T for password change."
+          },
+          "isGlobalSearch": {
+            "type": "string",
+            "description": "Search globally while updating contact."
+          },
+          "alertNotificationEmail": {
+            "type": "boolean",
+            "description": "Email Alert Notification."
           },
           "transactionId": {
             "type": "string",
