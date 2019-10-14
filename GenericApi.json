@@ -16,9 +16,9 @@
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 14th June 2019 </b> <br> <b> Revision History: </b> <br>\n Added new API updatProfileV2().<br>\n <br>\n <b>Note:</b> \"x-\" symbol should be ignored infront of Error Codes.  ",
+    "description": "<b>Last Updated Date 03rd October 2019 </b> <br> <br><b> Revision History: </b> <br>\n 1.Added new request parameters codeChallenge and codeChallengeMethod in getAuthCode() API.<br>\n 2.Added new request parameter codeVerifier in getOAuthAccessToken() API.\n <br><br>\n <b>Note:</b> \"x-\" symbol should be ignored infront of Error Codes.  ",
     "version": "",
-    "title": "EV Generic API --V10.24",
+    "title": "EV Generic API --V10.26",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -7903,6 +7903,14 @@
             "type": "string",
             "description": "A unique ID of the account in EV systems."
           },
+          "codeChallenge": {
+            "type": "string",
+            "description": "Unique code Hashing string."
+          },
+          "codeChallengeMethod": {
+            "type": "string",
+            "description": "Used to generate Hashing string."
+          },
           "ipAddress": {
             "type": "string",
             "description": "IP Address of related Business Unit's Country."
@@ -8268,6 +8276,10 @@
           "authCode": {
             "type": "string",
             "description": "AuthorizationCode."
+          },
+          "codeVerifier": {
+            "type": "string",
+            "description": "Unique code."
           },
           "sessionExpiryPeriod": {
             "type": "string",
