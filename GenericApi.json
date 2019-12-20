@@ -16,9 +16,9 @@
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 03rd October 2019 </b> <br> <br><b> Revision History: </b> <br>\n 1.Added new request parameters codeChallenge and codeChallengeMethod in getAuthCode() API.<br>\n 2.Added new request parameter codeVerifier in getOAuthAccessToken() API.\n <br><br>\n <b>Note:</b> \"x-\" symbol should be ignored infront of Error Codes.  ",
+    "description": "<b>Last Updated Date 18th December 2019 </b> <br> <br><b> Revision History: </b> <br>\n 1.Added new API getEntitlements().\n <br><br>\n <b>Note:</b> \"<b>x-</b>\" symbol should be ignored infront of Error Codes.  ",
     "version": "",
-    "title": "EV Generic API --V10.26",
+    "title": "EV Generic API --V10.30",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -6000,6 +6000,80 @@
           }
         }
       }
+    },
+    "/getEntitlements": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "hooq"
+        ],
+        "operationId": "GetEntitlementsRequestMessage",
+        "description": "getEntitlements() REST API is used to get the active subscriptions of the User.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "GetEntitlementsResponseMessage": {
+                      "type": "object",
+                      "properties": {
+                        "responseCode": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
+                        },
+                        "AccountServiceMessage": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/AccountServiceMessagae"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x- 111111111": {
+            "description": "Authentication Failed"
+          },
+          "x- eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "x- 20001": {
+            "description": "Generic Failure"
+          },
+          "x- eV3046": {
+            "description": "Customer doesn't have any active subscriptions"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetEntitlementsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/GetEntitlementsRequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -6082,8 +6156,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -6109,8 +6182,7 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "services",
-          "sessionToken"
+          "services"
         ],
         "properties": {
           "apiUser": {
@@ -6265,7 +6337,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "services"
         ],
         "properties": {
@@ -6368,8 +6439,7 @@
           "apiPassword",
           "customerUsername",
           "customerPassword",
-          "email",
-          "sessionToken"
+          "email"
         ],
         "properties": {
           "apiUser": {
@@ -6406,8 +6476,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -6434,8 +6503,7 @@
           "apiUser",
           "apiPassword",
           "contactUserName",
-          "contactPassword",
-          "sessionToken"
+          "contactPassword"
         ],
         "properties": {
           "apiUser": {
@@ -6471,8 +6539,7 @@
           "apiPassword",
           "oldPassword",
           "newPassword",
-          "confirmNewpassword",
-          "sessionToken"
+          "confirmNewpassword"
         ],
         "properties": {
           "apiUser": {
@@ -6581,7 +6648,6 @@
       "addTVODOrder": {
         "type": "object",
         "required": [
-          "sessionToken",
           "price",
           "productID"
         ],
@@ -6667,7 +6733,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "status"
         ],
         "properties": {
@@ -6723,8 +6788,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -6749,8 +6813,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -6775,8 +6838,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -6828,7 +6890,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "attributeName",
           "attributeValue"
         ],
@@ -6864,7 +6925,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "attributeName"
         ],
         "properties": {
@@ -6984,8 +7044,7 @@
           "apiPassword",
           "email",
           "contactPassword",
-          "invalidateOldSession",
-          "sessionToken"
+          "invalidateOldSession"
         ],
         "properties": {
           "apiUser": {
@@ -7106,8 +7165,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7162,8 +7220,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7188,8 +7245,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7214,8 +7270,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7240,8 +7295,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7267,7 +7321,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "title",
           "type",
           "category"
@@ -7308,7 +7361,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "oldServiceID",
           "newServiceID"
         ],
@@ -7361,7 +7413,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "serviceID"
         ],
         "properties": {
@@ -7423,7 +7474,6 @@
           "apiUser",
           "apiPassword",
           "couponCode",
-          "sessionToken",
           "serviceID",
           "serviceType",
           "quantity"
@@ -7536,7 +7586,6 @@
           "apiUser",
           "apiPassword",
           "label",
-          "sessionToken",
           "address"
         ],
         "properties": {
@@ -7593,8 +7642,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7620,7 +7668,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "newParentalControlPin",
           "parentalControl",
           "parentalControlLevel",
@@ -7700,8 +7747,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7760,8 +7806,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7790,8 +7835,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7821,7 +7865,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "sku"
         ],
         "properties": {
@@ -7956,8 +7999,7 @@
         "type": "object",
         "required": [
           "apiUser",
-          "apiPassword",
-          "sessionToken"
+          "apiPassword"
         ],
         "properties": {
           "apiUser": {
@@ -7983,7 +8025,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "cpCustomerID",
           "accountID",
           "serialNo"
@@ -8332,8 +8373,7 @@
           "apiUser",
           "apiPassword",
           "cpCustomerID",
-          "accountId",
-          "sessionToken"
+          "accountId"
         ],
         "properties": {
           "apiUser": {
@@ -9251,7 +9291,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "cpCustomerID",
           "accountID"
         ],
@@ -9287,7 +9326,6 @@
         "required": [
           "apiUser",
           "apiPassword",
-          "sessionToken",
           "cpCustomerID",
           "spAccountID"
         ],
@@ -9453,6 +9491,120 @@
           "transactionId": {
             "type": "string",
             "description": "Unique Identifier between Partner and EV system."
+          }
+        }
+      },
+      "AccountServiceMessagae": {
+        "type": "object",
+        "properties": {
+          "serviceName": {
+            "type": "string"
+          },
+          "serviceOfType": {
+            "type": "string"
+          },
+          "serviceID": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "validityTill": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "status": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "validityEndDate": {
+            "type": "string"
+          },
+          "transactionID": {
+            "type": "string"
+          },
+          "isRenewal": {
+            "type": "boolean"
+          },
+          "orderID": {
+            "type": "string"
+          },
+          "isContent": {
+            "type": "boolean"
+          },
+          "vodItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/vodItemss"
+            }
+          }
+        }
+      },
+      "vodItemss": {
+        "type": "object",
+        "properties": {
+          "vodItem": {
+            "type": "object",
+            "$ref": "#/components/schemas/vodItem"
+          }
+        }
+      },
+      "vodItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "rentalPeriod": {
+            "type": "string"
+          },
+          "videoFormat": {
+            "type": "string"
+          },
+          "viewingPeriod": {
+            "type": "string"
+          },
+          "programID": {
+            "type": "string"
+          }
+        }
+      },
+      "GetEntitlementsRequestMessage": {
+        "type": "object",
+        "required": [
+          "apiUser",
+          "apiPassword"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string"
+          },
+          "apiUser": {
+            "type": "string"
+          },
+          "apiPassword": {
+            "type": "string"
+          },
+          "cpCustomerID": {
+            "type": "string"
+          },
+          "spAccountID": {
+            "type": "string"
+          },
+          "sessionToken": {
+            "type": "string"
+          },
+          "returnTVOD": {
+            "type": "string"
+          },
+          "transactionId": {
+            "type": "string"
           }
         }
       }
