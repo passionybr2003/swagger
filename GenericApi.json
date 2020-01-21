@@ -13,12 +13,25 @@
           "default": "hooq"
         }
       }
+    },
+    {
+      "url": "https://rest-stag.evergent.com/ev2",
+      "description": "The Staging API server",
+      "variables": {
+        "url": {
+          "default": "rest-stag.evergent.com",
+          "description": "this value is assigned by the service provider URL, in this example `***.evergent.com`"
+        },
+        "basePath": {
+          "default": "ev2"
+        }
+      }
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 18th December 2019 </b> <br> <br><b> Revision History: </b> <br>\n 1.Added new API getEntitlements().\n <br><br>\n <b>Note:</b> \"<b>x-</b>\" symbol should be ignored infront of Error Codes.  ",
+    "description": "<b>Last Updated Date 20th January 2020 </b><br> <br><b> Revision History: </b> <br>\n 1.Added new request parameters like \"externalOrderID\" and \"returnOrderDetails\" in getEntitlements() API.<br>\n 2.Added new API getUserDetails() with /ev2 endpoint.<br>\n 3.Added the support for getEntitlements() API with /ev2 endpoint.\n <br><br>\n <b>Note:</b> \"<b>x-</b>\" symbol should be ignored infront of Error Codes.  ",
     "version": "",
-    "title": "EV Generic API --V10.30",
+    "title": "EV Generic API --V10.33",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -30,6 +43,10 @@
   "tags": [
     {
       "name": "hooq",
+      "description": "Secured Admin-only calls"
+    },
+    {
+      "name": "ev2",
       "description": "Secured Admin-only calls"
     }
   ],
@@ -6074,6 +6091,171 @@
           }
         }
       }
+    },
+    "/getUserDetails": {
+      "post": {
+        "tags": [
+          "ev2"
+        ],
+        "operationId": "GetUserDetailsRequestMessage",
+        "description": "getUserDetails() REST API is used to get the information about an account.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "GetUserDetailsResponseMessage": {
+                      "type": "object",
+                      "properties": {
+                        "country": {
+                          "type": "string"
+                        },
+                        "anonymized": {
+                          "type": "boolean"
+                        },
+                        "responseCode": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "customerUserName": {
+                          "type": "string"
+                        },
+                        "mobilePhone": {
+                          "type": "string"
+                        },
+                        "cpCustomerID": {
+                          "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x- 111111111": {
+            "description": "Authentication Failed"
+          },
+          "x- eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "x- eV2554": {
+            "description": "Either  Account ID or CP Customer ID or Session Token is required"
+          },
+          "x- eV2555": {
+            "description": "No account found with the given details"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetUserDetailsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/GetUserDetailsRequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getEntitlements with /ev2 endPoint": {
+      "post": {
+        "tags": [
+          "ev2"
+        ],
+        "operationId": "GetEntitlementssRequestMessage",
+        "description": "getEntitlements() REST API is used to get the active subscriptions of the User.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "GetEntitlementsResponseMessage": {
+                      "type": "object",
+                      "properties": {
+                        "responseCode": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "transactionId": {
+                          "type": "string"
+                        },
+                        "AccountServiceMessage": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/AccountServiceMessagae"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x- 111111111": {
+            "description": "Authentication Failed"
+          },
+          "x- eV2124": {
+            "description": "Invalid Session Token"
+          },
+          "x- eV3046": {
+            "description": "Customer doesn’t have active subscriptions"
+          },
+          "x- eV2890": {
+            "description": "No services found"
+          },
+          "x- eV2554": {
+            "description": "Either sessionToken or cpCustomerID or spAccountID is required"
+          },
+          "x- eV1638": {
+            "description": "Account doesn't exists with the given SP Account ID XXXXXXXX and  Customer ID XXXXXXX"
+          },
+          "x- 20001": {
+            "description": "Generic Failure"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "GetEntitlementsRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/GetEntitlementsRequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -9497,6 +9679,18 @@
       "AccountServiceMessagae": {
         "type": "object",
         "properties": {
+          "isContent": {
+            "type": "boolean"
+          },
+          "preRollAdsEnabled": {
+            "type": "boolean"
+          },
+          "interstitialAdsEnabled": {
+            "type": "boolean"
+          },
+          "bannerAdsEnabled": {
+            "type": "boolean"
+          },
           "serviceName": {
             "type": "string"
           },
@@ -9531,9 +9725,6 @@
           },
           "orderID": {
             "type": "string"
-          },
-          "isContent": {
-            "type": "boolean"
           },
           "vodItems": {
             "type": "array",
@@ -9602,6 +9793,52 @@
           },
           "returnTVOD": {
             "type": "string"
+          },
+          "externalOrderID": {
+            "type": "string"
+          },
+          "returnAdsInfo": {
+            "type": "boolean"
+          },
+          "returnOrderDetails": {
+            "type": "boolean"
+          },
+          "transactionId": {
+            "type": "string"
+          }
+        }
+      },
+      "GetUserDetailsRequestMessage": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "cpCustomerID",
+          "spAccountID",
+          "sessionToken"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string"
+          },
+          "apiUser": {
+            "type": "string"
+          },
+          "apiPassword": {
+            "type": "string"
+          },
+          "cpCustomerID": {
+            "type": "string"
+          },
+          "spAccountID": {
+            "type": "string"
+          },
+          "sessionToken": {
+            "type": "string"
+          },
+          "returnCountry": {
+            "type": "boolean"
           },
           "transactionId": {
             "type": "string"
