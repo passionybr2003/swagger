@@ -15,7 +15,7 @@
       }
     },
     {
-      "url": "https://rest-stag.evergent.com/ev2",
+      "url": "https://rest-stag.evergent.com",
       "description": "The Staging API server",
       "variables": {
         "url": {
@@ -6092,7 +6092,7 @@
         }
       }
     },
-    "/getUserDetails": {
+    "/ev2/getUserDetails": {
       "post": {
         "tags": [
           "ev2"
@@ -6179,7 +6179,7 @@
         }
       }
     },
-    "/getEntitlements with /ev2 endPoint": {
+    "/ev2/getEntitlements": {
       "post": {
         "tags": [
           "ev2"
