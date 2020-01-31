@@ -2,30 +2,8 @@
   "openapi": "3.0.0",
   "servers": [
     {
-      "url": "https://rest-stag.evergent.com/hooq",
-      "description": "The Staging API server",
-      "variables": {
-        "url": {
-          "default": "rest-stag.evergent.com",
-          "description": "this value is assigned by the service provider URL, in this example `***.evergent.com`"
-        },
-        "basePath": {
-          "default": "hooq"
-        }
-      }
-    },
-    {
       "url": "https://rest-stag.evergent.com",
-      "description": "The Staging API server",
-      "variables": {
-        "url": {
-          "default": "rest-stag.evergent.com",
-          "description": "this value is assigned by the service provider URL, in this example `***.evergent.com`"
-        },
-        "basePath": {
-          "default": "ev2"
-        }
-      }
+      "description": "The Staging API server"
     }
   ],
   "info": {
@@ -51,7 +29,7 @@
     }
   ],
   "paths": {
-    "/createUser": {
+    "/hooq/createUser": {
       "post": {
         "tags": [
           "hooq"
@@ -150,7 +128,7 @@
         }
       }
     },
-    "/getAuthCode": {
+    "/hooq/getAuthCode": {
       "post": {
         "tags": [
           "hooq"
@@ -231,7 +209,7 @@
         }
       }
     },
-    "/getOAuthAccessToken": {
+    "/hooq/getOAuthAccessToken": {
       "post": {
         "tags": [
           "hooq"
@@ -306,7 +284,7 @@
         }
       }
     },
-    "/getOAuthAccessTokenv2": {
+    "/hooq/getOAuthAccessTokenv2": {
       "post": {
         "tags": [
           "hooq"
@@ -387,7 +365,7 @@
         }
       }
     },
-    "/refreshToken": {
+    "/hooq/refreshToken": {
       "post": {
         "tags": [
           "hooq"
@@ -459,7 +437,7 @@
         }
       }
     },
-    "/isCustomerEligibleForFreeTrial": {
+    "/hooq/isCustomerEligibleForFreeTrial": {
       "post": {
         "security": [
           {
@@ -542,7 +520,7 @@
         }
       }
     },
-    "/addSubscriptions": {
+    "/hooq/addSubscriptions": {
       "post": {
         "security": [
           {
@@ -763,7 +741,7 @@
         }
       }
     },
-    "/removeSubscriptions": {
+    "/hooq/removeSubscriptions": {
       "post": {
         "security": [
           {
@@ -836,7 +814,7 @@
         }
       }
     },
-    "/authenticateCustomer": {
+    "/hooq/authenticateCustomer": {
       "post": {
         "security": [
           {
@@ -962,7 +940,7 @@
         }
       }
     },
-    "/addContact": {
+    "/hooq/addContact": {
       "post": {
         "security": [
           {
@@ -1144,7 +1122,7 @@
         }
       }
     },
-    "/getContact": {
+    "/hooq/getContact": {
       "post": {
         "security": [
           {
@@ -1214,7 +1192,7 @@
         }
       }
     },
-    "/updateContact": {
+    "/hooq/updateContact": {
       "post": {
         "security": [
           {
@@ -1417,7 +1395,7 @@
         }
       }
     },
-    "/changePassword": {
+    "/hooq/changePassword": {
       "post": {
         "security": [
           {
@@ -1524,7 +1502,7 @@
         }
       }
     },
-    "/updateAcctStatus": {
+    "/hooq/updateAcctStatus": {
       "post": {
         "security": [
           {
@@ -1631,7 +1609,7 @@
         }
       }
     },
-    "/removeService": {
+    "/hooq/removeService": {
       "post": {
         "security": [
           {
@@ -1729,7 +1707,7 @@
         }
       }
     },
-    "/addTVODOrder": {
+    "/hooq/addTVODOrder": {
       "post": {
         "security": [
           {
@@ -1882,7 +1860,7 @@
         }
       }
     },
-    "/updateAccountStatus": {
+    "/hooq/updateAccountStatus": {
       "post": {
         "security": [
           {
@@ -2019,7 +1997,7 @@
         }
       }
     },
-    "/getActiveSubscriptions": {
+    "/hooq/getActiveSubscriptions": {
       "post": {
         "security": [
           {
@@ -2105,7 +2083,7 @@
         }
       }
     },
-    "/validateSessionToken": {
+    "/hooq/validateSessionToken": {
       "post": {
         "security": [
           {
@@ -2173,7 +2151,7 @@
         }
       }
     },
-    "/getSubscriptionHistory": {
+    "/hooq/getSubscriptionHistory": {
       "post": {
         "security": [
           {
@@ -2256,7 +2234,7 @@
         }
       }
     },
-    "/logOutUser": {
+    "/hooq/logOutUser": {
       "post": {
         "security": [
           {
@@ -2324,7 +2302,7 @@
         }
       }
     },
-    "/forgotContactPassword": {
+    "/hooq/forgotContactPassword": {
       "post": {
         "security": [
           {
@@ -2389,7 +2367,7 @@
         }
       }
     },
-    "/setString": {
+    "/hooq/setString": {
       "post": {
         "security": [
           {
@@ -2460,7 +2438,7 @@
         }
       }
     },
-    "/getString": {
+    "/hooq/getString": {
       "post": {
         "security": [
           {
@@ -2557,7 +2535,7 @@
         }
       }
     },
-    "/getProducts": {
+    "/hooq/getProducts": {
       "post": {
         "security": [
           {
@@ -2634,7 +2612,7 @@
         }
       }
     },
-    "/searchAccount": {
+    "/hooq/searchAccount": {
       "post": {
         "security": [
           {
@@ -2708,7 +2686,7 @@
         }
       }
     },
-    "/sendEmail": {
+    "/hooq/sendEmail": {
       "post": {
         "security": [
           {
@@ -2788,7 +2766,7 @@
         }
       }
     },
-    "/resetPassword": {
+    "/hooq/resetPassword": {
       "post": {
         "security": [
           {
@@ -2871,7 +2849,7 @@
         }
       }
     },
-    "/verifyAccount": {
+    "/hooq/verifyAccount": {
       "post": {
         "security": [
           {
@@ -2954,7 +2932,7 @@
         }
       }
     },
-    "/validateToken": {
+    "/hooq/validateToken": {
       "post": {
         "security": [
           {
@@ -3022,7 +3000,7 @@
         }
       }
     },
-    "/getPaymentMethods": {
+    "/hooq/getPaymentMethods": {
       "post": {
         "security": [
           {
@@ -3102,7 +3080,7 @@
         }
       }
     },
-    "/getPackages": {
+    "/hooq/getPackages": {
       "post": {
         "security": [
           {
@@ -3173,7 +3151,7 @@
         }
       }
     },
-    "/getAccountDevices": {
+    "/hooq/getAccountDevices": {
       "post": {
         "security": [
           {
@@ -3253,7 +3231,7 @@
         }
       }
     },
-    "/getPayments": {
+    "/hooq/getPayments": {
       "post": {
         "security": [
           {
@@ -3324,7 +3302,7 @@
         }
       }
     },
-    "/getAdjustments": {
+    "/hooq/getAdjustments": {
       "post": {
         "security": [
           {
@@ -3404,7 +3382,7 @@
         }
       }
     },
-    "/getAccountHistory": {
+    "/hooq/getAccountHistory": {
       "post": {
         "security": [
           {
@@ -3484,7 +3462,7 @@
         }
       }
     },
-    "/updateAccountHistory": {
+    "/hooq/updateAccountHistory": {
       "post": {
         "security": [
           {
@@ -3585,7 +3563,7 @@
         }
       }
     },
-    "/changeService": {
+    "/hooq/changeService": {
       "post": {
         "security": [
           {
@@ -3692,7 +3670,7 @@
         }
       }
     },
-    "/reactivateService": {
+    "/hooq/reactivateService": {
       "post": {
         "security": [
           {
@@ -3793,7 +3771,7 @@
         }
       }
     },
-    "/getPromotions": {
+    "/hooq/getPromotions": {
       "post": {
         "security": [
           {
@@ -3876,7 +3854,7 @@
         }
       }
     },
-    "/redeemCoupon": {
+    "/hooq/redeemCoupon": {
       "post": {
         "security": [
           {
@@ -3992,7 +3970,7 @@
         }
       }
     },
-    "/isValidCoupon": {
+    "/hooq/isValidCoupon": {
       "post": {
         "security": [
           {
@@ -4087,7 +4065,7 @@
         }
       }
     },
-    "/applyCoupon": {
+    "/hooq/applyCoupon": {
       "post": {
         "security": [
           {
@@ -4197,7 +4175,7 @@
         }
       }
     },
-    "/updateAddress": {
+    "/hooq/updateAddress": {
       "post": {
         "security": [
           {
@@ -4322,7 +4300,7 @@
         }
       }
     },
-    "/getAddresses": {
+    "/hooq/getAddresses": {
       "post": {
         "security": [
           {
@@ -4513,7 +4491,7 @@
         }
       }
     },
-    "/updateParentalControlDetails": {
+    "/hooq/updateParentalControlDetails": {
       "post": {
         "security": [
           {
@@ -4593,7 +4571,7 @@
         }
       }
     },
-    "/validateParentalControlPIN": {
+    "/hooq/validateParentalControlPIN": {
       "post": {
         "security": [
           {
@@ -4667,7 +4645,7 @@
         }
       }
     },
-    "/getParentalControlDetails": {
+    "/hooq/getParentalControlDetails": {
       "post": {
         "security": [
           {
@@ -4738,7 +4716,7 @@
         }
       }
     },
-    "/getOrderDetails": {
+    "/hooq/getOrderDetails": {
       "post": {
         "security": [
           {
@@ -4827,7 +4805,7 @@
         }
       }
     },
-    "/getAccountDetails": {
+    "/hooq/getAccountDetails": {
       "post": {
         "security": [
           {
@@ -4949,7 +4927,7 @@
         }
       }
     },
-    "/canShowConsent": {
+    "/hooq/canShowConsent": {
       "post": {
         "security": [
           {
@@ -5020,7 +4998,7 @@
         }
       }
     },
-    "/setRenewalConsent": {
+    "/hooq/setRenewalConsent": {
       "post": {
         "security": [
           {
@@ -5088,7 +5066,7 @@
         }
       }
     },
-    "/getPaymentsV2": {
+    "/hooq/getPaymentsV2": {
       "post": {
         "security": [
           {
@@ -5171,7 +5149,7 @@
         }
       }
     },
-    "/removeDeviceForAccount": {
+    "/hooq/removeDeviceForAccount": {
       "post": {
         "security": [
           {
@@ -5254,7 +5232,7 @@
         }
       }
     },
-    "/updateProductDetails": {
+    "/hooq/updateProductDetails": {
       "post": {
         "security": [
           {
@@ -5334,7 +5312,7 @@
         }
       }
     },
-    "/activateCustomerV4": {
+    "/hooq/activateCustomerV4": {
       "post": {
         "security": [
           {
@@ -5411,7 +5389,7 @@
         }
       }
     },
-    "/sendOTP": {
+    "/hooq/sendOTP": {
       "post": {
         "security": [
           {
@@ -5482,7 +5460,7 @@
         }
       }
     },
-    "/confirmOTP": {
+    "/hooq/confirmOTP": {
       "post": {
         "security": [
           {
@@ -5553,7 +5531,7 @@
         }
       }
     },
-    "/getAccountOrders": {
+    "/hooq/getAccountOrders": {
       "post": {
         "security": [
           {
@@ -5648,7 +5626,7 @@
         }
       }
     },
-    "/removeDevices": {
+    "/hooq/removeDevices": {
       "post": {
         "security": [
           {
@@ -5728,7 +5706,7 @@
         }
       }
     },
-    "/getAccountThresholds": {
+    "/hooq/getAccountThresholds": {
       "post": {
         "security": [
           {
@@ -5835,7 +5813,7 @@
         }
       }
     },
-    "/createAnonymousUser": {
+    "/hooq/createAnonymousUser": {
       "post": {
         "tags": [
           "hooq"
@@ -5898,7 +5876,7 @@
         }
       }
     },
-    "/updateProfileV2": {
+    "/hooq/updateProfileV2": {
       "post": {
         "tags": [
           "hooq"
@@ -6018,7 +5996,7 @@
         }
       }
     },
-    "/getEntitlements": {
+    "/hooq/getEntitlements": {
       "post": {
         "security": [
           {
@@ -6070,9 +6048,6 @@
           },
           "x- 20001": {
             "description": "Generic Failure"
-          },
-          "x- eV3046": {
-            "description": "Customer doesn't have any active subscriptions"
           }
         },
         "requestBody": {
@@ -6223,9 +6198,6 @@
           },
           "x- eV2124": {
             "description": "Invalid Session Token"
-          },
-          "x- eV3046": {
-            "description": "Customer doesn’t have active subscriptions"
           },
           "x- eV2890": {
             "description": "No services found"
