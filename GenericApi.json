@@ -7,9 +7,9 @@
     }
   ],
   "info": {
-    "description": "<b>Last Updated Date 20th January 2020 </b><br> <br><b> Revision History: </b> <br>\n 1.Added new request parameters like \"externalOrderID\" and \"returnOrderDetails\" in getEntitlements() API.<br>\n 2.Added new API getUserDetails() with /ev2 endpoint.<br>\n 3.Added the support for getEntitlements() API with /ev2 endpoint.\n <br><br>\n <b>Note:</b> \"<b>x-</b>\" symbol should be ignored infront of Error Codes.  ",
+    "description": "<b>Last Updated Date 22nd February 2020 </b><br> <br><b> Revision History: </b> <br>\n 1.Added new API createToken() with /ev2 endpoint.<br>\n <br><br>\n <b>Note:</b> \"<b>x-</b>\" symbol should be ignored infront of Error Codes.  ",
     "version": "",
-    "title": "EV Generic API --V10.33",
+    "title": "EV Generic API --V10.34",
     "contact": {
       "email": "anusha@evergent.com"
     },
@@ -6228,6 +6228,75 @@
           }
         }
       }
+    },
+    "/ev2/createToken": {
+      "post": {
+        "tags": [
+          "ev2"
+        ],
+        "operationId": "CreateTokenRequestMessage",
+        "description": "createToken() REST API is used to create token for an account.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "CreateTokenResponseMessage": {
+                      "type": "object",
+                      "properties": {
+                        "transactionId": {
+                          "type": "string"
+                        },
+                        "responseCode": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "token": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x- 111111111": {
+            "description": "Authentication Failed"
+          },
+          "x- eV2044": {
+            "description": "Invalid Token Type"
+          },
+          "x- eV1744": {
+            "description": "Account does not exists with given details"
+          },
+          "x- eV1058": {
+            "description": "Please enter a valid email"
+          },
+          "x- eV2511": {
+            "description": "Missing Required Parameter(s)"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CreateTokenRequestMessage": {
+                    "type": "Object",
+                    "$ref": "#/components/schemas/CreateTokenRequestMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -9811,6 +9880,46 @@
           },
           "returnCountry": {
             "type": "boolean"
+          },
+          "transactionId": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateTokenRequestMessage": {
+        "type": "object",
+        "required": [
+          "channelPartnerID",
+          "apiUser",
+          "apiPassword",
+          "cpCustomerID",
+          "spAccountID",
+          "email"
+        ],
+        "properties": {
+          "channelPartnerID": {
+            "type": "string"
+          },
+          "apiUser": {
+            "type": "string"
+          },
+          "apiPassword": {
+            "type": "string"
+          },
+          "cpCustomerID": {
+            "type": "string"
+          },
+          "spAccountID": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "expirationDateInMillis": {
+            "type": "string"
           },
           "transactionId": {
             "type": "string"
